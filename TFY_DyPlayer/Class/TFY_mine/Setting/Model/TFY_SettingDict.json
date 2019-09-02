@@ -1,0 +1,151 @@
+{
+    "Settinggroup": [
+        {
+            "items": [
+                {
+                    "controller_str": "",
+                    "title_str": "微信",
+                    "count_str": 2,
+                    "arrow_str" : "my_arrow",
+                    "image_str": ""
+                },
+                {
+                    "controller_str": "",
+                    "title_str": "QQ",
+                    "count_str": 2,
+                    "arrow_str" : "my_arrow",
+                    "image_str": ""
+                }
+            ],
+            "herder": "分享账号"
+        },
+        {
+            "items": [
+                {
+                    "controller_str": "",
+                    "title_str": "共享设备管理",
+                    "count_str": 2,
+                    "arrow_str" : "my_arrow",
+                    "image_str": ""
+                }
+            ],
+            "herder": "设备管理"
+        },
+        {
+            "items": [
+                {
+                    "controller_str": "",
+                    "title_str": "自动跳过片头",
+                    "count_str": 1,
+                    "arrow_str" : "",
+                    "image_str": ""
+                },
+                {
+                    "controller_str": "",
+                    "title_str": "青少年守护模式",
+                    "count_str": 2,
+                    "arrow_str" : "my_arrow",
+                    "image_str": ""
+                }
+            ],
+            "herder": "播放"
+        },
+        {
+            "items": [
+                {
+                    "controller_str": "",
+                    "title_str": "缓存视频时禁止自动锁屏",
+                    "count_str": 1,
+                    "arrow_str" : "",
+                    "image_str": ""
+                },
+                {
+                    "controller_str": "",
+                    "title_str": "缓存清晰度",
+                    "count_str": 2,
+                    "arrow_str" : "my_arrow",
+                    "image_str": ""
+                },
+                {
+                    "controller_str": "",
+                    "title_str": "同时缓存个数",
+                    "count_str": 2,
+                    "arrow_str" : "my_arrow",
+                    "image_str": ""
+                }
+            ],
+            "herder": "下载"
+        },
+        {
+            "items": [
+                {
+                    "controller_str": "",
+                    "title_str": "允许运营商网络上传",
+                    "count_str": 0,
+                    "arrow_str" : "",
+                    "image_str": ""
+                },
+                {
+                    "controller_str": "",
+                    "title_str": "是否允许手机网下载",
+                    "count_str": 1,
+                    "arrow_str" : "",
+                    "image_str": ""
+                }
+            ],
+            "herder": "上传"
+        },
+        {
+            "items": [
+                {
+                    "controller_str": "",
+                    "title_str": "关于我们",
+                    "count_str": 2,
+                    "arrow_str" : "my_arrow",
+                    "image_str": ""
+                },
+                {
+                    "controller_str": "",
+                    "title_str": "软件许可协议",
+                    "count_str": 2,
+                    "arrow_str" : "my_arrow",
+                    "image_str": ""
+                },
+                {
+                    "controller_str": "",
+                    "title_str": "隐私保护指引",
+                    "count_str": 2,
+                    "arrow_str" : "my_arrow",
+                    "image_str": ""
+                },
+                {
+                    "controller_str": "",
+                    "title_str": "隐私设置",
+                    "count_str": 2,
+                    "arrow_str" : "my_arrow",
+                    "image_str": ""
+                },
+                {
+                    "controller_str": "",
+                    "title_str": "清空所有数据",
+                    "count_str": 2,
+                    "arrow_str" : "",
+                    "image_str": ""
+                }
+            ],
+            "herder": ""
+        },
+        {
+            "items": [
+                {
+                    "controller_str": "",
+                    "title_str": "退出账号",
+                    "count_str": 3,
+                    "arrow_str" : "",
+                    "image_str": ""
+                }
+            ],
+            "herder": ""
+        }
+    ]
+}

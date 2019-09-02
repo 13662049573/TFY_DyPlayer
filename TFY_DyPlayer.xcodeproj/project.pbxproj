@@ -1,0 +1,2021 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3620126622D5D0DB008813C7 /* TFY_WatchHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3620126522D5D0DB008813C7 /* TFY_WatchHistoryCell.m */; };
+		36221F0622EADE8400F1480A /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 36221F0522EADE8400F1480A /* Expression.bundle */; };
+		36221F0922EAE00000F1480A /* TFY_EmotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 36221F0822EAE00000F1480A /* TFY_EmotionModel.m */; };
+		36221F0C22EAE0BD00F1480A /* TFY_EmotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36221F0B22EAE0BD00F1480A /* TFY_EmotionManager.m */; };
+		36221F0F22EAE26600F1480A /* NSString+TFY_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 36221F0E22EAE26600F1480A /* NSString+TFY_Extension.m */; };
+		36221F1322EAE44A00F1480A /* TFY_BarragekeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36221F1222EAE44A00F1480A /* TFY_BarragekeyboardManager.m */; };
+		36221F1C22EB003F00F1480A /* TFY_ChatBoxConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 36221F1B22EB003F00F1480A /* TFY_ChatBoxConst.m */; };
+		36228DEF22E93D6100CFAB4A /* TFY_GlobeConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 36228DEE22E93D6100CFAB4A /* TFY_GlobeConst.m */; };
+		36228DF222E9412F00CFAB4A /* NSURLSession+TFY_CorrectedResumeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 36228DF122E9412F00CFAB4A /* NSURLSession+TFY_CorrectedResumeData.m */; };
+		36228DF522E9419900CFAB4A /* TFY_DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36228DF422E9419900CFAB4A /* TFY_DownloadManager.m */; };
+		36228DF822E9427000CFAB4A /* TFY_DownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 36228DF722E9427000CFAB4A /* TFY_DownloadModel.m */; };
+		36228DFB22E947CE00CFAB4A /* TFY_DataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36228DFA22E947CE00CFAB4A /* TFY_DataBaseManager.m */; };
+		36228DFE22E96CB800CFAB4A /* TFY_QuickregistrationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36228DFD22E96CB800CFAB4A /* TFY_QuickregistrationController.m */; };
+		36228E0122E96FD900CFAB4A /* TFY_BaseLoginAVPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36228E0022E96FD900CFAB4A /* TFY_BaseLoginAVPlayerController.m */; };
+		36228E0422E9719400CFAB4A /* TFY_QuickregistrationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36228E0322E9719400CFAB4A /* TFY_QuickregistrationCell.m */; };
+		36228E0722E971A400CFAB4A /* TFY_QuickregistrationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 36228E0622E971A400CFAB4A /* TFY_QuickregistrationModel.m */; };
+		36228E0C22E975EA00CFAB4A /* TFY_QuickregistrationHerderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36228E0B22E975EA00CFAB4A /* TFY_QuickregistrationHerderView.m */; };
+		36228E0F22E9760800CFAB4A /* TFY_QuickregistrationFooderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36228E0E22E9760800CFAB4A /* TFY_QuickregistrationFooderView.m */; };
+		3622BB4A22E53F89007EDBD1 /* TFY_PicturevideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3622BB4922E53F89007EDBD1 /* TFY_PicturevideoView.m */; };
+		362348C622DD7EE200993988 /* TFY_CollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 362348C522DD7EE200993988 /* TFY_CollectionModel.m */; };
+		362348C922DDA64C00993988 /* TFY_MycollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 362348C822DDA64C00993988 /* TFY_MycollectionViewCell.m */; };
+		362348CC22DDAB1900993988 /* TFY_MycollectionViewTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 362348CB22DDAB1900993988 /* TFY_MycollectionViewTwoCell.m */; };
+		362357A922D70D5500F8AE33 /* TFY_ColorSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 362357A822D70D5500F8AE33 /* TFY_ColorSwitch.m */; };
+		362357B122D726B900F8AE33 /* TFY_SettingDict.json in Resources */ = {isa = PBXBuildFile; fileRef = 362357B022D726B800F8AE33 /* TFY_SettingDict.json */; };
+		362357B422D726D200F8AE33 /* TFY_SettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 362357B322D726D200F8AE33 /* TFY_SettingModel.m */; };
+		362357B722D726E400F8AE33 /* TFY_SettingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 362357B622D726E400F8AE33 /* TFY_SettingViewCell.m */; };
+		362357BA22D726F900F8AE33 /* TFY_SettingHerderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 362357B922D726F900F8AE33 /* TFY_SettingHerderView.m */; };
+		3623855222D2C792009317E0 /* TFY_MoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3623855122D2C792009317E0 /* TFY_MoreController.m */; };
+		3623856022D2DA9F009317E0 /* TFY_PlayerVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3623855F22D2DA9F009317E0 /* TFY_PlayerVideoController.m */; };
+		3623856622D2DDAB009317E0 /* TFY_PlayerVideoherderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3623856522D2DDAB009317E0 /* TFY_PlayerVideoherderView.m */; };
+		3624658422EFDBA2005BE378 /* TFY_ChatBoxFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3624658322EFDBA2005BE378 /* TFY_ChatBoxFaceView.m */; };
+		36288D0D231C958800C834D4 /* TFY_ChatBoxFaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36288D0C231C958800C834D4 /* TFY_ChatBoxFaceCell.m */; };
+		36288D10231C95D700C834D4 /* TFY_ChatBoxFacefooderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36288D0F231C95D700C834D4 /* TFY_ChatBoxFacefooderView.m */; };
+		3633A6EA22E002BD0061A66D /* TFY_MineFooderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3633A6E922E002BD0061A66D /* TFY_MineFooderReusableView.m */; };
+		3633A6ED22E005A80061A66D /* TFY_MineFooderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3633A6EC22E005A80061A66D /* TFY_MineFooderCell.m */; };
+		3633A6FA22E0158C0061A66D /* TFY_PersonalinformatiolController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3633A6F922E0158C0061A66D /* TFY_PersonalinformatiolController.m */; };
+		3633A6FD22E015BE0061A66D /* TFY_FeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3633A6FC22E015BE0061A66D /* TFY_FeedbackController.m */; };
+		3633A70122E017970061A66D /* TFY_ImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3633A70022E017970061A66D /* TFY_ImagePicker.m */; };
+		3633A70422E018080061A66D /* TFY_ClipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3633A70322E018080061A66D /* TFY_ClipViewController.m */; };
+		3633A70722E03E740061A66D /* TFY_PersonalinformatiolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3633A70622E03E740061A66D /* TFY_PersonalinformatiolCell.m */; };
+		3633A70A22E03E840061A66D /* TFY_PersonalinformatiolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3633A70922E03E840061A66D /* TFY_PersonalinformatiolModel.m */; };
+		3633A70D22E03EAA0061A66D /* TFY_PersonalinformatiolHerderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3633A70C22E03EAA0061A66D /* TFY_PersonalinformatiolHerderView.m */; };
+		3633A70F22E050A20061A66D /* TFY_PersonData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3633A70E22E050A20061A66D /* TFY_PersonData.json */; };
+		3633A71222E06E080061A66D /* TFY_FeedbackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3633A71122E06E080061A66D /* TFY_FeedbackCell.m */; };
+		3633A71522E06E240061A66D /* TFY_FeedbackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3633A71422E06E240061A66D /* TFY_FeedbackModel.m */; };
+		3633A71722E06EF90061A66D /* TFY_FeedbackData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3633A71622E06EF90061A66D /* TFY_FeedbackData.json */; };
+		3633A71D22E06FED0061A66D /* UITextView+TFY_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3633A71922E06FED0061A66D /* UITextView+TFY_Extension.m */; };
+		3633A71E22E06FED0061A66D /* TFY_TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3633A71C22E06FED0061A66D /* TFY_TextView.m */; };
+		3633A72122E070340061A66D /* TFY_FeedbackherderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3633A72022E070340061A66D /* TFY_FeedbackherderView.m */; };
+		3633A72422E070450061A66D /* TFY_FeedbackFooderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3633A72322E070450061A66D /* TFY_FeedbackFooderView.m */; };
+		3634D01722E7FCDE00605C41 /* TFY_FiledtextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3634D01622E7FCDE00605C41 /* TFY_FiledtextView.m */; };
+		3634D01D22E81A9C00605C41 /* TFY_InputboxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3634D01C22E81A9C00605C41 /* TFY_InputboxView.m */; };
+		3634D02022E845CF00605C41 /* TFY_LoginpasswordfastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3634D01F22E845CF00605C41 /* TFY_LoginpasswordfastView.m */; };
+		3634D02322E854B500605C41 /* TFY_SigninwithView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3634D02222E854B500605C41 /* TFY_SigninwithView.m */; };
+		3635B32F22E6BA4E00EF4DA8 /* TFY_SubtitlepopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3635B32E22E6BA4E00EF4DA8 /* TFY_SubtitlepopupView.m */; };
+		3635B33222E6BA7600EF4DA8 /* TFY_SubtitlepopupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3635B33122E6BA7600EF4DA8 /* TFY_SubtitlepopupModel.m */; };
+		3635B33522E6BAE900EF4DA8 /* TFY_DanMuImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3635B33422E6BAE900EF4DA8 /* TFY_DanMuImage.m */; };
+		3635B33B22E6D2C000EF4DA8 /* TFY_DanMuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3635B33A22E6D2C000EF4DA8 /* TFY_DanMuManager.m */; };
+		3635B35622E6F28F00EF4DA8 /* TFY_LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3635B35522E6F28F00EF4DA8 /* TFY_LoginController.m */; };
+		3635B35922E6F85500EF4DA8 /* TFY_WSMovieController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3635B35822E6F85500EF4DA8 /* TFY_WSMovieController.m */; };
+		3635B35B22E6F89D00EF4DA8 /* qidong.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3635B35A22E6F89D00EF4DA8 /* qidong.mp4 */; };
+		3636D33522E1596400D7761C /* TFY_SpeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3636D33422E1596400D7761C /* TFY_SpeedView.m */; };
+		3636D38E22E1BE4800D7761C /* TFY_PhotocroppingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3636D38D22E1BE4800D7761C /* TFY_PhotocroppingView.m */; };
+		364209F122DC259500B8F762 /* TFY_NetworkSpeedMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209B922DC259500B8F762 /* TFY_NetworkSpeedMonitor.m */; };
+		364209F222DC259500B8F762 /* TFY_PlayerBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209BA22DC259500B8F762 /* TFY_PlayerBaseView.m */; };
+		364209F322DC259500B8F762 /* UIScrollView+TFY_Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209BE22DC259500B8F762 /* UIScrollView+TFY_Player.m */; };
+		364209F422DC259500B8F762 /* TFY_LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209BF22DC259500B8F762 /* TFY_LoadingView.m */; };
+		364209F522DC259500B8F762 /* TFY_AVPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209C022DC259500B8F762 /* TFY_AVPlayerManager.m */; };
+		364209F622DC259500B8F762 /* TFY_OrientationObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209C122DC259500B8F762 /* TFY_OrientationObserver.m */; };
+		364209F722DC259500B8F762 /* TFY_PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209C222DC259500B8F762 /* TFY_PlayerController.m */; };
+		364209F822DC259500B8F762 /* TFY_PlayerVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209C422DC259500B8F762 /* TFY_PlayerVideoModel.m */; };
+		364209F922DC259500B8F762 /* TFY_FloatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209C622DC259500B8F762 /* TFY_FloatView.m */; };
+		364209FA22DC259500B8F762 /* TFY_ReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209CA22DC259500B8F762 /* TFY_ReachabilityManager.m */; };
+		364209FB22DC259500B8F762 /* TFY_PlayerNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209CB22DC259500B8F762 /* TFY_PlayerNotification.m */; };
+		364209FC22DC259500B8F762 /* TFY_KVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209CE22DC259500B8F762 /* TFY_KVOController.m */; };
+		364209FD22DC259500B8F762 /* TFY_PlayerGestureControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209D322DC259500B8F762 /* TFY_PlayerGestureControl.m */; };
+		364209FE22DC259500B8F762 /* TFY_RightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209D722DC259500B8F762 /* TFY_RightView.m */; };
+		364209FF22DC259500B8F762 /* TFY_SliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209DF22DC259500B8F762 /* TFY_SliderView.m */; };
+		36420A0022DC259500B8F762 /* TFY_fastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209E122DC259500B8F762 /* TFY_fastView.m */; };
+		36420A0122DC259500B8F762 /* TFY_PlayerTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209E222DC259500B8F762 /* TFY_PlayerTopBar.m */; };
+		36420A0222DC259500B8F762 /* TFY_VolumeBrightnessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209E322DC259500B8F762 /* TFY_VolumeBrightnessView.m */; };
+		36420A0322DC259500B8F762 /* TFY_SpeedLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209E422DC259500B8F762 /* TFY_SpeedLoadingView.m */; };
+		36420A0422DC259500B8F762 /* TFY_bottomToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209E522DC259500B8F762 /* TFY_bottomToolView.m */; };
+		36420A0522DC259500B8F762 /* videoImages.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 364209E722DC259500B8F762 /* videoImages.bundle */; };
+		36420A0622DC259500B8F762 /* TFY_SmallFloatControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209ED22DC259500B8F762 /* TFY_SmallFloatControlView.m */; };
+		36420A0722DC259500B8F762 /* TFY_PortraitControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209EE22DC259500B8F762 /* TFY_PortraitControlView.m */; };
+		36420A0822DC259500B8F762 /* TFY_LandScapeControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209EF22DC259500B8F762 /* TFY_LandScapeControlView.m */; };
+		36420A0922DC259600B8F762 /* TFY_PlayerControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 364209F022DC259500B8F762 /* TFY_PlayerControllerView.m */; };
+		36420A0C22DC26AD00B8F762 /* TFY_PlayerVideo_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 36420A0B22DC26AD00B8F762 /* TFY_PlayerVideo_Model.m */; };
+		36520DB122DEEA1D005AF67D /* TFY_Displayprompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 36520DB022DEEA1D005AF67D /* TFY_Displayprompt.m */; };
+		365AD99622CF0720005F95DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 365AD99522CF0720005F95DA /* Assets.xcassets */; };
+		365AD99C22CF0720005F95DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AD99B22CF0720005F95DA /* main.m */; };
+		365AD9A622CF0720005F95DA /* TFY_DyPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AD9A522CF0720005F95DA /* TFY_DyPlayerTests.m */; };
+		365AD9B122CF0721005F95DA /* TFY_DyPlayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AD9B022CF0721005F95DA /* TFY_DyPlayerUITests.m */; };
+		365AD9C422CF091B005F95DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AD9C222CF091B005F95DA /* AppDelegate.m */; };
+		365AD9D922CF1C32005F95DA /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AD9CA22CF1C32005F95DA /* BaseTableViewController.m */; };
+		365AD9DA22CF1C32005F95DA /* TFY_AppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AD9CD22CF1C32005F95DA /* TFY_AppDotNetAPIClient.m */; };
+		365AD9DB22CF1C32005F95DA /* TFY_RefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AD9CE22CF1C32005F95DA /* TFY_RefreshGifHeader.m */; };
+		365AD9DC22CF1C32005F95DA /* TFY_NetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AD9CF22CF1C32005F95DA /* TFY_NetWorking.m */; };
+		365AD9DD22CF1C32005F95DA /* TFY_RefreshGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AD9D022CF1C32005F95DA /* TFY_RefreshGifFooter.m */; };
+		365AD9DE22CF1C32005F95DA /* TFY_Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AD9D722CF1C32005F95DA /* TFY_Const.m */; };
+		365AD9DF22CF1C32005F95DA /* TFY_ServerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AD9D822CF1C32005F95DA /* TFY_ServerConfig.m */; };
+		365AD9E722CF1CE0005F95DA /* TabBar_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AD9E422CF1CE0005F95DA /* TabBar_Controller.m */; };
+		365AD9FE22CF1E23005F95DA /* TFY_recommendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AD9FD22CF1E23005F95DA /* TFY_recommendController.m */; };
+		365ADA0122CF1E54005F95DA /* TFY_KoreandramaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365ADA0022CF1E54005F95DA /* TFY_KoreandramaController.m */; };
+		365ADA0422CF1E7C005F95DA /* TFY_USdramaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365ADA0322CF1E7C005F95DA /* TFY_USdramaController.m */; };
+		365ADA0722CF1E9D005F95DA /* TFY_mineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365ADA0622CF1E9D005F95DA /* TFY_mineController.m */; };
+		365ADA0A22CF26A3005F95DA /* TFY_recommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 365ADA0922CF26A3005F95DA /* TFY_recommendModel.m */; };
+		365ADAA722CF315D005F95DA /* TFY_recommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 365ADAA622CF315D005F95DA /* TFY_recommendCell.m */; };
+		365ADAAA22CF31AC005F95DA /* TFY_recommendherderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 365ADAA922CF31AC005F95DA /* TFY_recommendherderView.m */; };
+		365ADAAD22CF33F1005F95DA /* BaseCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365ADAAC22CF33F1005F95DA /* BaseCollectionController.m */; };
+		3669FEB422D44F2800B43DAF /* TFY_mineViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3669FEB322D44F2800B43DAF /* TFY_mineViewCell.m */; };
+		3669FEB722D44F3B00B43DAF /* TFY_mineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3669FEB622D44F3B00B43DAF /* TFY_mineModel.m */; };
+		3669FEBA22D44F6600B43DAF /* TFY_mineReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3669FEB922D44F6600B43DAF /* TFY_mineReusableView.m */; };
+		3669FEBD22D44FB900B43DAF /* TFY_mineViewTwoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3669FEBC22D44FB900B43DAF /* TFY_mineViewTwoViewCell.m */; };
+		3669FEBF22D4512300B43DAF /* TFY_MineData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3669FEBE22D4512300B43DAF /* TFY_MineData.json */; };
+		3669FEC822D4671700B43DAF /* UIViewController+TFY_Popover.m in Sources */ = {isa = PBXBuildFile; fileRef = 3669FEC122D4671700B43DAF /* UIViewController+TFY_Popover.m */; };
+		3669FEC922D4671700B43DAF /* TFY_PresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3669FEC322D4671700B43DAF /* TFY_PresentationController.m */; };
+		3669FECA22D4671700B43DAF /* TFY_PopoverAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3669FEC722D4671700B43DAF /* TFY_PopoverAnimator.m */; };
+		3669FEEB22D46DFB00B43DAF /* TFY_WatchHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3669FEEA22D46DFB00B43DAF /* TFY_WatchHistoryController.m */; };
+		3669FEEE22D46E1A00B43DAF /* TFY_MycacheController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3669FEED22D46E1A00B43DAF /* TFY_MycacheController.m */; };
+		3669FEF122D46E3500B43DAF /* TFY_MycollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3669FEF022D46E3500B43DAF /* TFY_MycollectionController.m */; };
+		3669FEF422D46E5100B43DAF /* TFY_SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3669FEF322D46E5100B43DAF /* TFY_SettingController.m */; };
+		3688011C22E996EF001DDC90 /* QuickregistrationData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3688011B22E996EF001DDC90 /* QuickregistrationData.json */; };
+		36ADA43622D2E4B40092D4D9 /* TFY_PlayerVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36ADA43522D2E4B40092D4D9 /* TFY_PlayerVideoCell.m */; };
+		36ADA43C22D2F35B0092D4D9 /* TFY_MoreTwoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36ADA43B22D2F35B0092D4D9 /* TFY_MoreTwoController.m */; };
+		B6EB0B0A785A5F74A2D9D5EA /* libPods-TFY_DyPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E216F578C346786F978935EF /* libPods-TFY_DyPlayer.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		365AD9A222CF0720005F95DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 365AD98122CF071F005F95DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 365AD98822CF071F005F95DA;
+			remoteInfo = TFY_DyPlayer;
+		};
+		365AD9AD22CF0721005F95DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 365AD98122CF071F005F95DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 365AD98822CF071F005F95DA;
+			remoteInfo = TFY_DyPlayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10F44F1688C1A31D0F4F1CEE /* Pods-TFY_DyPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFY_DyPlayer.release.xcconfig"; path = "Target Support Files/Pods-TFY_DyPlayer/Pods-TFY_DyPlayer.release.xcconfig"; sourceTree = "<group>"; };
+		3620126422D5D0DB008813C7 /* TFY_WatchHistoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_WatchHistoryCell.h; sourceTree = "<group>"; };
+		3620126522D5D0DB008813C7 /* TFY_WatchHistoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_WatchHistoryCell.m; sourceTree = "<group>"; };
+		36221F0522EADE8400F1480A /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = "<group>"; };
+		36221F0722EAE00000F1480A /* TFY_EmotionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_EmotionModel.h; sourceTree = "<group>"; };
+		36221F0822EAE00000F1480A /* TFY_EmotionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_EmotionModel.m; sourceTree = "<group>"; };
+		36221F0A22EAE0BD00F1480A /* TFY_EmotionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_EmotionManager.h; sourceTree = "<group>"; };
+		36221F0B22EAE0BD00F1480A /* TFY_EmotionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_EmotionManager.m; sourceTree = "<group>"; };
+		36221F0D22EAE26600F1480A /* NSString+TFY_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+TFY_Extension.h"; sourceTree = "<group>"; };
+		36221F0E22EAE26600F1480A /* NSString+TFY_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+TFY_Extension.m"; sourceTree = "<group>"; };
+		36221F1122EAE44A00F1480A /* TFY_BarragekeyboardManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_BarragekeyboardManager.h; sourceTree = "<group>"; };
+		36221F1222EAE44A00F1480A /* TFY_BarragekeyboardManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_BarragekeyboardManager.m; sourceTree = "<group>"; };
+		36221F1A22EB003F00F1480A /* TFY_ChatBoxConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_ChatBoxConst.h; sourceTree = "<group>"; };
+		36221F1B22EB003F00F1480A /* TFY_ChatBoxConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_ChatBoxConst.m; sourceTree = "<group>"; };
+		36228DED22E93D6100CFAB4A /* TFY_GlobeConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_GlobeConst.h; sourceTree = "<group>"; };
+		36228DEE22E93D6100CFAB4A /* TFY_GlobeConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_GlobeConst.m; sourceTree = "<group>"; };
+		36228DF022E9412F00CFAB4A /* NSURLSession+TFY_CorrectedResumeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+TFY_CorrectedResumeData.h"; sourceTree = "<group>"; };
+		36228DF122E9412F00CFAB4A /* NSURLSession+TFY_CorrectedResumeData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+TFY_CorrectedResumeData.m"; sourceTree = "<group>"; };
+		36228DF322E9419900CFAB4A /* TFY_DownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_DownloadManager.h; sourceTree = "<group>"; };
+		36228DF422E9419900CFAB4A /* TFY_DownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_DownloadManager.m; sourceTree = "<group>"; };
+		36228DF622E9427000CFAB4A /* TFY_DownloadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_DownloadModel.h; sourceTree = "<group>"; };
+		36228DF722E9427000CFAB4A /* TFY_DownloadModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_DownloadModel.m; sourceTree = "<group>"; };
+		36228DF922E947CE00CFAB4A /* TFY_DataBaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_DataBaseManager.h; sourceTree = "<group>"; };
+		36228DFA22E947CE00CFAB4A /* TFY_DataBaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_DataBaseManager.m; sourceTree = "<group>"; };
+		36228DFC22E96CB800CFAB4A /* TFY_QuickregistrationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_QuickregistrationController.h; sourceTree = "<group>"; };
+		36228DFD22E96CB800CFAB4A /* TFY_QuickregistrationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_QuickregistrationController.m; sourceTree = "<group>"; };
+		36228DFF22E96FD900CFAB4A /* TFY_BaseLoginAVPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_BaseLoginAVPlayerController.h; sourceTree = "<group>"; };
+		36228E0022E96FD900CFAB4A /* TFY_BaseLoginAVPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_BaseLoginAVPlayerController.m; sourceTree = "<group>"; };
+		36228E0222E9719400CFAB4A /* TFY_QuickregistrationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_QuickregistrationCell.h; sourceTree = "<group>"; };
+		36228E0322E9719400CFAB4A /* TFY_QuickregistrationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_QuickregistrationCell.m; sourceTree = "<group>"; };
+		36228E0522E971A400CFAB4A /* TFY_QuickregistrationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_QuickregistrationModel.h; sourceTree = "<group>"; };
+		36228E0622E971A400CFAB4A /* TFY_QuickregistrationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_QuickregistrationModel.m; sourceTree = "<group>"; };
+		36228E0A22E975EA00CFAB4A /* TFY_QuickregistrationHerderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_QuickregistrationHerderView.h; sourceTree = "<group>"; };
+		36228E0B22E975EA00CFAB4A /* TFY_QuickregistrationHerderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_QuickregistrationHerderView.m; sourceTree = "<group>"; };
+		36228E0D22E9760800CFAB4A /* TFY_QuickregistrationFooderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_QuickregistrationFooderView.h; sourceTree = "<group>"; };
+		36228E0E22E9760800CFAB4A /* TFY_QuickregistrationFooderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_QuickregistrationFooderView.m; sourceTree = "<group>"; };
+		3622BB4822E53F89007EDBD1 /* TFY_PicturevideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_PicturevideoView.h; sourceTree = "<group>"; };
+		3622BB4922E53F89007EDBD1 /* TFY_PicturevideoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_PicturevideoView.m; sourceTree = "<group>"; };
+		362348C422DD7EE200993988 /* TFY_CollectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_CollectionModel.h; sourceTree = "<group>"; };
+		362348C522DD7EE200993988 /* TFY_CollectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_CollectionModel.m; sourceTree = "<group>"; };
+		362348C722DDA64C00993988 /* TFY_MycollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_MycollectionViewCell.h; sourceTree = "<group>"; };
+		362348C822DDA64C00993988 /* TFY_MycollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_MycollectionViewCell.m; sourceTree = "<group>"; };
+		362348CA22DDAB1900993988 /* TFY_MycollectionViewTwoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_MycollectionViewTwoCell.h; sourceTree = "<group>"; };
+		362348CB22DDAB1900993988 /* TFY_MycollectionViewTwoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_MycollectionViewTwoCell.m; sourceTree = "<group>"; };
+		362357A722D70D5500F8AE33 /* TFY_ColorSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_ColorSwitch.h; sourceTree = "<group>"; };
+		362357A822D70D5500F8AE33 /* TFY_ColorSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_ColorSwitch.m; sourceTree = "<group>"; };
+		362357B022D726B800F8AE33 /* TFY_SettingDict.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TFY_SettingDict.json; sourceTree = "<group>"; };
+		362357B222D726D200F8AE33 /* TFY_SettingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_SettingModel.h; sourceTree = "<group>"; };
+		362357B322D726D200F8AE33 /* TFY_SettingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_SettingModel.m; sourceTree = "<group>"; };
+		362357B522D726E400F8AE33 /* TFY_SettingViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_SettingViewCell.h; sourceTree = "<group>"; };
+		362357B622D726E400F8AE33 /* TFY_SettingViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_SettingViewCell.m; sourceTree = "<group>"; };
+		362357B822D726F900F8AE33 /* TFY_SettingHerderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_SettingHerderView.h; sourceTree = "<group>"; };
+		362357B922D726F900F8AE33 /* TFY_SettingHerderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_SettingHerderView.m; sourceTree = "<group>"; };
+		3623855022D2C792009317E0 /* TFY_MoreController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_MoreController.h; sourceTree = "<group>"; };
+		3623855122D2C792009317E0 /* TFY_MoreController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_MoreController.m; sourceTree = "<group>"; };
+		3623855E22D2DA9F009317E0 /* TFY_PlayerVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerVideoController.h; sourceTree = "<group>"; };
+		3623855F22D2DA9F009317E0 /* TFY_PlayerVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_PlayerVideoController.m; sourceTree = "<group>"; };
+		3623856422D2DDAB009317E0 /* TFY_PlayerVideoherderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerVideoherderView.h; sourceTree = "<group>"; };
+		3623856522D2DDAB009317E0 /* TFY_PlayerVideoherderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_PlayerVideoherderView.m; sourceTree = "<group>"; };
+		3624658222EFDBA2005BE378 /* TFY_ChatBoxFaceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_ChatBoxFaceView.h; sourceTree = "<group>"; };
+		3624658322EFDBA2005BE378 /* TFY_ChatBoxFaceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_ChatBoxFaceView.m; sourceTree = "<group>"; };
+		36288D0B231C958800C834D4 /* TFY_ChatBoxFaceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_ChatBoxFaceCell.h; sourceTree = "<group>"; };
+		36288D0C231C958800C834D4 /* TFY_ChatBoxFaceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_ChatBoxFaceCell.m; sourceTree = "<group>"; };
+		36288D0E231C95D700C834D4 /* TFY_ChatBoxFacefooderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_ChatBoxFacefooderView.h; sourceTree = "<group>"; };
+		36288D0F231C95D700C834D4 /* TFY_ChatBoxFacefooderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_ChatBoxFacefooderView.m; sourceTree = "<group>"; };
+		3633A6E822E002BD0061A66D /* TFY_MineFooderReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_MineFooderReusableView.h; sourceTree = "<group>"; };
+		3633A6E922E002BD0061A66D /* TFY_MineFooderReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_MineFooderReusableView.m; sourceTree = "<group>"; };
+		3633A6EB22E005A80061A66D /* TFY_MineFooderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_MineFooderCell.h; sourceTree = "<group>"; };
+		3633A6EC22E005A80061A66D /* TFY_MineFooderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_MineFooderCell.m; sourceTree = "<group>"; };
+		3633A6F822E0158C0061A66D /* TFY_PersonalinformatiolController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_PersonalinformatiolController.h; sourceTree = "<group>"; };
+		3633A6F922E0158C0061A66D /* TFY_PersonalinformatiolController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_PersonalinformatiolController.m; sourceTree = "<group>"; };
+		3633A6FB22E015BE0061A66D /* TFY_FeedbackController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_FeedbackController.h; sourceTree = "<group>"; };
+		3633A6FC22E015BE0061A66D /* TFY_FeedbackController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_FeedbackController.m; sourceTree = "<group>"; };
+		3633A6FF22E017970061A66D /* TFY_ImagePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_ImagePicker.h; sourceTree = "<group>"; };
+		3633A70022E017970061A66D /* TFY_ImagePicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_ImagePicker.m; sourceTree = "<group>"; };
+		3633A70222E018080061A66D /* TFY_ClipViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_ClipViewController.h; sourceTree = "<group>"; };
+		3633A70322E018080061A66D /* TFY_ClipViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_ClipViewController.m; sourceTree = "<group>"; };
+		3633A70522E03E740061A66D /* TFY_PersonalinformatiolCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_PersonalinformatiolCell.h; sourceTree = "<group>"; };
+		3633A70622E03E740061A66D /* TFY_PersonalinformatiolCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_PersonalinformatiolCell.m; sourceTree = "<group>"; };
+		3633A70822E03E840061A66D /* TFY_PersonalinformatiolModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_PersonalinformatiolModel.h; sourceTree = "<group>"; };
+		3633A70922E03E840061A66D /* TFY_PersonalinformatiolModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_PersonalinformatiolModel.m; sourceTree = "<group>"; };
+		3633A70B22E03EAA0061A66D /* TFY_PersonalinformatiolHerderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_PersonalinformatiolHerderView.h; sourceTree = "<group>"; };
+		3633A70C22E03EAA0061A66D /* TFY_PersonalinformatiolHerderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_PersonalinformatiolHerderView.m; sourceTree = "<group>"; };
+		3633A70E22E050A20061A66D /* TFY_PersonData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TFY_PersonData.json; sourceTree = "<group>"; };
+		3633A71022E06E080061A66D /* TFY_FeedbackCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_FeedbackCell.h; sourceTree = "<group>"; };
+		3633A71122E06E080061A66D /* TFY_FeedbackCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_FeedbackCell.m; sourceTree = "<group>"; };
+		3633A71322E06E240061A66D /* TFY_FeedbackModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_FeedbackModel.h; sourceTree = "<group>"; };
+		3633A71422E06E240061A66D /* TFY_FeedbackModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_FeedbackModel.m; sourceTree = "<group>"; };
+		3633A71622E06EF90061A66D /* TFY_FeedbackData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TFY_FeedbackData.json; sourceTree = "<group>"; };
+		3633A71922E06FED0061A66D /* UITextView+TFY_Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+TFY_Extension.m"; sourceTree = "<group>"; };
+		3633A71A22E06FED0061A66D /* TFY_TextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_TextView.h; sourceTree = "<group>"; };
+		3633A71B22E06FED0061A66D /* UITextView+TFY_Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+TFY_Extension.h"; sourceTree = "<group>"; };
+		3633A71C22E06FED0061A66D /* TFY_TextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_TextView.m; sourceTree = "<group>"; };
+		3633A71F22E070340061A66D /* TFY_FeedbackherderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_FeedbackherderView.h; sourceTree = "<group>"; };
+		3633A72022E070340061A66D /* TFY_FeedbackherderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_FeedbackherderView.m; sourceTree = "<group>"; };
+		3633A72222E070450061A66D /* TFY_FeedbackFooderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_FeedbackFooderView.h; sourceTree = "<group>"; };
+		3633A72322E070450061A66D /* TFY_FeedbackFooderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_FeedbackFooderView.m; sourceTree = "<group>"; };
+		3634D01522E7FCDE00605C41 /* TFY_FiledtextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_FiledtextView.h; sourceTree = "<group>"; };
+		3634D01622E7FCDE00605C41 /* TFY_FiledtextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_FiledtextView.m; sourceTree = "<group>"; };
+		3634D01B22E81A9C00605C41 /* TFY_InputboxView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_InputboxView.h; sourceTree = "<group>"; };
+		3634D01C22E81A9C00605C41 /* TFY_InputboxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_InputboxView.m; sourceTree = "<group>"; };
+		3634D01E22E845CF00605C41 /* TFY_LoginpasswordfastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_LoginpasswordfastView.h; sourceTree = "<group>"; };
+		3634D01F22E845CF00605C41 /* TFY_LoginpasswordfastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_LoginpasswordfastView.m; sourceTree = "<group>"; };
+		3634D02122E854B500605C41 /* TFY_SigninwithView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_SigninwithView.h; sourceTree = "<group>"; };
+		3634D02222E854B500605C41 /* TFY_SigninwithView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_SigninwithView.m; sourceTree = "<group>"; };
+		3635B32D22E6BA4E00EF4DA8 /* TFY_SubtitlepopupView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_SubtitlepopupView.h; sourceTree = "<group>"; };
+		3635B32E22E6BA4E00EF4DA8 /* TFY_SubtitlepopupView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_SubtitlepopupView.m; sourceTree = "<group>"; };
+		3635B33022E6BA7600EF4DA8 /* TFY_SubtitlepopupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_SubtitlepopupModel.h; sourceTree = "<group>"; };
+		3635B33122E6BA7600EF4DA8 /* TFY_SubtitlepopupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_SubtitlepopupModel.m; sourceTree = "<group>"; };
+		3635B33322E6BAE900EF4DA8 /* TFY_DanMuImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_DanMuImage.h; sourceTree = "<group>"; };
+		3635B33422E6BAE900EF4DA8 /* TFY_DanMuImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_DanMuImage.m; sourceTree = "<group>"; };
+		3635B33922E6D2C000EF4DA8 /* TFY_DanMuManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_DanMuManager.h; sourceTree = "<group>"; };
+		3635B33A22E6D2C000EF4DA8 /* TFY_DanMuManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_DanMuManager.m; sourceTree = "<group>"; };
+		3635B35422E6F28F00EF4DA8 /* TFY_LoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_LoginController.h; sourceTree = "<group>"; };
+		3635B35522E6F28F00EF4DA8 /* TFY_LoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_LoginController.m; sourceTree = "<group>"; };
+		3635B35722E6F85500EF4DA8 /* TFY_WSMovieController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_WSMovieController.h; sourceTree = "<group>"; };
+		3635B35822E6F85500EF4DA8 /* TFY_WSMovieController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_WSMovieController.m; sourceTree = "<group>"; };
+		3635B35A22E6F89D00EF4DA8 /* qidong.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = qidong.mp4; sourceTree = "<group>"; };
+		3636D33322E1596400D7761C /* TFY_SpeedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_SpeedView.h; sourceTree = "<group>"; };
+		3636D33422E1596400D7761C /* TFY_SpeedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_SpeedView.m; sourceTree = "<group>"; };
+		3636D38C22E1BE4800D7761C /* TFY_PhotocroppingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_PhotocroppingView.h; sourceTree = "<group>"; };
+		3636D38D22E1BE4800D7761C /* TFY_PhotocroppingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_PhotocroppingView.m; sourceTree = "<group>"; };
+		364209B922DC259500B8F762 /* TFY_NetworkSpeedMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_NetworkSpeedMonitor.m; sourceTree = "<group>"; };
+		364209BA22DC259500B8F762 /* TFY_PlayerBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_PlayerBaseView.m; sourceTree = "<group>"; };
+		364209BB22DC259500B8F762 /* TFY_PlayerMediaPlayback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerMediaPlayback.h; sourceTree = "<group>"; };
+		364209BC22DC259500B8F762 /* TFY_PlayerNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerNotification.h; sourceTree = "<group>"; };
+		364209BD22DC259500B8F762 /* TFY_ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_ReachabilityManager.h; sourceTree = "<group>"; };
+		364209BE22DC259500B8F762 /* UIScrollView+TFY_Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TFY_Player.m"; sourceTree = "<group>"; };
+		364209BF22DC259500B8F762 /* TFY_LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_LoadingView.m; sourceTree = "<group>"; };
+		364209C022DC259500B8F762 /* TFY_AVPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_AVPlayerManager.m; sourceTree = "<group>"; };
+		364209C122DC259500B8F762 /* TFY_OrientationObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_OrientationObserver.m; sourceTree = "<group>"; };
+		364209C222DC259500B8F762 /* TFY_PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_PlayerController.m; sourceTree = "<group>"; };
+		364209C322DC259500B8F762 /* TFY_KVOController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_KVOController.h; sourceTree = "<group>"; };
+		364209C422DC259500B8F762 /* TFY_PlayerVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_PlayerVideoModel.m; sourceTree = "<group>"; };
+		364209C522DC259500B8F762 /* TFY_PlayerGestureControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerGestureControl.h; sourceTree = "<group>"; };
+		364209C622DC259500B8F762 /* TFY_FloatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_FloatView.m; sourceTree = "<group>"; };
+		364209C722DC259500B8F762 /* TFY_AVPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_AVPlayerManager.h; sourceTree = "<group>"; };
+		364209C822DC259500B8F762 /* TFY_LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_LoadingView.h; sourceTree = "<group>"; };
+		364209C922DC259500B8F762 /* UIScrollView+TFY_Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TFY_Player.h"; sourceTree = "<group>"; };
+		364209CA22DC259500B8F762 /* TFY_ReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_ReachabilityManager.m; sourceTree = "<group>"; };
+		364209CB22DC259500B8F762 /* TFY_PlayerNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_PlayerNotification.m; sourceTree = "<group>"; };
+		364209CC22DC259500B8F762 /* TFY_NetworkSpeedMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_NetworkSpeedMonitor.h; sourceTree = "<group>"; };
+		364209CD22DC259500B8F762 /* TFY_PlayerBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerBaseView.h; sourceTree = "<group>"; };
+		364209CE22DC259500B8F762 /* TFY_KVOController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_KVOController.m; sourceTree = "<group>"; };
+		364209CF22DC259500B8F762 /* TFY_PlayerMediaControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerMediaControl.h; sourceTree = "<group>"; };
+		364209D022DC259500B8F762 /* TFY_OrientationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_OrientationObserver.h; sourceTree = "<group>"; };
+		364209D122DC259500B8F762 /* TFY_PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerController.h; sourceTree = "<group>"; };
+		364209D222DC259500B8F762 /* TFY_PlayerToolsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerToolsHeader.h; sourceTree = "<group>"; };
+		364209D322DC259500B8F762 /* TFY_PlayerGestureControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_PlayerGestureControl.m; sourceTree = "<group>"; };
+		364209D422DC259500B8F762 /* TFY_FloatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_FloatView.h; sourceTree = "<group>"; };
+		364209D522DC259500B8F762 /* TFY_PlayerVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerVideoModel.h; sourceTree = "<group>"; };
+		364209D722DC259500B8F762 /* TFY_RightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_RightView.m; sourceTree = "<group>"; };
+		364209D822DC259500B8F762 /* TFY_RightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_RightView.h; sourceTree = "<group>"; };
+		364209D922DC259500B8F762 /* TFY_PlayerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerHeader.h; sourceTree = "<group>"; };
+		364209DB22DC259500B8F762 /* TFY_VolumeBrightnessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_VolumeBrightnessView.h; sourceTree = "<group>"; };
+		364209DC22DC259500B8F762 /* TFY_PlayerTopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerTopBar.h; sourceTree = "<group>"; };
+		364209DD22DC259500B8F762 /* TFY_fastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_fastView.h; sourceTree = "<group>"; };
+		364209DE22DC259500B8F762 /* TFY_SpeedLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_SpeedLoadingView.h; sourceTree = "<group>"; };
+		364209DF22DC259500B8F762 /* TFY_SliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_SliderView.m; sourceTree = "<group>"; };
+		364209E022DC259500B8F762 /* TFY_bottomToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_bottomToolView.h; sourceTree = "<group>"; };
+		364209E122DC259500B8F762 /* TFY_fastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_fastView.m; sourceTree = "<group>"; };
+		364209E222DC259500B8F762 /* TFY_PlayerTopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_PlayerTopBar.m; sourceTree = "<group>"; };
+		364209E322DC259500B8F762 /* TFY_VolumeBrightnessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_VolumeBrightnessView.m; sourceTree = "<group>"; };
+		364209E422DC259500B8F762 /* TFY_SpeedLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_SpeedLoadingView.m; sourceTree = "<group>"; };
+		364209E522DC259500B8F762 /* TFY_bottomToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_bottomToolView.m; sourceTree = "<group>"; };
+		364209E622DC259500B8F762 /* TFY_SliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_SliderView.h; sourceTree = "<group>"; };
+		364209E722DC259500B8F762 /* videoImages.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = videoImages.bundle; sourceTree = "<group>"; };
+		364209E922DC259500B8F762 /* TFY_PlayerControllerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerControllerView.h; sourceTree = "<group>"; };
+		364209EA22DC259500B8F762 /* TFY_LandScapeControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_LandScapeControlView.h; sourceTree = "<group>"; };
+		364209EB22DC259500B8F762 /* TFY_PortraitControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PortraitControlView.h; sourceTree = "<group>"; };
+		364209EC22DC259500B8F762 /* TFY_SmallFloatControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_SmallFloatControlView.h; sourceTree = "<group>"; };
+		364209ED22DC259500B8F762 /* TFY_SmallFloatControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_SmallFloatControlView.m; sourceTree = "<group>"; };
+		364209EE22DC259500B8F762 /* TFY_PortraitControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_PortraitControlView.m; sourceTree = "<group>"; };
+		364209EF22DC259500B8F762 /* TFY_LandScapeControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_LandScapeControlView.m; sourceTree = "<group>"; };
+		364209F022DC259500B8F762 /* TFY_PlayerControllerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_PlayerControllerView.m; sourceTree = "<group>"; };
+		36420A0A22DC26AD00B8F762 /* TFY_PlayerVideo_Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerVideo_Model.h; sourceTree = "<group>"; };
+		36420A0B22DC26AD00B8F762 /* TFY_PlayerVideo_Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_PlayerVideo_Model.m; sourceTree = "<group>"; };
+		36520DAF22DEEA1D005AF67D /* TFY_Displayprompt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_Displayprompt.h; sourceTree = "<group>"; };
+		36520DB022DEEA1D005AF67D /* TFY_Displayprompt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_Displayprompt.m; sourceTree = "<group>"; };
+		365AD98922CF071F005F95DA /* TFY_DyPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TFY_DyPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		365AD99522CF0720005F95DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		365AD99A22CF0720005F95DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		365AD99B22CF0720005F95DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		365AD9A122CF0720005F95DA /* TFY_DyPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TFY_DyPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		365AD9A522CF0720005F95DA /* TFY_DyPlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_DyPlayerTests.m; sourceTree = "<group>"; };
+		365AD9A722CF0720005F95DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		365AD9AC22CF0721005F95DA /* TFY_DyPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TFY_DyPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		365AD9B022CF0721005F95DA /* TFY_DyPlayerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_DyPlayerUITests.m; sourceTree = "<group>"; };
+		365AD9B222CF0721005F95DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		365AD9C122CF091B005F95DA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		365AD9C222CF091B005F95DA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		365AD9C522CF093C005F95DA /* Player_PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player_PrefixHeader.pch; sourceTree = "<group>"; };
+		365AD9C622CF09E0005F95DA /* TFY_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_Header.h; sourceTree = "<group>"; };
+		365AD9CA22CF1C32005F95DA /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		365AD9CB22CF1C32005F95DA /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		365AD9CD22CF1C32005F95DA /* TFY_AppDotNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_AppDotNetAPIClient.m; sourceTree = "<group>"; };
+		365AD9CE22CF1C32005F95DA /* TFY_RefreshGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_RefreshGifHeader.m; sourceTree = "<group>"; };
+		365AD9CF22CF1C32005F95DA /* TFY_NetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_NetWorking.m; sourceTree = "<group>"; };
+		365AD9D022CF1C32005F95DA /* TFY_RefreshGifFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_RefreshGifFooter.m; sourceTree = "<group>"; };
+		365AD9D122CF1C32005F95DA /* TFY_Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_Const.h; sourceTree = "<group>"; };
+		365AD9D222CF1C32005F95DA /* TFY_ServerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_ServerConfig.h; sourceTree = "<group>"; };
+		365AD9D322CF1C32005F95DA /* TFY_RefreshGifFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_RefreshGifFooter.h; sourceTree = "<group>"; };
+		365AD9D422CF1C32005F95DA /* TFY_NetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_NetWorking.h; sourceTree = "<group>"; };
+		365AD9D522CF1C32005F95DA /* TFY_RefreshGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_RefreshGifHeader.h; sourceTree = "<group>"; };
+		365AD9D622CF1C32005F95DA /* TFY_AppDotNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_AppDotNetAPIClient.h; sourceTree = "<group>"; };
+		365AD9D722CF1C32005F95DA /* TFY_Const.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_Const.m; sourceTree = "<group>"; };
+		365AD9D822CF1C32005F95DA /* TFY_ServerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_ServerConfig.m; sourceTree = "<group>"; };
+		365AD9E322CF1CE0005F95DA /* TabBar_Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBar_Controller.h; sourceTree = "<group>"; };
+		365AD9E422CF1CE0005F95DA /* TabBar_Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBar_Controller.m; sourceTree = "<group>"; };
+		365AD9FC22CF1E23005F95DA /* TFY_recommendController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_recommendController.h; sourceTree = "<group>"; };
+		365AD9FD22CF1E23005F95DA /* TFY_recommendController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_recommendController.m; sourceTree = "<group>"; };
+		365AD9FF22CF1E54005F95DA /* TFY_KoreandramaController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_KoreandramaController.h; sourceTree = "<group>"; };
+		365ADA0022CF1E54005F95DA /* TFY_KoreandramaController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_KoreandramaController.m; sourceTree = "<group>"; };
+		365ADA0222CF1E7C005F95DA /* TFY_USdramaController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_USdramaController.h; sourceTree = "<group>"; };
+		365ADA0322CF1E7C005F95DA /* TFY_USdramaController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_USdramaController.m; sourceTree = "<group>"; };
+		365ADA0522CF1E9D005F95DA /* TFY_mineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_mineController.h; sourceTree = "<group>"; };
+		365ADA0622CF1E9D005F95DA /* TFY_mineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_mineController.m; sourceTree = "<group>"; };
+		365ADA0822CF26A3005F95DA /* TFY_recommendModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_recommendModel.h; sourceTree = "<group>"; };
+		365ADA0922CF26A3005F95DA /* TFY_recommendModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_recommendModel.m; sourceTree = "<group>"; };
+		365ADAA522CF315D005F95DA /* TFY_recommendCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_recommendCell.h; sourceTree = "<group>"; };
+		365ADAA622CF315D005F95DA /* TFY_recommendCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_recommendCell.m; sourceTree = "<group>"; };
+		365ADAA822CF31AC005F95DA /* TFY_recommendherderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_recommendherderView.h; sourceTree = "<group>"; };
+		365ADAA922CF31AC005F95DA /* TFY_recommendherderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_recommendherderView.m; sourceTree = "<group>"; };
+		365ADAAB22CF33F1005F95DA /* BaseCollectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCollectionController.h; sourceTree = "<group>"; };
+		365ADAAC22CF33F1005F95DA /* BaseCollectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionController.m; sourceTree = "<group>"; };
+		3669FEB222D44F2800B43DAF /* TFY_mineViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_mineViewCell.h; sourceTree = "<group>"; };
+		3669FEB322D44F2800B43DAF /* TFY_mineViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_mineViewCell.m; sourceTree = "<group>"; };
+		3669FEB522D44F3B00B43DAF /* TFY_mineModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_mineModel.h; sourceTree = "<group>"; };
+		3669FEB622D44F3B00B43DAF /* TFY_mineModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_mineModel.m; sourceTree = "<group>"; };
+		3669FEB822D44F6600B43DAF /* TFY_mineReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_mineReusableView.h; sourceTree = "<group>"; };
+		3669FEB922D44F6600B43DAF /* TFY_mineReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_mineReusableView.m; sourceTree = "<group>"; };
+		3669FEBB22D44FB900B43DAF /* TFY_mineViewTwoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_mineViewTwoViewCell.h; sourceTree = "<group>"; };
+		3669FEBC22D44FB900B43DAF /* TFY_mineViewTwoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_mineViewTwoViewCell.m; sourceTree = "<group>"; };
+		3669FEBE22D4512300B43DAF /* TFY_MineData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TFY_MineData.json; sourceTree = "<group>"; };
+		3669FEC122D4671700B43DAF /* UIViewController+TFY_Popover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TFY_Popover.m"; sourceTree = "<group>"; };
+		3669FEC222D4671700B43DAF /* TFY_PopoverAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PopoverAnimator.h; sourceTree = "<group>"; };
+		3669FEC322D4671700B43DAF /* TFY_PresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_PresentationController.m; sourceTree = "<group>"; };
+		3669FEC422D4671700B43DAF /* UIViewController+TFY_Popover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TFY_Popover.h"; sourceTree = "<group>"; };
+		3669FEC522D4671700B43DAF /* TFY_PopoverMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PopoverMacro.h; sourceTree = "<group>"; };
+		3669FEC622D4671700B43DAF /* TFY_PresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PresentationController.h; sourceTree = "<group>"; };
+		3669FEC722D4671700B43DAF /* TFY_PopoverAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_PopoverAnimator.m; sourceTree = "<group>"; };
+		3669FEE922D46DFB00B43DAF /* TFY_WatchHistoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_WatchHistoryController.h; sourceTree = "<group>"; };
+		3669FEEA22D46DFB00B43DAF /* TFY_WatchHistoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_WatchHistoryController.m; sourceTree = "<group>"; };
+		3669FEEC22D46E1A00B43DAF /* TFY_MycacheController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_MycacheController.h; sourceTree = "<group>"; };
+		3669FEED22D46E1A00B43DAF /* TFY_MycacheController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_MycacheController.m; sourceTree = "<group>"; };
+		3669FEEF22D46E3500B43DAF /* TFY_MycollectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_MycollectionController.h; sourceTree = "<group>"; };
+		3669FEF022D46E3500B43DAF /* TFY_MycollectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_MycollectionController.m; sourceTree = "<group>"; };
+		3669FEF222D46E5100B43DAF /* TFY_SettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_SettingController.h; sourceTree = "<group>"; };
+		3669FEF322D46E5100B43DAF /* TFY_SettingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_SettingController.m; sourceTree = "<group>"; };
+		3688011B22E996EF001DDC90 /* QuickregistrationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QuickregistrationData.json; sourceTree = "<group>"; };
+		36ADA43422D2E4B40092D4D9 /* TFY_PlayerVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerVideoCell.h; sourceTree = "<group>"; };
+		36ADA43522D2E4B40092D4D9 /* TFY_PlayerVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_PlayerVideoCell.m; sourceTree = "<group>"; };
+		36ADA43A22D2F35B0092D4D9 /* TFY_MoreTwoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_MoreTwoController.h; sourceTree = "<group>"; };
+		36ADA43B22D2F35B0092D4D9 /* TFY_MoreTwoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_MoreTwoController.m; sourceTree = "<group>"; };
+		DA6B0211655CE73597B95500 /* Pods-TFY_DyPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFY_DyPlayer.debug.xcconfig"; path = "Target Support Files/Pods-TFY_DyPlayer/Pods-TFY_DyPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		E216F578C346786F978935EF /* libPods-TFY_DyPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TFY_DyPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		365AD98622CF071F005F95DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6EB0B0A785A5F74A2D9D5EA /* libPods-TFY_DyPlayer.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		365AD99E22CF0720005F95DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		365AD9A922CF0721005F95DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		083DBA89382FC8E02183E14B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E216F578C346786F978935EF /* libPods-TFY_DyPlayer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		14EC0DC7A09956E94D7AE38A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DA6B0211655CE73597B95500 /* Pods-TFY_DyPlayer.debug.xcconfig */,
+				10F44F1688C1A31D0F4F1CEE /* Pods-TFY_DyPlayer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		36221EFC22EAD29700F1480A /* TFY_Barragekeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				36221F1022EAE40000F1480A /* Barragekeyboard */,
+				36221EFE22EAD29700F1480A /* ExpressionTool */,
+				36221EFF22EAD29700F1480A /* Model */,
+				36221F0022EAD29700F1480A /* Expression */,
+			);
+			path = TFY_Barragekeyboard;
+			sourceTree = "<group>";
+		};
+		36221EFE22EAD29700F1480A /* ExpressionTool */ = {
+			isa = PBXGroup;
+			children = (
+				36221F0A22EAE0BD00F1480A /* TFY_EmotionManager.h */,
+				36221F0B22EAE0BD00F1480A /* TFY_EmotionManager.m */,
+				36221F0D22EAE26600F1480A /* NSString+TFY_Extension.h */,
+				36221F0E22EAE26600F1480A /* NSString+TFY_Extension.m */,
+				36221F1A22EB003F00F1480A /* TFY_ChatBoxConst.h */,
+				36221F1B22EB003F00F1480A /* TFY_ChatBoxConst.m */,
+			);
+			path = ExpressionTool;
+			sourceTree = "<group>";
+		};
+		36221EFF22EAD29700F1480A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				36221F0722EAE00000F1480A /* TFY_EmotionModel.h */,
+				36221F0822EAE00000F1480A /* TFY_EmotionModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		36221F0022EAD29700F1480A /* Expression */ = {
+			isa = PBXGroup;
+			children = (
+				36221F0522EADE8400F1480A /* Expression.bundle */,
+			);
+			path = Expression;
+			sourceTree = "<group>";
+		};
+		36221F1022EAE40000F1480A /* Barragekeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				36221F1122EAE44A00F1480A /* TFY_BarragekeyboardManager.h */,
+				36221F1222EAE44A00F1480A /* TFY_BarragekeyboardManager.m */,
+				3624658222EFDBA2005BE378 /* TFY_ChatBoxFaceView.h */,
+				3624658322EFDBA2005BE378 /* TFY_ChatBoxFaceView.m */,
+				36288D0B231C958800C834D4 /* TFY_ChatBoxFaceCell.h */,
+				36288D0C231C958800C834D4 /* TFY_ChatBoxFaceCell.m */,
+				36288D0E231C95D700C834D4 /* TFY_ChatBoxFacefooderView.h */,
+				36288D0F231C95D700C834D4 /* TFY_ChatBoxFacefooderView.m */,
+			);
+			path = Barragekeyboard;
+			sourceTree = "<group>";
+		};
+		36228DE922E93D2300CFAB4A /* TFY_VideodownloadTool */ = {
+			isa = PBXGroup;
+			children = (
+				36228DEA22E93D2300CFAB4A /* MP4DownloadTool */,
+				36228DEB22E93D2300CFAB4A /* M3U8DownloadTool */,
+				36228DEC22E93D2300CFAB4A /* Utility */,
+			);
+			path = TFY_VideodownloadTool;
+			sourceTree = "<group>";
+		};
+		36228DEA22E93D2300CFAB4A /* MP4DownloadTool */ = {
+			isa = PBXGroup;
+			children = (
+				36228DF322E9419900CFAB4A /* TFY_DownloadManager.h */,
+				36228DF422E9419900CFAB4A /* TFY_DownloadManager.m */,
+				36228DF622E9427000CFAB4A /* TFY_DownloadModel.h */,
+				36228DF722E9427000CFAB4A /* TFY_DownloadModel.m */,
+				36228DF922E947CE00CFAB4A /* TFY_DataBaseManager.h */,
+				36228DFA22E947CE00CFAB4A /* TFY_DataBaseManager.m */,
+			);
+			path = MP4DownloadTool;
+			sourceTree = "<group>";
+		};
+		36228DEB22E93D2300CFAB4A /* M3U8DownloadTool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M3U8DownloadTool;
+			sourceTree = "<group>";
+		};
+		36228DEC22E93D2300CFAB4A /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				36228DED22E93D6100CFAB4A /* TFY_GlobeConst.h */,
+				36228DEE22E93D6100CFAB4A /* TFY_GlobeConst.m */,
+				36228DF022E9412F00CFAB4A /* NSURLSession+TFY_CorrectedResumeData.h */,
+				36228DF122E9412F00CFAB4A /* NSURLSession+TFY_CorrectedResumeData.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		362357A622D70D5500F8AE33 /* TFY_ColorSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				362357A722D70D5500F8AE33 /* TFY_ColorSwitch.h */,
+				362357A822D70D5500F8AE33 /* TFY_ColorSwitch.m */,
+			);
+			path = TFY_ColorSwitch;
+			sourceTree = "<group>";
+		};
+		3623854B22D2C778009317E0 /* TFY_More */ = {
+			isa = PBXGroup;
+			children = (
+				3623854C22D2C778009317E0 /* Controller */,
+			);
+			path = TFY_More;
+			sourceTree = "<group>";
+		};
+		3623854C22D2C778009317E0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3623855022D2C792009317E0 /* TFY_MoreController.h */,
+				3623855122D2C792009317E0 /* TFY_MoreController.m */,
+				36ADA43A22D2F35B0092D4D9 /* TFY_MoreTwoController.h */,
+				36ADA43B22D2F35B0092D4D9 /* TFY_MoreTwoController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3623855622D2D9D0009317E0 /* TFY_Player */ = {
+			isa = PBXGroup;
+			children = (
+				3623855722D2D9D0009317E0 /* Controller */,
+				3623855822D2D9D0009317E0 /* Cell */,
+				3623855922D2D9D0009317E0 /* Model */,
+				3623855A22D2D9D0009317E0 /* View */,
+			);
+			path = TFY_Player;
+			sourceTree = "<group>";
+		};
+		3623855722D2D9D0009317E0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3623855E22D2DA9F009317E0 /* TFY_PlayerVideoController.h */,
+				3623855F22D2DA9F009317E0 /* TFY_PlayerVideoController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3623855822D2D9D0009317E0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				36ADA43422D2E4B40092D4D9 /* TFY_PlayerVideoCell.h */,
+				36ADA43522D2E4B40092D4D9 /* TFY_PlayerVideoCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3623855922D2D9D0009317E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				36420A0A22DC26AD00B8F762 /* TFY_PlayerVideo_Model.h */,
+				36420A0B22DC26AD00B8F762 /* TFY_PlayerVideo_Model.m */,
+				362348C422DD7EE200993988 /* TFY_CollectionModel.h */,
+				362348C522DD7EE200993988 /* TFY_CollectionModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3623855A22D2D9D0009317E0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3623856422D2DDAB009317E0 /* TFY_PlayerVideoherderView.h */,
+				3623856522D2DDAB009317E0 /* TFY_PlayerVideoherderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3633A6EE22E0140A0061A66D /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				3633A6EF22E0140A0061A66D /* Cell */,
+				3633A6F022E0140A0061A66D /* Model */,
+				3633A6F122E0140A0061A66D /* View */,
+				3633A6F222E0140A0061A66D /* ControllerView */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		3633A6EF22E0140A0061A66D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3633A71022E06E080061A66D /* TFY_FeedbackCell.h */,
+				3633A71122E06E080061A66D /* TFY_FeedbackCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3633A6F022E0140A0061A66D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3633A71622E06EF90061A66D /* TFY_FeedbackData.json */,
+				3633A71322E06E240061A66D /* TFY_FeedbackModel.h */,
+				3633A71422E06E240061A66D /* TFY_FeedbackModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3633A6F122E0140A0061A66D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3633A71F22E070340061A66D /* TFY_FeedbackherderView.h */,
+				3633A72022E070340061A66D /* TFY_FeedbackherderView.m */,
+				3633A72222E070450061A66D /* TFY_FeedbackFooderView.h */,
+				3633A72322E070450061A66D /* TFY_FeedbackFooderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3633A6F222E0140A0061A66D /* ControllerView */ = {
+			isa = PBXGroup;
+			children = (
+				3633A6FB22E015BE0061A66D /* TFY_FeedbackController.h */,
+				3633A6FC22E015BE0061A66D /* TFY_FeedbackController.m */,
+			);
+			path = ControllerView;
+			sourceTree = "<group>";
+		};
+		3633A6F322E0140A0061A66D /* Personalinformatiol */ = {
+			isa = PBXGroup;
+			children = (
+				3633A6F422E0140A0061A66D /* Cell */,
+				3633A6F522E0140A0061A66D /* Model */,
+				3633A6F622E0140A0061A66D /* View */,
+				3633A6F722E0140A0061A66D /* ControllerView */,
+			);
+			path = Personalinformatiol;
+			sourceTree = "<group>";
+		};
+		3633A6F422E0140A0061A66D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3633A70522E03E740061A66D /* TFY_PersonalinformatiolCell.h */,
+				3633A70622E03E740061A66D /* TFY_PersonalinformatiolCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3633A6F522E0140A0061A66D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3633A70E22E050A20061A66D /* TFY_PersonData.json */,
+				3633A70822E03E840061A66D /* TFY_PersonalinformatiolModel.h */,
+				3633A70922E03E840061A66D /* TFY_PersonalinformatiolModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3633A6F622E0140A0061A66D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3633A70B22E03EAA0061A66D /* TFY_PersonalinformatiolHerderView.h */,
+				3633A70C22E03EAA0061A66D /* TFY_PersonalinformatiolHerderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3633A6F722E0140A0061A66D /* ControllerView */ = {
+			isa = PBXGroup;
+			children = (
+				3633A6F822E0158C0061A66D /* TFY_PersonalinformatiolController.h */,
+				3633A6F922E0158C0061A66D /* TFY_PersonalinformatiolController.m */,
+			);
+			path = ControllerView;
+			sourceTree = "<group>";
+		};
+		3633A6FE22E017880061A66D /* TFY_ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				3633A6FF22E017970061A66D /* TFY_ImagePicker.h */,
+				3633A70022E017970061A66D /* TFY_ImagePicker.m */,
+				3633A70222E018080061A66D /* TFY_ClipViewController.h */,
+				3633A70322E018080061A66D /* TFY_ClipViewController.m */,
+			);
+			path = TFY_ImagePicker;
+			sourceTree = "<group>";
+		};
+		3633A71822E06FED0061A66D /* TFY_TextView */ = {
+			isa = PBXGroup;
+			children = (
+				3633A71B22E06FED0061A66D /* UITextView+TFY_Extension.h */,
+				3633A71922E06FED0061A66D /* UITextView+TFY_Extension.m */,
+				3633A71A22E06FED0061A66D /* TFY_TextView.h */,
+				3633A71C22E06FED0061A66D /* TFY_TextView.m */,
+			);
+			path = TFY_TextView;
+			sourceTree = "<group>";
+		};
+		3635B32C22E6BA3800EF4DA8 /* TFY_SubtitlepopupView */ = {
+			isa = PBXGroup;
+			children = (
+				3635B33922E6D2C000EF4DA8 /* TFY_DanMuManager.h */,
+				3635B33A22E6D2C000EF4DA8 /* TFY_DanMuManager.m */,
+				3635B32D22E6BA4E00EF4DA8 /* TFY_SubtitlepopupView.h */,
+				3635B32E22E6BA4E00EF4DA8 /* TFY_SubtitlepopupView.m */,
+				3635B33022E6BA7600EF4DA8 /* TFY_SubtitlepopupModel.h */,
+				3635B33122E6BA7600EF4DA8 /* TFY_SubtitlepopupModel.m */,
+				3635B33322E6BAE900EF4DA8 /* TFY_DanMuImage.h */,
+				3635B33422E6BAE900EF4DA8 /* TFY_DanMuImage.m */,
+			);
+			path = TFY_SubtitlepopupView;
+			sourceTree = "<group>";
+		};
+		3635B34F22E6F1FD00EF4DA8 /* TFY_LoginController */ = {
+			isa = PBXGroup;
+			children = (
+				3635B35022E6F22D00EF4DA8 /* Cell */,
+				3635B35122E6F22E00EF4DA8 /* Controller */,
+				3635B35222E6F22E00EF4DA8 /* Model */,
+				3635B35322E6F22E00EF4DA8 /* View */,
+			);
+			path = TFY_LoginController;
+			sourceTree = "<group>";
+		};
+		3635B35022E6F22D00EF4DA8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				36228E0222E9719400CFAB4A /* TFY_QuickregistrationCell.h */,
+				36228E0322E9719400CFAB4A /* TFY_QuickregistrationCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3635B35122E6F22E00EF4DA8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3635B35422E6F28F00EF4DA8 /* TFY_LoginController.h */,
+				3635B35522E6F28F00EF4DA8 /* TFY_LoginController.m */,
+				3635B35722E6F85500EF4DA8 /* TFY_WSMovieController.h */,
+				3635B35822E6F85500EF4DA8 /* TFY_WSMovieController.m */,
+				36228DFC22E96CB800CFAB4A /* TFY_QuickregistrationController.h */,
+				36228DFD22E96CB800CFAB4A /* TFY_QuickregistrationController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3635B35222E6F22E00EF4DA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3688011B22E996EF001DDC90 /* QuickregistrationData.json */,
+				3635B35A22E6F89D00EF4DA8 /* qidong.mp4 */,
+				36228E0522E971A400CFAB4A /* TFY_QuickregistrationModel.h */,
+				36228E0622E971A400CFAB4A /* TFY_QuickregistrationModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3635B35322E6F22E00EF4DA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3634D01522E7FCDE00605C41 /* TFY_FiledtextView.h */,
+				3634D01622E7FCDE00605C41 /* TFY_FiledtextView.m */,
+				3634D01B22E81A9C00605C41 /* TFY_InputboxView.h */,
+				3634D01C22E81A9C00605C41 /* TFY_InputboxView.m */,
+				3634D01E22E845CF00605C41 /* TFY_LoginpasswordfastView.h */,
+				3634D01F22E845CF00605C41 /* TFY_LoginpasswordfastView.m */,
+				3634D02122E854B500605C41 /* TFY_SigninwithView.h */,
+				3634D02222E854B500605C41 /* TFY_SigninwithView.m */,
+				36228E0A22E975EA00CFAB4A /* TFY_QuickregistrationHerderView.h */,
+				36228E0B22E975EA00CFAB4A /* TFY_QuickregistrationHerderView.m */,
+				36228E0D22E9760800CFAB4A /* TFY_QuickregistrationFooderView.h */,
+				36228E0E22E9760800CFAB4A /* TFY_QuickregistrationFooderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		364209B722DC259500B8F762 /* TFY_PlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				364209D922DC259500B8F762 /* TFY_PlayerHeader.h */,
+				36221EFC22EAD29700F1480A /* TFY_Barragekeyboard */,
+				3635B32C22E6BA3800EF4DA8 /* TFY_SubtitlepopupView */,
+				364209B822DC259500B8F762 /* TFY_PlayerITool */,
+				364209D622DC259500B8F762 /* TFY_SmallView */,
+				364209DA22DC259500B8F762 /* TFY_TopBottomView */,
+				364209E722DC259500B8F762 /* videoImages.bundle */,
+				364209E822DC259500B8F762 /* TFY_PlayerControllerVIew */,
+			);
+			path = TFY_PlayerView;
+			sourceTree = "<group>";
+		};
+		364209B822DC259500B8F762 /* TFY_PlayerITool */ = {
+			isa = PBXGroup;
+			children = (
+				364209D222DC259500B8F762 /* TFY_PlayerToolsHeader.h */,
+				364209D122DC259500B8F762 /* TFY_PlayerController.h */,
+				364209C222DC259500B8F762 /* TFY_PlayerController.m */,
+				364209D522DC259500B8F762 /* TFY_PlayerVideoModel.h */,
+				364209C422DC259500B8F762 /* TFY_PlayerVideoModel.m */,
+				364209D422DC259500B8F762 /* TFY_FloatView.h */,
+				364209C622DC259500B8F762 /* TFY_FloatView.m */,
+				364209C722DC259500B8F762 /* TFY_AVPlayerManager.h */,
+				364209C022DC259500B8F762 /* TFY_AVPlayerManager.m */,
+				364209CD22DC259500B8F762 /* TFY_PlayerBaseView.h */,
+				364209BA22DC259500B8F762 /* TFY_PlayerBaseView.m */,
+				364209BD22DC259500B8F762 /* TFY_ReachabilityManager.h */,
+				364209CA22DC259500B8F762 /* TFY_ReachabilityManager.m */,
+				364209CC22DC259500B8F762 /* TFY_NetworkSpeedMonitor.h */,
+				364209B922DC259500B8F762 /* TFY_NetworkSpeedMonitor.m */,
+				364209BB22DC259500B8F762 /* TFY_PlayerMediaPlayback.h */,
+				364209CF22DC259500B8F762 /* TFY_PlayerMediaControl.h */,
+				364209C522DC259500B8F762 /* TFY_PlayerGestureControl.h */,
+				364209D322DC259500B8F762 /* TFY_PlayerGestureControl.m */,
+				364209C822DC259500B8F762 /* TFY_LoadingView.h */,
+				364209BF22DC259500B8F762 /* TFY_LoadingView.m */,
+				364209BC22DC259500B8F762 /* TFY_PlayerNotification.h */,
+				364209CB22DC259500B8F762 /* TFY_PlayerNotification.m */,
+				364209C922DC259500B8F762 /* UIScrollView+TFY_Player.h */,
+				364209BE22DC259500B8F762 /* UIScrollView+TFY_Player.m */,
+				364209D022DC259500B8F762 /* TFY_OrientationObserver.h */,
+				364209C122DC259500B8F762 /* TFY_OrientationObserver.m */,
+				364209C322DC259500B8F762 /* TFY_KVOController.h */,
+				364209CE22DC259500B8F762 /* TFY_KVOController.m */,
+			);
+			path = TFY_PlayerITool;
+			sourceTree = "<group>";
+		};
+		364209D622DC259500B8F762 /* TFY_SmallView */ = {
+			isa = PBXGroup;
+			children = (
+				364209D822DC259500B8F762 /* TFY_RightView.h */,
+				364209D722DC259500B8F762 /* TFY_RightView.m */,
+				3636D33322E1596400D7761C /* TFY_SpeedView.h */,
+				3636D33422E1596400D7761C /* TFY_SpeedView.m */,
+				3636D38C22E1BE4800D7761C /* TFY_PhotocroppingView.h */,
+				3636D38D22E1BE4800D7761C /* TFY_PhotocroppingView.m */,
+				3622BB4822E53F89007EDBD1 /* TFY_PicturevideoView.h */,
+				3622BB4922E53F89007EDBD1 /* TFY_PicturevideoView.m */,
+			);
+			path = TFY_SmallView;
+			sourceTree = "<group>";
+		};
+		364209DA22DC259500B8F762 /* TFY_TopBottomView */ = {
+			isa = PBXGroup;
+			children = (
+				364209DC22DC259500B8F762 /* TFY_PlayerTopBar.h */,
+				364209E222DC259500B8F762 /* TFY_PlayerTopBar.m */,
+				364209E022DC259500B8F762 /* TFY_bottomToolView.h */,
+				364209E522DC259500B8F762 /* TFY_bottomToolView.m */,
+				364209DD22DC259500B8F762 /* TFY_fastView.h */,
+				364209E122DC259500B8F762 /* TFY_fastView.m */,
+				364209E622DC259500B8F762 /* TFY_SliderView.h */,
+				364209DF22DC259500B8F762 /* TFY_SliderView.m */,
+				364209DB22DC259500B8F762 /* TFY_VolumeBrightnessView.h */,
+				364209E322DC259500B8F762 /* TFY_VolumeBrightnessView.m */,
+				364209DE22DC259500B8F762 /* TFY_SpeedLoadingView.h */,
+				364209E422DC259500B8F762 /* TFY_SpeedLoadingView.m */,
+			);
+			path = TFY_TopBottomView;
+			sourceTree = "<group>";
+		};
+		364209E822DC259500B8F762 /* TFY_PlayerControllerVIew */ = {
+			isa = PBXGroup;
+			children = (
+				364209E922DC259500B8F762 /* TFY_PlayerControllerView.h */,
+				364209F022DC259500B8F762 /* TFY_PlayerControllerView.m */,
+				364209EA22DC259500B8F762 /* TFY_LandScapeControlView.h */,
+				364209EF22DC259500B8F762 /* TFY_LandScapeControlView.m */,
+				364209EB22DC259500B8F762 /* TFY_PortraitControlView.h */,
+				364209EE22DC259500B8F762 /* TFY_PortraitControlView.m */,
+				364209EC22DC259500B8F762 /* TFY_SmallFloatControlView.h */,
+				364209ED22DC259500B8F762 /* TFY_SmallFloatControlView.m */,
+			);
+			path = TFY_PlayerControllerVIew;
+			sourceTree = "<group>";
+		};
+		36520DAE22DED156005AF67D /* TFY_displayprompt */ = {
+			isa = PBXGroup;
+			children = (
+				36520DAF22DEEA1D005AF67D /* TFY_Displayprompt.h */,
+				36520DB022DEEA1D005AF67D /* TFY_Displayprompt.m */,
+			);
+			path = TFY_displayprompt;
+			sourceTree = "<group>";
+		};
+		365AD98022CF071F005F95DA = {
+			isa = PBXGroup;
+			children = (
+				365AD98B22CF071F005F95DA /* TFY_DyPlayer */,
+				365AD9A422CF0720005F95DA /* TFY_DyPlayerTests */,
+				365AD9AF22CF0721005F95DA /* TFY_DyPlayerUITests */,
+				365AD98A22CF071F005F95DA /* Products */,
+				14EC0DC7A09956E94D7AE38A /* Pods */,
+				083DBA89382FC8E02183E14B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		365AD98A22CF071F005F95DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				365AD98922CF071F005F95DA /* TFY_DyPlayer.app */,
+				365AD9A122CF0720005F95DA /* TFY_DyPlayerTests.xctest */,
+				365AD9AC22CF0721005F95DA /* TFY_DyPlayerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		365AD98B22CF071F005F95DA /* TFY_DyPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				365AD9C022CF091B005F95DA /* AppDelegate */,
+				365AD9C322CF091B005F95DA /* Class */,
+				365AD9BF22CF091B005F95DA /* ITool */,
+				365AD9BE22CF091B005F95DA /* PCH */,
+				365AD99522CF0720005F95DA /* Assets.xcassets */,
+				365AD99A22CF0720005F95DA /* Info.plist */,
+				365AD99B22CF0720005F95DA /* main.m */,
+			);
+			path = TFY_DyPlayer;
+			sourceTree = "<group>";
+		};
+		365AD9A422CF0720005F95DA /* TFY_DyPlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				365AD9A522CF0720005F95DA /* TFY_DyPlayerTests.m */,
+				365AD9A722CF0720005F95DA /* Info.plist */,
+			);
+			path = TFY_DyPlayerTests;
+			sourceTree = "<group>";
+		};
+		365AD9AF22CF0721005F95DA /* TFY_DyPlayerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				365AD9B022CF0721005F95DA /* TFY_DyPlayerUITests.m */,
+				365AD9B222CF0721005F95DA /* Info.plist */,
+			);
+			path = TFY_DyPlayerUITests;
+			sourceTree = "<group>";
+		};
+		365AD9BE22CF091B005F95DA /* PCH */ = {
+			isa = PBXGroup;
+			children = (
+				365AD9C622CF09E0005F95DA /* TFY_Header.h */,
+				365AD9C522CF093C005F95DA /* Player_PrefixHeader.pch */,
+			);
+			path = PCH;
+			sourceTree = "<group>";
+		};
+		365AD9BF22CF091B005F95DA /* ITool */ = {
+			isa = PBXGroup;
+			children = (
+				36228DE922E93D2300CFAB4A /* TFY_VideodownloadTool */,
+				3633A71822E06FED0061A66D /* TFY_TextView */,
+				3633A6FE22E017880061A66D /* TFY_ImagePicker */,
+				36520DAE22DED156005AF67D /* TFY_displayprompt */,
+				364209B722DC259500B8F762 /* TFY_PlayerView */,
+				362357A622D70D5500F8AE33 /* TFY_ColorSwitch */,
+				3669FEC022D4671700B43DAF /* TFY_Popupbox */,
+				365AD9E022CF1CE0005F95DA /* TabarController */,
+				365AD9C922CF1C32005F95DA /* BaseController */,
+				365AD9CC22CF1C32005F95DA /* NetWork(第三方封装) */,
+			);
+			path = ITool;
+			sourceTree = "<group>";
+		};
+		365AD9C022CF091B005F95DA /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				365AD9C122CF091B005F95DA /* AppDelegate.h */,
+				365AD9C222CF091B005F95DA /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		365AD9C322CF091B005F95DA /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				3635B34F22E6F1FD00EF4DA8 /* TFY_LoginController */,
+				3623855622D2D9D0009317E0 /* TFY_Player */,
+				3623854B22D2C778009317E0 /* TFY_More */,
+				365AD9F222CF1DFA005F95DA /* TFY_recommend */,
+				365AD9E822CF1DFA005F95DA /* TFY_Koreandrama */,
+				365AD9F722CF1DFA005F95DA /* TFY_U.S.drama */,
+				365AD9ED22CF1DFA005F95DA /* TFY_mine */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		365AD9C922CF1C32005F95DA /* BaseController */ = {
+			isa = PBXGroup;
+			children = (
+				36228DFF22E96FD900CFAB4A /* TFY_BaseLoginAVPlayerController.h */,
+				36228E0022E96FD900CFAB4A /* TFY_BaseLoginAVPlayerController.m */,
+				365AD9CB22CF1C32005F95DA /* BaseTableViewController.h */,
+				365AD9CA22CF1C32005F95DA /* BaseTableViewController.m */,
+				365ADAAB22CF33F1005F95DA /* BaseCollectionController.h */,
+				365ADAAC22CF33F1005F95DA /* BaseCollectionController.m */,
+			);
+			path = BaseController;
+			sourceTree = "<group>";
+		};
+		365AD9CC22CF1C32005F95DA /* NetWork(第三方封装) */ = {
+			isa = PBXGroup;
+			children = (
+				365AD9D122CF1C32005F95DA /* TFY_Const.h */,
+				365AD9D722CF1C32005F95DA /* TFY_Const.m */,
+				365AD9D222CF1C32005F95DA /* TFY_ServerConfig.h */,
+				365AD9D822CF1C32005F95DA /* TFY_ServerConfig.m */,
+				365AD9D422CF1C32005F95DA /* TFY_NetWorking.h */,
+				365AD9CF22CF1C32005F95DA /* TFY_NetWorking.m */,
+				365AD9D522CF1C32005F95DA /* TFY_RefreshGifHeader.h */,
+				365AD9CE22CF1C32005F95DA /* TFY_RefreshGifHeader.m */,
+				365AD9D322CF1C32005F95DA /* TFY_RefreshGifFooter.h */,
+				365AD9D022CF1C32005F95DA /* TFY_RefreshGifFooter.m */,
+				365AD9D622CF1C32005F95DA /* TFY_AppDotNetAPIClient.h */,
+				365AD9CD22CF1C32005F95DA /* TFY_AppDotNetAPIClient.m */,
+			);
+			path = "NetWork(第三方封装)";
+			sourceTree = "<group>";
+		};
+		365AD9E022CF1CE0005F95DA /* TabarController */ = {
+			isa = PBXGroup;
+			children = (
+				365AD9E322CF1CE0005F95DA /* TabBar_Controller.h */,
+				365AD9E422CF1CE0005F95DA /* TabBar_Controller.m */,
+			);
+			path = TabarController;
+			sourceTree = "<group>";
+		};
+		365AD9E822CF1DFA005F95DA /* TFY_Koreandrama */ = {
+			isa = PBXGroup;
+			children = (
+				365AD9EC22CF1DFA005F95DA /* Controler */,
+			);
+			path = TFY_Koreandrama;
+			sourceTree = "<group>";
+		};
+		365AD9EC22CF1DFA005F95DA /* Controler */ = {
+			isa = PBXGroup;
+			children = (
+				365AD9FF22CF1E54005F95DA /* TFY_KoreandramaController.h */,
+				365ADA0022CF1E54005F95DA /* TFY_KoreandramaController.m */,
+			);
+			path = Controler;
+			sourceTree = "<group>";
+		};
+		365AD9ED22CF1DFA005F95DA /* TFY_mine */ = {
+			isa = PBXGroup;
+			children = (
+				3633A6EE22E0140A0061A66D /* Feedback */,
+				3633A6F322E0140A0061A66D /* Personalinformatiol */,
+				3669FECF22D46D3300B43DAF /* Mycollection */,
+				3669FED922D46D3300B43DAF /* Mycache */,
+				3669FED422D46D3300B43DAF /* WatchHistory */,
+				3669FEDE22D46D3300B43DAF /* Setting */,
+				365AD9EE22CF1DFA005F95DA /* Cell */,
+				365AD9EF22CF1DFA005F95DA /* Model */,
+				365AD9F022CF1DFA005F95DA /* View */,
+				365AD9F122CF1DFA005F95DA /* Controler */,
+			);
+			path = TFY_mine;
+			sourceTree = "<group>";
+		};
+		365AD9EE22CF1DFA005F95DA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3669FEB222D44F2800B43DAF /* TFY_mineViewCell.h */,
+				3669FEB322D44F2800B43DAF /* TFY_mineViewCell.m */,
+				3669FEBB22D44FB900B43DAF /* TFY_mineViewTwoViewCell.h */,
+				3669FEBC22D44FB900B43DAF /* TFY_mineViewTwoViewCell.m */,
+				3633A6EB22E005A80061A66D /* TFY_MineFooderCell.h */,
+				3633A6EC22E005A80061A66D /* TFY_MineFooderCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		365AD9EF22CF1DFA005F95DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3669FEBE22D4512300B43DAF /* TFY_MineData.json */,
+				3669FEB522D44F3B00B43DAF /* TFY_mineModel.h */,
+				3669FEB622D44F3B00B43DAF /* TFY_mineModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		365AD9F022CF1DFA005F95DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3669FEB822D44F6600B43DAF /* TFY_mineReusableView.h */,
+				3669FEB922D44F6600B43DAF /* TFY_mineReusableView.m */,
+				3633A6E822E002BD0061A66D /* TFY_MineFooderReusableView.h */,
+				3633A6E922E002BD0061A66D /* TFY_MineFooderReusableView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		365AD9F122CF1DFA005F95DA /* Controler */ = {
+			isa = PBXGroup;
+			children = (
+				365ADA0522CF1E9D005F95DA /* TFY_mineController.h */,
+				365ADA0622CF1E9D005F95DA /* TFY_mineController.m */,
+			);
+			path = Controler;
+			sourceTree = "<group>";
+		};
+		365AD9F222CF1DFA005F95DA /* TFY_recommend */ = {
+			isa = PBXGroup;
+			children = (
+				365AD9F322CF1DFA005F95DA /* Cell */,
+				365AD9F422CF1DFA005F95DA /* Model */,
+				365AD9F522CF1DFA005F95DA /* View */,
+				365AD9F622CF1DFA005F95DA /* Controler */,
+			);
+			path = TFY_recommend;
+			sourceTree = "<group>";
+		};
+		365AD9F322CF1DFA005F95DA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				365ADAA522CF315D005F95DA /* TFY_recommendCell.h */,
+				365ADAA622CF315D005F95DA /* TFY_recommendCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		365AD9F422CF1DFA005F95DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				365ADA0822CF26A3005F95DA /* TFY_recommendModel.h */,
+				365ADA0922CF26A3005F95DA /* TFY_recommendModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		365AD9F522CF1DFA005F95DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				365ADAA822CF31AC005F95DA /* TFY_recommendherderView.h */,
+				365ADAA922CF31AC005F95DA /* TFY_recommendherderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		365AD9F622CF1DFA005F95DA /* Controler */ = {
+			isa = PBXGroup;
+			children = (
+				365AD9FC22CF1E23005F95DA /* TFY_recommendController.h */,
+				365AD9FD22CF1E23005F95DA /* TFY_recommendController.m */,
+			);
+			path = Controler;
+			sourceTree = "<group>";
+		};
+		365AD9F722CF1DFA005F95DA /* TFY_U.S.drama */ = {
+			isa = PBXGroup;
+			children = (
+				365AD9FB22CF1DFA005F95DA /* Controler */,
+			);
+			path = TFY_U.S.drama;
+			sourceTree = "<group>";
+		};
+		365AD9FB22CF1DFA005F95DA /* Controler */ = {
+			isa = PBXGroup;
+			children = (
+				365ADA0222CF1E7C005F95DA /* TFY_USdramaController.h */,
+				365ADA0322CF1E7C005F95DA /* TFY_USdramaController.m */,
+			);
+			path = Controler;
+			sourceTree = "<group>";
+		};
+		3669FEC022D4671700B43DAF /* TFY_Popupbox */ = {
+			isa = PBXGroup;
+			children = (
+				3669FEC522D4671700B43DAF /* TFY_PopoverMacro.h */,
+				3669FEC422D4671700B43DAF /* UIViewController+TFY_Popover.h */,
+				3669FEC122D4671700B43DAF /* UIViewController+TFY_Popover.m */,
+				3669FEC222D4671700B43DAF /* TFY_PopoverAnimator.h */,
+				3669FEC722D4671700B43DAF /* TFY_PopoverAnimator.m */,
+				3669FEC622D4671700B43DAF /* TFY_PresentationController.h */,
+				3669FEC322D4671700B43DAF /* TFY_PresentationController.m */,
+			);
+			path = TFY_Popupbox;
+			sourceTree = "<group>";
+		};
+		3669FECF22D46D3300B43DAF /* Mycollection */ = {
+			isa = PBXGroup;
+			children = (
+				3669FED022D46D3300B43DAF /* Controller */,
+				3669FED122D46D3300B43DAF /* Cell */,
+				3669FED222D46D3300B43DAF /* Model */,
+				3669FED322D46D3300B43DAF /* View */,
+			);
+			path = Mycollection;
+			sourceTree = "<group>";
+		};
+		3669FED022D46D3300B43DAF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3669FEEF22D46E3500B43DAF /* TFY_MycollectionController.h */,
+				3669FEF022D46E3500B43DAF /* TFY_MycollectionController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3669FED122D46D3300B43DAF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				362348C722DDA64C00993988 /* TFY_MycollectionViewCell.h */,
+				362348C822DDA64C00993988 /* TFY_MycollectionViewCell.m */,
+				362348CA22DDAB1900993988 /* TFY_MycollectionViewTwoCell.h */,
+				362348CB22DDAB1900993988 /* TFY_MycollectionViewTwoCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3669FED222D46D3300B43DAF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3669FED322D46D3300B43DAF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3669FED422D46D3300B43DAF /* WatchHistory */ = {
+			isa = PBXGroup;
+			children = (
+				3669FED522D46D3300B43DAF /* Controller */,
+				3669FED622D46D3300B43DAF /* Cell */,
+				3669FED722D46D3300B43DAF /* Model */,
+				3669FED822D46D3300B43DAF /* View */,
+			);
+			path = WatchHistory;
+			sourceTree = "<group>";
+		};
+		3669FED522D46D3300B43DAF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3669FEE922D46DFB00B43DAF /* TFY_WatchHistoryController.h */,
+				3669FEEA22D46DFB00B43DAF /* TFY_WatchHistoryController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3669FED622D46D3300B43DAF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3620126422D5D0DB008813C7 /* TFY_WatchHistoryCell.h */,
+				3620126522D5D0DB008813C7 /* TFY_WatchHistoryCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3669FED722D46D3300B43DAF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3669FED822D46D3300B43DAF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3669FED922D46D3300B43DAF /* Mycache */ = {
+			isa = PBXGroup;
+			children = (
+				3669FEDA22D46D3300B43DAF /* Controller */,
+				3669FEDB22D46D3300B43DAF /* Cell */,
+				3669FEDC22D46D3300B43DAF /* Model */,
+				3669FEDD22D46D3300B43DAF /* View */,
+			);
+			path = Mycache;
+			sourceTree = "<group>";
+		};
+		3669FEDA22D46D3300B43DAF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3669FEEC22D46E1A00B43DAF /* TFY_MycacheController.h */,
+				3669FEED22D46E1A00B43DAF /* TFY_MycacheController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3669FEDB22D46D3300B43DAF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3669FEDC22D46D3300B43DAF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3669FEDD22D46D3300B43DAF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3669FEDE22D46D3300B43DAF /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				3669FEDF22D46D3300B43DAF /* Controller */,
+				3669FEE022D46D3300B43DAF /* Cell */,
+				3669FEE122D46D3300B43DAF /* Model */,
+				3669FEE222D46D3300B43DAF /* View */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		3669FEDF22D46D3300B43DAF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3669FEF222D46E5100B43DAF /* TFY_SettingController.h */,
+				3669FEF322D46E5100B43DAF /* TFY_SettingController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3669FEE022D46D3300B43DAF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				362357B522D726E400F8AE33 /* TFY_SettingViewCell.h */,
+				362357B622D726E400F8AE33 /* TFY_SettingViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3669FEE122D46D3300B43DAF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				362357B022D726B800F8AE33 /* TFY_SettingDict.json */,
+				362357B222D726D200F8AE33 /* TFY_SettingModel.h */,
+				362357B322D726D200F8AE33 /* TFY_SettingModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3669FEE222D46D3300B43DAF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				362357B822D726F900F8AE33 /* TFY_SettingHerderView.h */,
+				362357B922D726F900F8AE33 /* TFY_SettingHerderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		365AD98822CF071F005F95DA /* TFY_DyPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 365AD9B522CF0721005F95DA /* Build configuration list for PBXNativeTarget "TFY_DyPlayer" */;
+			buildPhases = (
+				4F8B7847C0683783159A34BC /* [CP] Check Pods Manifest.lock */,
+				365AD98522CF071F005F95DA /* Sources */,
+				365AD98622CF071F005F95DA /* Frameworks */,
+				365AD98722CF071F005F95DA /* Resources */,
+				6C654BD13E0A01257130458D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TFY_DyPlayer;
+			productName = TFY_DyPlayer;
+			productReference = 365AD98922CF071F005F95DA /* TFY_DyPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		365AD9A022CF0720005F95DA /* TFY_DyPlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 365AD9B822CF0721005F95DA /* Build configuration list for PBXNativeTarget "TFY_DyPlayerTests" */;
+			buildPhases = (
+				365AD99D22CF0720005F95DA /* Sources */,
+				365AD99E22CF0720005F95DA /* Frameworks */,
+				365AD99F22CF0720005F95DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				365AD9A322CF0720005F95DA /* PBXTargetDependency */,
+			);
+			name = TFY_DyPlayerTests;
+			productName = TFY_DyPlayerTests;
+			productReference = 365AD9A122CF0720005F95DA /* TFY_DyPlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		365AD9AB22CF0721005F95DA /* TFY_DyPlayerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 365AD9BB22CF0721005F95DA /* Build configuration list for PBXNativeTarget "TFY_DyPlayerUITests" */;
+			buildPhases = (
+				365AD9A822CF0721005F95DA /* Sources */,
+				365AD9A922CF0721005F95DA /* Frameworks */,
+				365AD9AA22CF0721005F95DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				365AD9AE22CF0721005F95DA /* PBXTargetDependency */,
+			);
+			name = TFY_DyPlayerUITests;
+			productName = TFY_DyPlayerUITests;
+			productReference = 365AD9AC22CF0721005F95DA /* TFY_DyPlayerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		365AD98122CF071F005F95DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "田风有";
+				TargetAttributes = {
+					365AD98822CF071F005F95DA = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					365AD9A022CF0720005F95DA = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 365AD98822CF071F005F95DA;
+					};
+					365AD9AB22CF0721005F95DA = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 365AD98822CF071F005F95DA;
+					};
+				};
+			};
+			buildConfigurationList = 365AD98422CF071F005F95DA /* Build configuration list for PBXProject "TFY_DyPlayer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 365AD98022CF071F005F95DA;
+			productRefGroup = 365AD98A22CF071F005F95DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				365AD98822CF071F005F95DA /* TFY_DyPlayer */,
+				365AD9A022CF0720005F95DA /* TFY_DyPlayerTests */,
+				365AD9AB22CF0721005F95DA /* TFY_DyPlayerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		365AD98722CF071F005F95DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				365AD99622CF0720005F95DA /* Assets.xcassets in Resources */,
+				36221F0622EADE8400F1480A /* Expression.bundle in Resources */,
+				3635B35B22E6F89D00EF4DA8 /* qidong.mp4 in Resources */,
+				3633A70F22E050A20061A66D /* TFY_PersonData.json in Resources */,
+				3633A71722E06EF90061A66D /* TFY_FeedbackData.json in Resources */,
+				3688011C22E996EF001DDC90 /* QuickregistrationData.json in Resources */,
+				362357B122D726B900F8AE33 /* TFY_SettingDict.json in Resources */,
+				3669FEBF22D4512300B43DAF /* TFY_MineData.json in Resources */,
+				36420A0522DC259500B8F762 /* videoImages.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		365AD99F22CF0720005F95DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		365AD9AA22CF0721005F95DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F8B7847C0683783159A34BC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TFY_DyPlayer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C654BD13E0A01257130458D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TFY_DyPlayer/Pods-TFY_DyPlayer-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TFY_DyPlayer/Pods-TFY_DyPlayer-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TFY_DyPlayer/Pods-TFY_DyPlayer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		365AD98522CF071F005F95DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36420A0622DC259500B8F762 /* TFY_SmallFloatControlView.m in Sources */,
+				365AD9C422CF091B005F95DA /* AppDelegate.m in Sources */,
+				365ADA0A22CF26A3005F95DA /* TFY_recommendModel.m in Sources */,
+				3633A72122E070340061A66D /* TFY_FeedbackherderView.m in Sources */,
+				364209F122DC259500B8F762 /* TFY_NetworkSpeedMonitor.m in Sources */,
+				36420A0222DC259500B8F762 /* TFY_VolumeBrightnessView.m in Sources */,
+				3634D01722E7FCDE00605C41 /* TFY_FiledtextView.m in Sources */,
+				3669FEB422D44F2800B43DAF /* TFY_mineViewCell.m in Sources */,
+				365ADA0122CF1E54005F95DA /* TFY_KoreandramaController.m in Sources */,
+				36228DEF22E93D6100CFAB4A /* TFY_GlobeConst.m in Sources */,
+				3620126622D5D0DB008813C7 /* TFY_WatchHistoryCell.m in Sources */,
+				362348C622DD7EE200993988 /* TFY_CollectionModel.m in Sources */,
+				365AD9FE22CF1E23005F95DA /* TFY_recommendController.m in Sources */,
+				36228DF222E9412F00CFAB4A /* NSURLSession+TFY_CorrectedResumeData.m in Sources */,
+				3633A70722E03E740061A66D /* TFY_PersonalinformatiolCell.m in Sources */,
+				3669FEC922D4671700B43DAF /* TFY_PresentationController.m in Sources */,
+				36228E0422E9719400CFAB4A /* TFY_QuickregistrationCell.m in Sources */,
+				3669FEBA22D44F6600B43DAF /* TFY_mineReusableView.m in Sources */,
+				36228E0722E971A400CFAB4A /* TFY_QuickregistrationModel.m in Sources */,
+				36228DFE22E96CB800CFAB4A /* TFY_QuickregistrationController.m in Sources */,
+				36420A0C22DC26AD00B8F762 /* TFY_PlayerVideo_Model.m in Sources */,
+				3669FEF122D46E3500B43DAF /* TFY_MycollectionController.m in Sources */,
+				3623856022D2DA9F009317E0 /* TFY_PlayerVideoController.m in Sources */,
+				3633A6ED22E005A80061A66D /* TFY_MineFooderCell.m in Sources */,
+				36420A0122DC259500B8F762 /* TFY_PlayerTopBar.m in Sources */,
+				365AD9DD22CF1C32005F95DA /* TFY_RefreshGifFooter.m in Sources */,
+				3669FEB722D44F3B00B43DAF /* TFY_mineModel.m in Sources */,
+				362348CC22DDAB1900993988 /* TFY_MycollectionViewTwoCell.m in Sources */,
+				3635B33222E6BA7600EF4DA8 /* TFY_SubtitlepopupModel.m in Sources */,
+				3633A70122E017970061A66D /* TFY_ImagePicker.m in Sources */,
+				36288D10231C95D700C834D4 /* TFY_ChatBoxFacefooderView.m in Sources */,
+				36ADA43C22D2F35B0092D4D9 /* TFY_MoreTwoController.m in Sources */,
+				36221F1C22EB003F00F1480A /* TFY_ChatBoxConst.m in Sources */,
+				36520DB122DEEA1D005AF67D /* TFY_Displayprompt.m in Sources */,
+				3633A6FD22E015BE0061A66D /* TFY_FeedbackController.m in Sources */,
+				362357B722D726E400F8AE33 /* TFY_SettingViewCell.m in Sources */,
+				36420A0822DC259500B8F762 /* TFY_LandScapeControlView.m in Sources */,
+				36228E0C22E975EA00CFAB4A /* TFY_QuickregistrationHerderView.m in Sources */,
+				3633A70422E018080061A66D /* TFY_ClipViewController.m in Sources */,
+				3623855222D2C792009317E0 /* TFY_MoreController.m in Sources */,
+				365AD9DB22CF1C32005F95DA /* TFY_RefreshGifHeader.m in Sources */,
+				36221F1322EAE44A00F1480A /* TFY_BarragekeyboardManager.m in Sources */,
+				365AD9DA22CF1C32005F95DA /* TFY_AppDotNetAPIClient.m in Sources */,
+				36228E0122E96FD900CFAB4A /* TFY_BaseLoginAVPlayerController.m in Sources */,
+				364209F522DC259500B8F762 /* TFY_AVPlayerManager.m in Sources */,
+				364209FC22DC259500B8F762 /* TFY_KVOController.m in Sources */,
+				362348C922DDA64C00993988 /* TFY_MycollectionViewCell.m in Sources */,
+				365AD9D922CF1C32005F95DA /* BaseTableViewController.m in Sources */,
+				36420A0722DC259500B8F762 /* TFY_PortraitControlView.m in Sources */,
+				36228DF822E9427000CFAB4A /* TFY_DownloadModel.m in Sources */,
+				36221F0C22EAE0BD00F1480A /* TFY_EmotionManager.m in Sources */,
+				365AD9DF22CF1C32005F95DA /* TFY_ServerConfig.m in Sources */,
+				365ADAA722CF315D005F95DA /* TFY_recommendCell.m in Sources */,
+				3624658422EFDBA2005BE378 /* TFY_ChatBoxFaceView.m in Sources */,
+				364209F222DC259500B8F762 /* TFY_PlayerBaseView.m in Sources */,
+				364209F822DC259500B8F762 /* TFY_PlayerVideoModel.m in Sources */,
+				36221F0922EAE00000F1480A /* TFY_EmotionModel.m in Sources */,
+				3635B33522E6BAE900EF4DA8 /* TFY_DanMuImage.m in Sources */,
+				364209FF22DC259500B8F762 /* TFY_SliderView.m in Sources */,
+				364209F922DC259500B8F762 /* TFY_FloatView.m in Sources */,
+				3635B33B22E6D2C000EF4DA8 /* TFY_DanMuManager.m in Sources */,
+				364209FD22DC259500B8F762 /* TFY_PlayerGestureControl.m in Sources */,
+				364209F722DC259500B8F762 /* TFY_PlayerController.m in Sources */,
+				3635B35622E6F28F00EF4DA8 /* TFY_LoginController.m in Sources */,
+				3622BB4A22E53F89007EDBD1 /* TFY_PicturevideoView.m in Sources */,
+				364209FE22DC259500B8F762 /* TFY_RightView.m in Sources */,
+				365ADAAD22CF33F1005F95DA /* BaseCollectionController.m in Sources */,
+				3669FEC822D4671700B43DAF /* UIViewController+TFY_Popover.m in Sources */,
+				36228DF522E9419900CFAB4A /* TFY_DownloadManager.m in Sources */,
+				365AD99C22CF0720005F95DA /* main.m in Sources */,
+				3623856622D2DDAB009317E0 /* TFY_PlayerVideoherderView.m in Sources */,
+				36221F0F22EAE26600F1480A /* NSString+TFY_Extension.m in Sources */,
+				3633A6FA22E0158C0061A66D /* TFY_PersonalinformatiolController.m in Sources */,
+				36420A0322DC259500B8F762 /* TFY_SpeedLoadingView.m in Sources */,
+				365AD9E722CF1CE0005F95DA /* TabBar_Controller.m in Sources */,
+				36ADA43622D2E4B40092D4D9 /* TFY_PlayerVideoCell.m in Sources */,
+				364209F322DC259500B8F762 /* UIScrollView+TFY_Player.m in Sources */,
+				3669FEBD22D44FB900B43DAF /* TFY_mineViewTwoViewCell.m in Sources */,
+				364209F622DC259500B8F762 /* TFY_OrientationObserver.m in Sources */,
+				362357A922D70D5500F8AE33 /* TFY_ColorSwitch.m in Sources */,
+				3634D01D22E81A9C00605C41 /* TFY_InputboxView.m in Sources */,
+				3669FEF422D46E5100B43DAF /* TFY_SettingController.m in Sources */,
+				365ADAAA22CF31AC005F95DA /* TFY_recommendherderView.m in Sources */,
+				362357BA22D726F900F8AE33 /* TFY_SettingHerderView.m in Sources */,
+				3633A6EA22E002BD0061A66D /* TFY_MineFooderReusableView.m in Sources */,
+				36420A0422DC259500B8F762 /* TFY_bottomToolView.m in Sources */,
+				3633A71E22E06FED0061A66D /* TFY_TextView.m in Sources */,
+				3635B32F22E6BA4E00EF4DA8 /* TFY_SubtitlepopupView.m in Sources */,
+				36420A0922DC259600B8F762 /* TFY_PlayerControllerView.m in Sources */,
+				364209F422DC259500B8F762 /* TFY_LoadingView.m in Sources */,
+				3669FECA22D4671700B43DAF /* TFY_PopoverAnimator.m in Sources */,
+				364209FA22DC259500B8F762 /* TFY_ReachabilityManager.m in Sources */,
+				3633A72422E070450061A66D /* TFY_FeedbackFooderView.m in Sources */,
+				364209FB22DC259500B8F762 /* TFY_PlayerNotification.m in Sources */,
+				365ADA0722CF1E9D005F95DA /* TFY_mineController.m in Sources */,
+				365AD9DC22CF1C32005F95DA /* TFY_NetWorking.m in Sources */,
+				3669FEEB22D46DFB00B43DAF /* TFY_WatchHistoryController.m in Sources */,
+				3633A71522E06E240061A66D /* TFY_FeedbackModel.m in Sources */,
+				3669FEEE22D46E1A00B43DAF /* TFY_MycacheController.m in Sources */,
+				36288D0D231C958800C834D4 /* TFY_ChatBoxFaceCell.m in Sources */,
+				36420A0022DC259500B8F762 /* TFY_fastView.m in Sources */,
+				3636D33522E1596400D7761C /* TFY_SpeedView.m in Sources */,
+				3636D38E22E1BE4800D7761C /* TFY_PhotocroppingView.m in Sources */,
+				3633A70A22E03E840061A66D /* TFY_PersonalinformatiolModel.m in Sources */,
+				36228DFB22E947CE00CFAB4A /* TFY_DataBaseManager.m in Sources */,
+				362357B422D726D200F8AE33 /* TFY_SettingModel.m in Sources */,
+				365AD9DE22CF1C32005F95DA /* TFY_Const.m in Sources */,
+				3633A70D22E03EAA0061A66D /* TFY_PersonalinformatiolHerderView.m in Sources */,
+				3633A71D22E06FED0061A66D /* UITextView+TFY_Extension.m in Sources */,
+				3633A71222E06E080061A66D /* TFY_FeedbackCell.m in Sources */,
+				3634D02022E845CF00605C41 /* TFY_LoginpasswordfastView.m in Sources */,
+				36228E0F22E9760800CFAB4A /* TFY_QuickregistrationFooderView.m in Sources */,
+				3635B35922E6F85500EF4DA8 /* TFY_WSMovieController.m in Sources */,
+				365ADA0422CF1E7C005F95DA /* TFY_USdramaController.m in Sources */,
+				3634D02322E854B500605C41 /* TFY_SigninwithView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		365AD99D22CF0720005F95DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				365AD9A622CF0720005F95DA /* TFY_DyPlayerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		365AD9A822CF0721005F95DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				365AD9B122CF0721005F95DA /* TFY_DyPlayerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		365AD9A322CF0720005F95DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 365AD98822CF071F005F95DA /* TFY_DyPlayer */;
+			targetProxy = 365AD9A222CF0720005F95DA /* PBXContainerItemProxy */;
+		};
+		365AD9AE22CF0721005F95DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 365AD98822CF071F005F95DA /* TFY_DyPlayer */;
+			targetProxy = 365AD9AD22CF0721005F95DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		365AD9B322CF0721005F95DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		365AD9B422CF0721005F95DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		365AD9B622CF0721005F95DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA6B0211655CE73597B95500 /* Pods-TFY_DyPlayer.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P4ZJRM2VA5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TFY_DyPlayer/PCH/Player_PrefixHeader.pch;
+				INFOPLIST_FILE = TFY_DyPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.LianQianLianjiCompany.player;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		365AD9B722CF0721005F95DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10F44F1688C1A31D0F4F1CEE /* Pods-TFY_DyPlayer.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P4ZJRM2VA5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TFY_DyPlayer/PCH/Player_PrefixHeader.pch;
+				INFOPLIST_FILE = TFY_DyPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.LianQianLianjiCompany.player;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		365AD9B922CF0721005F95DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LAW8353AJK;
+				INFOPLIST_FILE = TFY_DyPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LianQianLianjiCompany.TFY-DyPlayerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TFY_DyPlayer.app/TFY_DyPlayer";
+			};
+			name = Debug;
+		};
+		365AD9BA22CF0721005F95DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LAW8353AJK;
+				INFOPLIST_FILE = TFY_DyPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LianQianLianjiCompany.TFY-DyPlayerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TFY_DyPlayer.app/TFY_DyPlayer";
+			};
+			name = Release;
+		};
+		365AD9BC22CF0721005F95DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LAW8353AJK;
+				INFOPLIST_FILE = TFY_DyPlayerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LianQianLianjiCompany.TFY-DyPlayerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TFY_DyPlayer;
+			};
+			name = Debug;
+		};
+		365AD9BD22CF0721005F95DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LAW8353AJK;
+				INFOPLIST_FILE = TFY_DyPlayerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LianQianLianjiCompany.TFY-DyPlayerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TFY_DyPlayer;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		365AD98422CF071F005F95DA /* Build configuration list for PBXProject "TFY_DyPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				365AD9B322CF0721005F95DA /* Debug */,
+				365AD9B422CF0721005F95DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		365AD9B522CF0721005F95DA /* Build configuration list for PBXNativeTarget "TFY_DyPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				365AD9B622CF0721005F95DA /* Debug */,
+				365AD9B722CF0721005F95DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		365AD9B822CF0721005F95DA /* Build configuration list for PBXNativeTarget "TFY_DyPlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				365AD9B922CF0721005F95DA /* Debug */,
+				365AD9BA22CF0721005F95DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		365AD9BB22CF0721005F95DA /* Build configuration list for PBXNativeTarget "TFY_DyPlayerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				365AD9BC22CF0721005F95DA /* Debug */,
+				365AD9BD22CF0721005F95DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 365AD98122CF071F005F95DA /* Project object */;
+}

@@ -1,0 +1,12 @@
+{
+    "btntext" : "提交",
+    "FeedbackItem" : [
+        {
+            "feedbackitems" : [
+                {
+                    "placeholder" : "请填写你的反馈意见!"
+                }
+            ]
+        }
+    ]
+}

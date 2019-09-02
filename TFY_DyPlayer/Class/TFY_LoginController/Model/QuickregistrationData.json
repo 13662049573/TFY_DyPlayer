@@ -1,0 +1,25 @@
+{
+    "Quickitems": [
+        {
+            "title_str": "手机号",
+            "placeholder_str": "11位手机号",
+            "secureText_bool": 0,
+            "borderStyle": 3,
+            "code_bool": 1
+        },
+        {
+            "title_str": "验证码",
+            "placeholder_str": "数字加字母6位",
+            "secureText_bool": 0,
+            "borderStyle": 3,
+            "code_bool": 0
+        },
+        {
+            "title_str": "密码",
+            "placeholder_str": "数字加字母6-18位",
+            "secureText_bool": 1,
+            "borderStyle": 3,
+            "code_bool": 1
+        }
+    ]
+}

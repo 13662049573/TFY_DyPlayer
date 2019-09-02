@@ -1,0 +1,45 @@
+//
+//  Player_PrefixHeader.pch
+//  TFY_DyPlayer
+//
+//  Created by 田风有 on 2019/7/5.
+//  Copyright © 2019 田风有. All rights reserved.
+//
+
+#ifndef Player_PrefixHeader_pch
+#define Player_PrefixHeader_pch
+
+#import <TFY_AutoLayout.h>
+#import <TFY_Navigation.h>
+#import <TFY_SimplifytableHeader.h>
+#import <TFY_CategoryHerder.h>
+#import <TFY_ModelSqliteHeader.h>
+#import <TFY_ProgressHUD.h>
+#import <TFY_TabBarHeader.h>
+
+
+#import <AFNetworking.h>
+#import <IQKeyboardManager.h>
+#import <MJRefresh.h>
+#import <ReactiveObjC.h>
+
+#import "TFY_NetWorking.h"
+#import "TFY_Const.h"
+
+#import "TFY_Header.h"
+
+#import "TFY_PlayerHeader.h"
+#import "UIViewController+TFY_Popover.h"
+
+
+#import "TFY_CollectionModel.h"
+#import "TFY_Displayprompt.h"
+
+//下载数据
+#import "TFY_GlobeConst.h"
+
+//系统
+#import "AppDelegate.h"
+
+
+#endif /* Player_PrefixHeader_pch */

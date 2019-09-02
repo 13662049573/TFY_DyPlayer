@@ -1,0 +1,17 @@
+platform :ios,'10.0'
+inhibit_all_warnings!
+target 'TFY_DyPlayer' do
+  
+pod 'ReactiveObjC'
+pod 'AFNetworking'
+pod 'MJRefresh'
+pod 'IQKeyboardManager'
+pod 'TFY_Category'
+pod 'TFY_Model'
+pod 'TFY_ProgressHUD'
+pod 'TFY_Navigation'
+pod 'TFY_TabarController'
+pod 'TFY_SimplifytableViewKit'
+pod 'TFY_AutoLayout'
+
+end

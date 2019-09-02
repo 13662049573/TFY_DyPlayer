@@ -1,0 +1,34 @@
+{
+    "Personitems": [
+        {
+            "title_str": "生日",
+            "desc_str": "立即去填写你的生日，有大礼物等你获取",
+            "arrow_str": "my_arrow",
+            "controller": ""
+        },
+        {
+            "title_str": "手机",
+            "desc_str": "立即绑定以领取价值99元礼包",
+            "arrow_str": "my_arrow",
+            "controller": ""
+        },
+        {
+            "title_str": "收货地址",
+            "desc_str": "去填写，地址用于商品与礼品寄送",
+            "arrow_str": "my_arrow",
+            "controller": ""
+        },
+        {
+            "title_str": "关联账号",
+            "desc_str": "查看关联教程，关联后可增加账号安全",
+            "arrow_str": "my_arrow",
+            "controller": ""
+        },
+        {
+            "title_str": "实名认证",
+            "desc_str": "用于部分优惠与奖励发放时的身份核实",
+            "arrow_str": "my_arrow",
+            "controller": ""
+        }
+    ]
+}

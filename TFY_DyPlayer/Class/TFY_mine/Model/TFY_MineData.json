@@ -1,0 +1,46 @@
+{
+    "Mineitems" : [
+        {
+        "whether" : 0,
+        "title_str" : "我的收藏",
+        "image_str" : "my_data_iocn",
+        "arrow_str" : "my_arrow",
+        "controller" : "TFY_MycollectionController"
+    },
+    {
+        "whether" : 0,
+        "title_str" : "我的缓存",
+        "image_str" : "my_record_iocn",
+        "arrow_str" : "my_arrow",
+        "controller" : "TFY_MycacheController"
+    },
+    {
+        "whether" : 0,
+        "title_str" : "观看历史",
+        "image_str" : "my_bank_card_iocn",
+        "arrow_str" : "my_arrow",
+        "controller" : "TFY_WatchHistoryController"
+    },
+   {
+       "whether" : 0,
+       "title_str" : "个人信息",
+       "image_str" : "my_help_iocn",
+       "arrow_str" : "my_arrow",
+       "controller" : "TFY_PersonalinformatiolController"
+   },
+   {
+       "whether" : 0,
+       "title_str" : "意见反馈",
+       "image_str" : "my_opinion_iocn",
+       "arrow_str" : "my_arrow",
+       "controller" : "TFY_FeedbackController"
+   },
+   {
+       "whether" : 0,
+       "title_str" : "设置",
+       "image_str" : "my_set_up_the_iocm",
+       "arrow_str" : "my_arrow",
+       "controller" : "TFY_SettingController"
+   }
+                   ]
+}
