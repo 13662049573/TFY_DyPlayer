@@ -69,7 +69,7 @@
 
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     
-    UICollectionReusableView *reusableView = nil;
+    UICollectionReusableView *reusableView = [UICollectionReusableView new];
     if (kind == UICollectionElementKindSectionHeader){
         UICollectionReusableView *herder = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:herdertify forIndexPath:indexPath];
        

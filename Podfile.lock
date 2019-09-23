@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - IQKeyboardManager (6.4.0)
+  - IQKeyboardManager (6.4.2)
   - MJRefresh (3.2.0)
   - ReactiveObjC (3.1.1)
   - TFY_AutoLayout (2.4.7)
@@ -39,7 +39,7 @@ DEPENDENCIES:
   - TFY_TabarController
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - AFNetworking
     - IQKeyboardManager
     - MJRefresh
@@ -54,7 +54,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
+  IQKeyboardManager: b41e0a4943fbac4c11a239d31a688667675f962e
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   TFY_AutoLayout: 3856cd8766f67cd8aeca980281d630e28cdbfd12
@@ -67,4 +67,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 380f7c388ab8d3cce81c5703f8d344c592227311
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.0.beta.2

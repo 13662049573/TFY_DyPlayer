@@ -221,7 +221,7 @@
         self.numLabel.text = [NSString stringWithFormat:@"%lu/%d",(unsigned long)self.textView.text.length,self.textMaxNum];
     }else{
         
-        self.numLabel.text = [NSString stringWithFormat:@"%lu",self.textMaxNum-self.textView.text.length];
+        self.numLabel.text = [NSString stringWithFormat:@"%u",self.textMaxNum-self.textView.text.length];
     }
     
     if (self.textViewListening) {

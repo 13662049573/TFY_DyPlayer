@@ -749,8 +749,8 @@ static inline NSString *cachePath() {
 + (void)logWithFailError:(NSError *)error url:(NSString *)url params:(id)params {
     NSString *format = @" params: ";
     if (params == nil || ![params isKindOfClass:[NSDictionary class]]) {
-        format = @"";
-        params = @"";
+        format =nil;
+        params = nil;
     }
     
     NSLog(@"\n");

@@ -28,7 +28,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [super viewWillDisappear:animated];
+    [super viewWillAppear:animated];
     [self addharder];
     
     [[self tfy_tabBarController] setTabBarHidden:YES animated:YES Hidden:YES];

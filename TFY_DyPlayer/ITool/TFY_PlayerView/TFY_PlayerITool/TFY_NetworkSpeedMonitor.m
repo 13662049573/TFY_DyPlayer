@@ -101,6 +101,7 @@ NSString *const NetworkSpeedNotificationKey         = @"NetworkSpeedNotification
             iBytes += if_data->ifi_ibytes;
             oBytes += if_data->ifi_obytes;
             allFlow = iBytes + oBytes;
+           
         }
         
         //wifi
@@ -109,6 +110,7 @@ NSString *const NetworkSpeedNotificationKey         = @"NetworkSpeedNotification
             wifiIBytes += if_data->ifi_ibytes;
             wifiOBytes += if_data->ifi_obytes;
             wifiFlow = wifiIBytes + wifiOBytes;
+            
         }
         
         //3G or gprs
@@ -117,6 +119,7 @@ NSString *const NetworkSpeedNotificationKey         = @"NetworkSpeedNotification
             wwanIBytes += if_data->ifi_ibytes;
             wwanOBytes += if_data->ifi_obytes;
             wwanFlow = wwanIBytes + wwanOBytes;
+            
         }
     }
     

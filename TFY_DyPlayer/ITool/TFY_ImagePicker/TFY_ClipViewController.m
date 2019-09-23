@@ -445,6 +445,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextDrawImage(context, myRect, imageRef);
     UIImage * clipImage = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
     UIGraphicsEndImageContext();
     
     if(self.clipType == CIRCULARCLIP)

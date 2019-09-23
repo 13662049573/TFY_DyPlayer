@@ -83,7 +83,7 @@ typedef NS_ENUM(NSInteger, DBGetDateOption) {
 // 获取单条数据
 - (TFY_DownloadModel *)getModelWithOption:(DBGetDateOption)option url:(NSString *)url
 {
-    NSArray *resultSet;
+    NSArray *resultSet=[NSArray array];
     switch (option) {
         case DBGetDateOptionModelWithUrl:
             resultSet = [TFY_ModelSqlite query:[TFY_DownloadModel class] where:[NSString stringWithFormat:@"url=%@",url]];
@@ -106,7 +106,7 @@ typedef NS_ENUM(NSInteger, DBGetDateOption) {
 // 获取数据集合
 - (NSArray<TFY_DownloadModel *> *)getDateWithOption:(DBGetDateOption)option
 {
-    NSArray *resultSet;
+    NSArray *resultSet=[NSArray array];;
     switch (option) {
         case DBGetDateOptionAllCacheData:
             resultSet = [TFY_ModelSqlite query:[TFY_DownloadModel class]];

@@ -108,7 +108,7 @@ static NSString * herdertify4 = @"TFY_MineFooderReusableView";
 }
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     
-    UICollectionReusableView *reusableView = nil;
+    UICollectionReusableView *reusableView =[UICollectionReusableView new];
     if (kind == UICollectionElementKindSectionHeader){
         TFY_mineReusableView *herder = (TFY_mineReusableView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:herdertify3 forIndexPath:indexPath];
         herder.delegate = self;

@@ -408,6 +408,7 @@
 		36ADA43522D2E4B40092D4D9 /* TFY_PlayerVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_PlayerVideoCell.m; sourceTree = "<group>"; };
 		36ADA43A22D2F35B0092D4D9 /* TFY_MoreTwoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_MoreTwoController.h; sourceTree = "<group>"; };
 		36ADA43B22D2F35B0092D4D9 /* TFY_MoreTwoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_MoreTwoController.m; sourceTree = "<group>"; };
+		5667904B2335B86500C0D69B /* TFY_DyPlayer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TFY_DyPlayer.entitlements; sourceTree = "<group>"; };
 		DA6B0211655CE73597B95500 /* Pods-TFY_DyPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFY_DyPlayer.debug.xcconfig"; path = "Target Support Files/Pods-TFY_DyPlayer/Pods-TFY_DyPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		E216F578C346786F978935EF /* libPods-TFY_DyPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TFY_DyPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -961,6 +962,7 @@
 		365AD98B22CF071F005F95DA /* TFY_DyPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				5667904B2335B86500C0D69B /* TFY_DyPlayer.entitlements */,
 				365AD9C022CF091B005F95DA /* AppDelegate */,
 				365AD9C322CF091B005F95DA /* Class */,
 				365AD9BF22CF091B005F95DA /* ITool */,
@@ -1793,7 +1795,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1846,7 +1848,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1860,9 +1862,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = TFY_DyPlayer/TFY_DyPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4ZJRM2VA5;
+				DEVELOPMENT_TEAM = 246ETN6ZKR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TFY_DyPlayer/PCH/Player_PrefixHeader.pch;
 				INFOPLIST_FILE = TFY_DyPlayer/Info.plist;
@@ -1874,7 +1877,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.LianQianLianjiCompany.player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1884,9 +1888,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = TFY_DyPlayer/TFY_DyPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4ZJRM2VA5;
+				DEVELOPMENT_TEAM = 246ETN6ZKR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TFY_DyPlayer/PCH/Player_PrefixHeader.pch;
 				INFOPLIST_FILE = TFY_DyPlayer/Info.plist;
@@ -1898,7 +1903,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.LianQianLianjiCompany.player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -559,7 +559,7 @@
 
 - (BOOL)pauseWhenAppResignActive {
     NSNumber *number = objc_getAssociatedObject(self, _cmd);
-    if (number) return number.boolValue;
+    if (number.boolValue) return number.boolValue;
     self.pauseWhenAppResignActive = YES;
     return YES;
 }
@@ -817,7 +817,7 @@
 
 - (BOOL)exitFullScreenWhenStop {
     NSNumber *number = objc_getAssociatedObject(self, _cmd);
-    if (number) return number.boolValue;
+    if (number.boolValue) return number.boolValue;
     self.exitFullScreenWhenStop = YES;
     return YES;
 }
@@ -840,14 +840,14 @@
 
 - (BOOL)allowOrentitaionRotation {
     NSNumber *number = objc_getAssociatedObject(self, _cmd);
-    if (number) return number.boolValue;
+    if (number.boolValue) return number.boolValue;
     self.allowOrentitaionRotation = YES;
     return YES;
 }
 
 -(BOOL)systemrotationbool{
     NSNumber *number = objc_getAssociatedObject(self, _cmd);
-    if (number) return number.boolValue;
+    if (number.boolValue) return number.boolValue;
     self.systemrotationbool = NO;
     return NO;
 }
@@ -1187,7 +1187,7 @@
 
 - (BOOL)stopWhileNotVisible {
     NSNumber *number = objc_getAssociatedObject(self, _cmd);
-    if (number) return number.boolValue;
+    if (number.boolValue) return number.boolValue;
     self.stopWhileNotVisible = YES;
     return YES;
 }
@@ -1210,14 +1210,14 @@
 
 - (CGFloat)playerDisapperaPercent {
     NSNumber *number = objc_getAssociatedObject(self, _cmd);
-    if (number) return number.floatValue;
+    if (number.floatValue) return number.floatValue;
     self.playerDisapperaPercent = 0.5;
     return 0.5;
 }
 
 - (CGFloat)playerApperaPercent {
     NSNumber *number = objc_getAssociatedObject(self, _cmd);
-    if (number) return number.floatValue;
+    if (number.floatValue) return number.floatValue;
     self.playerApperaPercent = 0.0;
     return 0.0;
 }
@@ -1254,7 +1254,7 @@
 
 - (void)playTheIndexPath:(NSIndexPath *)indexPath {
     self.playingIndexPath = indexPath;
-    TFY_PlayerVideoModel *assetURL;
+    TFY_PlayerVideoModel *assetURL=[TFY_PlayerVideoModel new];
     if (self.sectionAssetURLs.count) {
         assetURL = self.sectionAssetURLs[indexPath.section][indexPath.row];
     } else if (self.assetUrlMododels.count) {
@@ -1265,7 +1265,7 @@
 }
 
 - (void)playTheIndexPath:(NSIndexPath *)indexPath scrollToTop:(BOOL)scrollToTop completionHandler:(void (^ _Nullable)(void))completionHandler {
-    TFY_PlayerVideoModel *assetURL;
+    TFY_PlayerVideoModel *assetURL=[TFY_PlayerVideoModel new];;
     if (self.sectionAssetURLs.count) {
         assetURL = self.sectionAssetURLs[indexPath.section][indexPath.row];
     } else if (self.assetUrlMododels.count) {

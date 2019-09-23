@@ -550,7 +550,7 @@
         UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
         return cell;
     }
-    return nil;
+    return [UIView new];
 }
 
 - (void)tfy_scrollToRowAtIndexPath:(NSIndexPath *)indexPath completionHandler:(void (^ __nullable)(void))completionHandler {
@@ -635,7 +635,7 @@
 
 - (BOOL)tfy_shouldAutoPlay {
     NSNumber *number = objc_getAssociatedObject(self, _cmd);
-    if (number) return number.boolValue;
+    if (number.boolValue) return number.boolValue;
     self.tfy_shouldAutoPlay = YES;
     return YES;
 }
