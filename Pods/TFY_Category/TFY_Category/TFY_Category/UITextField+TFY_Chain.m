@@ -25,8 +25,7 @@ UITextField *tfy_textField(void){
     WSelf(myself);
     return ^(NSString *title_str,CGFloat font,UIColor *color){
         myself.placeholder = title_str;
-        [myself setValue:color forKeyPath:@"_placeholderLabel.textColor"];
-        [myself setValue:[UIFont systemFontOfSize:font] forKeyPath:@"_placeholderLabel.font"];
+        myself.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName: color ,NSFontAttributeName:[UIFont systemFontOfSize:font]}];
         return myself;
     };
 }

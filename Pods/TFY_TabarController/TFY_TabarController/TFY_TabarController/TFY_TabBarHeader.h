@@ -12,9 +12,6 @@
 #import "TFY_TabBar.h"
 #import "TFY_TabBarItem.h"
 #import "TFY_TabBarController.h"
-//系统的
-#import "TFY_TabBarAnimation.h"
-#import "UITabBar+TFY_Animation.h"
-#import "UITabBarItem+TFY_Animation.h"
+
 
 #endif /* TFY_TabBarHeader_h */

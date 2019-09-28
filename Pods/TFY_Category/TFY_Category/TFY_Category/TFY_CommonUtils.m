@@ -12,6 +12,8 @@
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
+//获取idfa
+#import <AdSupport/ASIdentifierManager.h>
 #import <sys/socket.h>
 #import <netinet/in.h>
 #pragma 手机授权需求系统库头文件
@@ -37,6 +39,10 @@
 #include <sys/types.h>
 #include <sys/sysctl.h>
 #import <objc/runtime.h>
+#include <sys/sysctl.h>
+#include <sys/socket.h>
+#include <net/if.h>
+#include <net/if_dl.h>
 #define ARRAY_SIZE(a) sizeof(a)/sizeof(a[0])
 #pragma *******************************************判断获取网络数据****************************************
 
@@ -272,6 +278,71 @@ const char* jailbreak_tool_pathes[] = {
     else if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyeHRPD"]){netconnType = @"HRPD";}
     else if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyLTE"]){netconnType = @"4G";}
     return netconnType;
+}
++(NSString *)getDeviceIDFA{
+    ASIdentifierManager *asIM = [[ASIdentifierManager alloc] init];
+    NSString *idfaStr = [asIM.advertisingIdentifier UUIDString];
+    return idfaStr;
+}
+
++(NSString *)getDeviceIDFV{
+    NSString* idfvStr      = [[UIDevice currentDevice] identifierForVendor].UUIDString;
+    return idfvStr;
+}
+//Git上的erica的UIDevice扩展文件，以前可用但由于IOKit framework没有公开，所以也无法使用。就算手动导入，依旧无法使用，看来获取IMEI要失败了,同时失败的还有IMSI。不过还存在另外一种可能，Stack Overflow上有人提供采用com.apple.coretelephony.Identity.get entitlement方法，but device must be jailbroken；在此附上链接，供大家参考：http://stackoverflow.com/questions/16667988/how-to-get-imei-on-iphone-5/16677043#16677043
++(NSString *)getDeviceIMEI{
+    NSString* imeiStr = @"回头吧，翻遍国内外了，failed，快看代码注释";
+    return imeiStr;
+}
+
++(NSString*)getDeviceMAC{
+    int mib[6];
+    size_t len;
+    char *buf;
+    unsigned char *ptr;
+    struct if_msghdr *ifm;
+    struct sockaddr_dl *sdl;
+    
+    mib[0] = CTL_NET;
+    mib[1] = AF_ROUTE;
+    mib[2] = 0;
+    mib[3] = AF_LINK;
+    mib[4] = NET_RT_IFLIST;
+    
+    if ((mib[5] = if_nametoindex("en0")) == 0) {
+        printf("Error: if_nametoindex error\n");
+        return NULL;
+    }
+    
+    if (sysctl(mib, 6, NULL, &len, NULL, 0) < 0) {
+        printf("Error: sysctl, take 1\n");
+        return NULL;
+    }
+    
+    if ((buf = malloc(len)) == NULL) {
+        printf("Could not allocate memory. error!\n");
+        return NULL;
+    }
+    
+    if (sysctl(mib, 6, buf, &len, NULL, 0) < 0) {
+        printf("Error: sysctl, take 2");
+        free(buf);
+        return NULL;
+    }
+    
+    ifm = (struct if_msghdr *)buf;
+    sdl = (struct sockaddr_dl *)(ifm + 1);
+    ptr = (unsigned char *)LLADDR(sdl);
+    NSString *macStr = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",*ptr, *(ptr+1), *(ptr+2), *(ptr+3), *(ptr+4), *(ptr+5)];
+    free(buf);
+    return macStr;
+}
++(NSString*)getDeviceUUID{
+    
+    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    assert(uuid != NULL);
+    CFStringRef uuidStr = CFUUIDCreateString(NULL, uuid);
+    return (__bridge NSString *)(uuidStr);
 }
 
 #pragma ---------------------------------------手机权限授权方法开始---------------------------------------

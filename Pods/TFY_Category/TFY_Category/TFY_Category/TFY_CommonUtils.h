@@ -244,6 +244,26 @@ typedef void (^callBack) (BOOL granted, id  data);
  */
 +(NSString *)getNetType;
 /**
+ * 获取设备IDFA
+ */
++(NSString *)getDeviceIDFA;
+/**
+ *  获取设备IDFV
+ */
++(NSString *)getDeviceIDFV;
+/**
+ *  获取设备IMEI
+ */
++(NSString*)getDeviceIMEI;
+/**
+ *  获取设备MAC
+ */
++(NSString*)getDeviceMAC;
+/**
+ *  获取设备UUID
+ */
++(NSString*)getDeviceUUID;
+/**
  *  截取字符串后几位
  */
 +(NSString *)substring:(NSString *)substring length:(NSInteger )lengths;

@@ -131,6 +131,7 @@
 		3669FEF122D46E3500B43DAF /* TFY_MycollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3669FEF022D46E3500B43DAF /* TFY_MycollectionController.m */; };
 		3669FEF422D46E5100B43DAF /* TFY_SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3669FEF322D46E5100B43DAF /* TFY_SettingController.m */; };
 		3688011C22E996EF001DDC90 /* QuickregistrationData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3688011B22E996EF001DDC90 /* QuickregistrationData.json */; };
+		36A02914233C20C00014E24C /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 36A02913233C20AB0014E24C /* libc++abi.tbd */; };
 		36ADA43622D2E4B40092D4D9 /* TFY_PlayerVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36ADA43522D2E4B40092D4D9 /* TFY_PlayerVideoCell.m */; };
 		36ADA43C22D2F35B0092D4D9 /* TFY_MoreTwoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36ADA43B22D2F35B0092D4D9 /* TFY_MoreTwoController.m */; };
 		B6EB0B0A785A5F74A2D9D5EA /* libPods-TFY_DyPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E216F578C346786F978935EF /* libPods-TFY_DyPlayer.a */; };
@@ -404,6 +405,7 @@
 		3669FEF222D46E5100B43DAF /* TFY_SettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_SettingController.h; sourceTree = "<group>"; };
 		3669FEF322D46E5100B43DAF /* TFY_SettingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_SettingController.m; sourceTree = "<group>"; };
 		3688011B22E996EF001DDC90 /* QuickregistrationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QuickregistrationData.json; sourceTree = "<group>"; };
+		36A02913233C20AB0014E24C /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
 		36ADA43422D2E4B40092D4D9 /* TFY_PlayerVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_PlayerVideoCell.h; sourceTree = "<group>"; };
 		36ADA43522D2E4B40092D4D9 /* TFY_PlayerVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_PlayerVideoCell.m; sourceTree = "<group>"; };
 		36ADA43A22D2F35B0092D4D9 /* TFY_MoreTwoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_MoreTwoController.h; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6EB0B0A785A5F74A2D9D5EA /* libPods-TFY_DyPlayer.a in Frameworks */,
+				36A02914233C20C00014E24C /* libc++abi.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +445,7 @@
 		083DBA89382FC8E02183E14B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				36A02913233C20AB0014E24C /* libc++abi.tbd */,
 				E216F578C346786F978935EF /* libPods-TFY_DyPlayer.a */,
 			);
 			name = Frameworks;

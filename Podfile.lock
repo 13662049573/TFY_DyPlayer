@@ -14,16 +14,16 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - IQKeyboardManager (6.4.2)
+  - IQKeyboardManager (6.5.0)
   - MJRefresh (3.2.0)
   - ReactiveObjC (3.1.1)
   - TFY_AutoLayout (2.4.7)
-  - TFY_Category (2.5.6)
+  - TFY_Category (2.5.8)
   - TFY_Model (2.6.4)
   - TFY_Navigation (2.1.0)
   - TFY_ProgressHUD (2.2.0)
   - TFY_SimplifytableViewKit (2.1.4)
-  - TFY_TabarController (2.1.4)
+  - TFY_TabarController (2.1.8)
 
 DEPENDENCIES:
   - AFNetworking
@@ -54,17 +54,17 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  IQKeyboardManager: b41e0a4943fbac4c11a239d31a688667675f962e
+  IQKeyboardManager: 700e5155d6a292383b54e8678aec769e14fc78fc
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   TFY_AutoLayout: 3856cd8766f67cd8aeca980281d630e28cdbfd12
-  TFY_Category: 1c77bff5a219d93a4391c0581bd1d1e363afcd25
+  TFY_Category: 4b33efa7653d0209695f9b49762a1aaf4599f17d
   TFY_Model: 0edfcd6fc0a026be792fa51e42ca638d6f07655e
   TFY_Navigation: 7e6c6eeb8f318233bf88fab31181e5408e4c04fb
   TFY_ProgressHUD: 543348e5fc1a835fb1d0450a0f0b6ac97dcbd788
   TFY_SimplifytableViewKit: 6cb8041d11077228028f5440b6e79aa4714e1a53
-  TFY_TabarController: f2765752bbf01a39937c6179b73abbfae2126fc2
+  TFY_TabarController: 3a89fbaac347db9feaf6fdaa143524266d46d37b
 
 PODFILE CHECKSUM: 380f7c388ab8d3cce81c5703f8d344c592227311
 
-COCOAPODS: 1.8.0.beta.2
+COCOAPODS: 1.8.1
