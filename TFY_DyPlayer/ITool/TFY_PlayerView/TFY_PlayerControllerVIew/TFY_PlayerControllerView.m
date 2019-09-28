@@ -673,7 +673,20 @@
 
 -(UIView *)statusBar{
     if (!_statusBar) {
-        _statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+        
+        if (@available(iOS 13.0, *)) {
+            UIStatusBarManager *statusBarManager = [UIApplication sharedApplication].keyWindow.windowScene.statusBarManager;
+            if ([statusBarManager respondsToSelector:@selector(createLocalStatusBar)]) {
+                UIView *_localStatusBar = [statusBarManager performSelector:@selector(createLocalStatusBar)];
+                if ([_localStatusBar respondsToSelector:@selector(statusBar)]) {
+                    _statusBar = [_localStatusBar performSelector:@selector(statusBar)];
+                }
+            }
+        } else {
+            // Fallback on earlier versions
+            _statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+        }
+        
     }
     return _statusBar;
 }
