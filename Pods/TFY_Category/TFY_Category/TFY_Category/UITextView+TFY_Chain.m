@@ -333,7 +333,7 @@ UITextView *tfy_textView(void){
     dispatch_once(&once_t, ^{
         UITextField *textField = [[UITextField alloc] init];
         textField.placeholder = @" ";
-        color = [textField valueForKeyPath:@"_placeholderLabel.textColor"];
+        color = [UIColor lightTextColor];
     });
     return color;
 }
