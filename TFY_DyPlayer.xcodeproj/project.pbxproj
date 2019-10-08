@@ -1869,7 +1869,7 @@
 				CODE_SIGN_ENTITLEMENTS = TFY_DyPlayer/TFY_DyPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 246ETN6ZKR;
+				DEVELOPMENT_TEAM = RP2K7V42S5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TFY_DyPlayer/PCH/Player_PrefixHeader.pch;
 				INFOPLIST_FILE = TFY_DyPlayer/Info.plist;
@@ -1895,7 +1895,7 @@
 				CODE_SIGN_ENTITLEMENTS = TFY_DyPlayer/TFY_DyPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 246ETN6ZKR;
+				DEVELOPMENT_TEAM = RP2K7V42S5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TFY_DyPlayer/PCH/Player_PrefixHeader.pch;
 				INFOPLIST_FILE = TFY_DyPlayer/Info.plist;

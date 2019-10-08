@@ -39,6 +39,7 @@ static TFY_ImagePicker *bdImagePickerInstance = nil;
                             allowsEditing:(BOOL)allowsEditing
                              finishAction:(ImagePickerFinishAction)finishAction {
     _viewController = viewController;
+    _viewController.modalPresentationStyle = UIModalPresentationFullScreen;
     _finishAction = finishAction;
     _allowsEditing = allowsEditing;
     
@@ -75,6 +76,7 @@ static TFY_ImagePicker *bdImagePickerInstance = nil;
     picker.delegate = self;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     picker.allowsEditing = _allowsEditing;
+    picker.modalPresentationStyle = UIModalPresentationFullScreen;
     [_viewController presentViewController:picker animated:NO completion:^{}];
 }
 -(void)PickerControllerSourceTypePhotoLibrary{
@@ -82,6 +84,7 @@ static TFY_ImagePicker *bdImagePickerInstance = nil;
     picker.delegate = self;
     picker.allowsEditing = _allowsEditing;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.modalPresentationStyle = UIModalPresentationFullScreen;
     [_viewController presentViewController:picker animated:NO completion:^{}];
 }
 
