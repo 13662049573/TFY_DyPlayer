@@ -43,6 +43,10 @@
  *  初始y字体颜色为白色 ，也可以自己创建设置自定义颜色
  */
 @property (nonatomic, strong)UIColor *titleColor;
+/**
+ * 导航栏背景图片
+ */
+@property (nonatomic, strong)UIImage *backimage;
 @end
 
 

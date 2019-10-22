@@ -29,6 +29,8 @@
                 
                 [TFY_NetWorking getWithUrl:GET_TOPIC_KEY refreshCache:NO params:@{@"vsize":@(self.vsize)} success:^(id response) {
                     
+                    
+                    
                     TFY_recommendModel *models = [TFY_recommendModel tfy_ModelWithJson:response];
                     [subscriber sendNext:models];
                     [subscriber sendCompleted];

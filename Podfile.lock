@@ -18,12 +18,12 @@ PODS:
   - MJRefresh (3.2.0)
   - ReactiveObjC (3.1.1)
   - TFY_AutoLayout (2.4.7)
-  - TFY_Category (2.6.0)
+  - TFY_Category (2.6.7)
   - TFY_Model (2.6.4)
-  - TFY_Navigation (2.1.0)
+  - TFY_Navigation (2.1.2)
   - TFY_ProgressHUD (2.2.0)
   - TFY_SimplifytableViewKit (2.1.4)
-  - TFY_TabarController (2.1.8)
+  - TFY_TabarController (2.1.9)
 
 DEPENDENCIES:
   - AFNetworking
@@ -58,13 +58,13 @@ SPEC CHECKSUMS:
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   TFY_AutoLayout: 3856cd8766f67cd8aeca980281d630e28cdbfd12
-  TFY_Category: 8af04bd801b0753c547e1d8db15826a94d9cd570
+  TFY_Category: f13b435b033d3ed8bf3b645ec703daa9d011014f
   TFY_Model: 0edfcd6fc0a026be792fa51e42ca638d6f07655e
-  TFY_Navigation: 7e6c6eeb8f318233bf88fab31181e5408e4c04fb
+  TFY_Navigation: ba7d9ab33214a06ec440c21e8ea623cd086179ac
   TFY_ProgressHUD: 543348e5fc1a835fb1d0450a0f0b6ac97dcbd788
   TFY_SimplifytableViewKit: 6cb8041d11077228028f5440b6e79aa4714e1a53
-  TFY_TabarController: 3a89fbaac347db9feaf6fdaa143524266d46d37b
+  TFY_TabarController: d49c7349dfa1279aa08e1a0ccff178e84a8030d6
 
 PODFILE CHECKSUM: 380f7c388ab8d3cce81c5703f8d344c592227311
 
-COCOAPODS: 1.8.1
+COCOAPODS: 1.8.3

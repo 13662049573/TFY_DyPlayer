@@ -131,10 +131,7 @@ UITextView *tfy_textView(void);
  * 位置
  */
 @property(nonatomic,assign) CGPoint location;
-/**
- * 默认颜色
- */
-+ (UIColor *_Nonnull)defaultColor;
+
 @end
 
 NS_ASSUME_NONNULL_END

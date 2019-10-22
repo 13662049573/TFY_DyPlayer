@@ -179,6 +179,22 @@ UIButton *tfy_button(void){
         return myself;
     };
 }
+
+- (UIButton *(^)(BOOL adjustsWidth))tfy_adjustsWidth{
+    WSelf(weakSelf);
+    return ^(BOOL adjustsWidth){
+        weakSelf.titleLabel.adjustsFontSizeToFitWidth = adjustsWidth;
+        return weakSelf;
+    };
+}
+
+- (UIButton *(^)(NSAttributedString *attributrdString))tfy_attributrdString{
+    WSelf(weakSelf);
+    return ^(NSAttributedString *attributrdString){
+        [weakSelf setAttributedTitle:attributrdString forState:UIControlStateNormal];
+        return weakSelf;
+    };
+}
 /**
  *  button的大小要大于 图片大小+文字大小+spacing   spacing 图片和文字的间隔
  */

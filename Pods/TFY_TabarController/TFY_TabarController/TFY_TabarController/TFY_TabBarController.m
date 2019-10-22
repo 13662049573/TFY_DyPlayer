@@ -43,22 +43,6 @@
     [self.view addSubview:self.tabBar];
 }
 
-//- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-//    UIInterfaceOrientationMask orientationMask = UIInterfaceOrientationMaskAll;
-//    for (UIViewController *viewController in [self viewControllers]) {
-//        if (![viewController respondsToSelector:@selector(supportedInterfaceOrientations)]) {
-//            return UIInterfaceOrientationMaskPortrait;
-//        }
-//
-//        UIInterfaceOrientationMask supportedOrientations = [viewController supportedInterfaceOrientations];
-//
-//        if (orientationMask > supportedOrientations) {
-//            orientationMask = supportedOrientations;
-//        }
-//    }
-//    return orientationMask;
-//}
-
 // 是否支持自动转屏
 - (BOOL)shouldAutorotate {
     return YES;
@@ -173,7 +157,7 @@
         CGFloat tabBarHeight = CGRectGetHeight([[weakSelf tabBar] frame]);
         
         if (!tabBarHeight) {
-            tabBarHeight = tabbar_iPhoneX? 59 : 49;
+            tabBarHeight = tabbar_iPhoneX? 70 : 50;
         }
         
         if (!self->_tabBarHidden) {

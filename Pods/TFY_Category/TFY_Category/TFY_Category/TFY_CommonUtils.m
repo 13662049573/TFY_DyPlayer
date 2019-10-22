@@ -822,15 +822,13 @@ const char* jailbreak_tool_pathes[] = {
 {
     NSError *error=nil;
     //蓝牙第一次以及之后每次蓝牙状态改变都会调用这个函数
-    if(central.state==CBCentralManagerStatePoweredOn)
-    {
+    if(central.state == CBManagerStatePoweredOn){
         NSLog(@"蓝牙设备开着");
-        
         self.block(YES, error);
     }
-    else
-    {
+    else{
         NSLog(@"蓝牙设备关着");
+        [self pushSetting:@"蓝牙设备"];
         self.block(NO, error);
     }
 }

@@ -464,5 +464,22 @@ static void RGBtoHSV( float r, float g, float b, float *h, float *s, float *v )
     CGFloat b = arc4random()%50;
     return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0];
 }
+/**
+ *   ios 13 添加颜色的判断 提供了的新方法，可以在 block 中判断 traitCollection.userInterfaceStyle，根据系统模式设置返回的颜色。
+ */
++(UIColor *)generateDynamicColor:(UIColor *)lightColor darkColor:(UIColor *)darkColor{
+    if (@available(iOS 13.0, *)) {
+        UIColor *dyColor = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
+            if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleLight) {
+                return lightColor;
+            }else {
+                return darkColor;
+            }
+        }];
+        return dyColor;
+    }else{
+        return lightColor;
+    }
+}
 
 @end

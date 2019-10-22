@@ -7,7 +7,8 @@
 //
 
 #import "TFY_TabBarItem.h"
-
+/// iPhoneX  iPhoneXS  iPhoneXS Max  iPhoneXR 机型判断
+#define tabbar_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? ((NSInteger)(([[UIScreen mainScreen] currentMode].size.height/[[UIScreen mainScreen] currentMode].size.width)*100) == 216) : NO)
 @interface TFY_TabBarItem ()
 @property UIImage *unselectedBackgroundImage;
 @property UIImage *selectedBackgroundImage;
@@ -42,7 +43,7 @@
 - (void)commonInitialization {
     // Setup defaults
     
-    [self setBackgroundColor:[UIColor whiteColor]];
+    [self setBackgroundColor:[UIColor redColor]];
     
     self.titlePositionAdjustment = UIOffsetZero;
     
@@ -94,18 +95,18 @@
     // Draw image and title
     
     if (![_title length]) {
-        [image drawInRect:CGRectMake(roundf(frameSize.width / 2 - imageSize.width / 2) + _imagePositionAdjustment.horizontal, roundf(frameSize.height / 2 - imageSize.height / 2) + _imagePositionAdjustment.vertical, imageSize.width, imageSize.height)];
+        [image drawInRect:CGRectMake(roundf(frameSize.width / 2 - imageSize.width / 2) + _imagePositionAdjustment.horizontal, roundf(frameSize.height / 2 - imageSize.height / 2) + _imagePositionAdjustment.vertical-(tabbar_iPhoneX?10:0), imageSize.width, imageSize.height)];
     } else {
         if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_8_0) {
             titleSize = [_title boundingRectWithSize:CGSizeMake(frameSize.width, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: titleAttributes[NSFontAttributeName]} context:nil].size;
             
             imageStartingY = roundf((frameSize.height - imageSize.height - titleSize.height) / 2);
             
-            [image drawInRect:CGRectMake(roundf(frameSize.width / 2 - imageSize.width / 2) + _imagePositionAdjustment.horizontal, imageStartingY + _imagePositionAdjustment.vertical, imageSize.width, imageSize.height)];
+            [image drawInRect:CGRectMake(roundf(frameSize.width / 2 - imageSize.width / 2) + _imagePositionAdjustment.horizontal, imageStartingY + _imagePositionAdjustment.vertical-(tabbar_iPhoneX?10:0), imageSize.width, imageSize.height)];
             
             CGContextSetFillColorWithColor(context, [titleAttributes[NSForegroundColorAttributeName] CGColor]);
             
-            [_title drawInRect:CGRectMake(roundf(frameSize.width / 2 - titleSize.width / 2) + _titlePositionAdjustment.horizontal, imageStartingY + imageSize.height + _titlePositionAdjustment.vertical+3, titleSize.width, titleSize.height)
+            [_title drawInRect:CGRectMake(roundf(frameSize.width / 2 - titleSize.width / 2) + _titlePositionAdjustment.horizontal, imageStartingY + imageSize.height + _titlePositionAdjustment.vertical-(tabbar_iPhoneX?5:0), titleSize.width, titleSize.height)
                 withAttributes:titleAttributes];
         }
     }

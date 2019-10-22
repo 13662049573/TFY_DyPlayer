@@ -293,19 +293,6 @@ UITextView *tfy_textView(void){
     };
 }
 
-+ (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self.class,NSSelectorFromString(@"dealloc") ),class_getInstanceMethod(self.class, NSSelectorFromString(@"swizzledDealloc")));
-}
-
-- (void)swizzledDealloc {
-    // 移除观察
-    [self removeObserver:self forKeyPath:@"font"];
-    //移除监听
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-    [self swizzledDealloc];
-}
-
 #pragma mark -   设置placeholderLabel
 - (UILabel *)placeholdLabel{
     
@@ -319,7 +306,7 @@ UITextView *tfy_textView(void){
         objc_setAssociatedObject(self, labelKey, label, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         //添加通知
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLabel) name:UITextViewTextDidChangeNotification object:nil];
-        //监听font的变化
+        //监听font的变化        
         [self addObserver:self forKeyPath:@"font" options:NSKeyValueObservingOptionNew context:nil];
     }
     return label;

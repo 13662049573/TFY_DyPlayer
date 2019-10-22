@@ -123,4 +123,8 @@ typedef NS_ENUM(NSInteger, GradientChangeDirection) {
  *  随机颜色
  */
 +(UIColor *)tfy_randomColor;
+/**
+ *   ios 13 添加颜色的判断 提供了的新方法，可以在 block 中判断 traitCollection.userInterfaceStyle，根据系统模式设置返回的颜色。
+ */
++(UIColor *)generateDynamicColor:(UIColor *)lightColor darkColor:(UIColor *)darkColor;
 @end

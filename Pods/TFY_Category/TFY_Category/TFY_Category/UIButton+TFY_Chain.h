@@ -76,6 +76,14 @@ UIButton *tfy_button(void);
  */
 @property(nonatomic,copy,readonly)UIButton *(^tfy_action)(id object, SEL action);
 /**
+ *  文本可变字符串输入
+ */
+@property(nonatomic,copy,readonly)UIButton *(^tfy_attributrdString)(NSAttributedString *attributrdString);
+/**
+ *  文本是否开启随宽度文字超出自动缩小
+ */
+@property(nonatomic,copy,readonly)UIButton *(^tfy_adjustsWidth)(BOOL adjustsWidth);
+/**
  *  button的大小要大于 图片大小+文字大小+spacing   spacing 图片和文字的间隔
  */
 -(void)tfy_layouEdgeInsetsPosition:(ButtonPosition)postion spacing:(CGFloat)spacing;
