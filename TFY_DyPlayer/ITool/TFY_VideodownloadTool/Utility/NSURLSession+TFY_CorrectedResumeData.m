@@ -75,7 +75,7 @@ static NSString *const resumeOriginalRequest = @"NSURLSessionResumeOriginalReque
         NSMutableDictionary *dic = array[1];
         id obj = [dic objectForKey:[NSString stringWithFormat:@"__nsurlrequest_proto_prop_obj_%ld", (long)j]];
         if (obj) {
-            [dic setValue:obj forKey:[NSString stringWithFormat:@"$%d", i + j]];
+            [dic setValue:obj forKey:[NSString stringWithFormat:@"$%ld", i + j]];
             [dic removeObjectForKey:[NSString stringWithFormat:@"__nsurlrequest_proto_prop_obj_%ld", (long)j]];
             [array replaceObjectAtIndex:1 withObject:dic];
             archive[@"$objects"] = array;
@@ -88,7 +88,7 @@ static NSString *const resumeOriginalRequest = @"NSURLSessionResumeOriginalReque
         NSMutableDictionary *dic = array[1];
         id obj = [dic objectForKey:@"__nsurlrequest_proto_props"];
         if (obj) {
-            [dic setValue:obj forKey:[NSString stringWithFormat:@"$%d", i + j]];
+            [dic setValue:obj forKey:[NSString stringWithFormat:@"$%ld", i + j]];
             [dic removeObjectForKey:@"__nsurlrequest_proto_props"];
             [array replaceObjectAtIndex:1 withObject:dic];
             archive[@"$objects"] = array;
