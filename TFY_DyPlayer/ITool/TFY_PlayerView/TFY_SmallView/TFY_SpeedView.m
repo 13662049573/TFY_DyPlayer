@@ -27,7 +27,7 @@
         NSArray *titleArr = @[@"0.5X",@"0.75X",@"1.0X",@"1.25X",@"1.5X",@"2X"];
         [titleArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
            
-            UIButton *button = tfy_button().tfy_text(titleArr[idx]).tfy_font(14).tfy_action(self,@selector(buttonClick:));
+            UIButton *button = tfy_button().tfy_text(titleArr[idx],UIControlStateNormal).tfy_font([UIFont systemFontOfSize:14]).tfy_action(self,@selector(buttonClick:),UIControlEventTouchUpInside);
             [button setTitleColor:[UIColor tfy_colorWithHex:LCColor_B5] forState:UIControlStateNormal];
             [button setTitleColor:[UIColor tfy_colorWithHex:LCColor_A1] forState:UIControlStateSelected];
             button.tag = idx+1;

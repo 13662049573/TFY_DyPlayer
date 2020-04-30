@@ -41,7 +41,7 @@
 -(UIButton *)carryout_btn{
     if (!_carryout_btn) {
         _carryout_btn = tfy_button();
-        _carryout_btn.tfy_backgroundColor(LCColor_A1, 0.7).tfy_title(@"完成", LCColor_B5, 15).tfy_cornerRadius(25).tfy_action(self, @selector(carryout_btnCliick));
+        _carryout_btn.tfy_backgroundColor(LCColor_A1, 0.7).tfy_title(@"完成",UIControlStateNormal, LCColor_B5,UIControlStateNormal, [UIFont systemFontOfSize:15]).tfy_cornerRadius(25).tfy_action(self, @selector(carryout_btnCliick),UIControlEventTouchUpInside);
     }
     return _carryout_btn;
 }

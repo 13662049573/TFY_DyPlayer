@@ -94,7 +94,7 @@
 -(UILabel *)name_label{
     if (!_name_label) {
         _name_label = tfy_label();
-        _name_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(14).tfy_alignment(0).tfy_numberOfLines(0);
+        _name_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:14]).tfy_alignment(0).tfy_numberOfLines(0);
     }
     return _name_label;
 }
@@ -102,7 +102,7 @@
 -(UILabel *)daoyan_label{
     if (!_daoyan_label) {
         _daoyan_label = tfy_label();
-        _daoyan_label.tfy_textcolor(LCColor_B2, 1).tfy_fontSize(13).tfy_alignment(0).tfy_numberOfLines(0);
+        _daoyan_label.tfy_textcolor(LCColor_B2, 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(0).tfy_numberOfLines(0);
     }
     return _daoyan_label;
 }
@@ -110,7 +110,7 @@
 -(UILabel *)type_label{
     if (!_type_label) {
         _type_label = tfy_label();
-        _type_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(14).tfy_alignment(0).tfy_numberOfLines(0);
+        _type_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:14]).tfy_alignment(0).tfy_numberOfLines(0);
     }
     return _type_label;
 }
@@ -119,7 +119,7 @@
 -(UILabel *)zhuyan_label{
     if (!_zhuyan_label) {
         _zhuyan_label = tfy_label();
-        _zhuyan_label.tfy_textcolor(LCColor_B2, 1).tfy_fontSize(13).tfy_alignment(0).tfy_numberOfLines(0);
+        _zhuyan_label.tfy_textcolor(LCColor_B2, 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(0).tfy_numberOfLines(0);
     }
     return _zhuyan_label;
 }
@@ -127,7 +127,7 @@
 -(UILabel *)hits_label{
     if (!_hits_label) {
         _hits_label = tfy_label();
-        _hits_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(14).tfy_alignment(2);
+        _hits_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:14]).tfy_alignment(2);
     }
     return _hits_label;
 }
@@ -135,7 +135,7 @@
 -(UILabel *)pf_label{
     if (!_pf_label) {
         _pf_label = tfy_label();
-        _pf_label.tfy_textcolor(LCColor_B5, 1).tfy_fontSize(13).tfy_alignment(1).tfy_backgroundColor(@"1AA3F0", 1).tfy_cornerRadius(5);
+        _pf_label.tfy_textcolor(LCColor_B5, 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(1).tfy_backgroundColor(@"1AA3F0", 1).tfy_cornerRadius(5);
     }
     return _pf_label;
 }
@@ -145,7 +145,7 @@
 -(UILabel *)state_label{
     if (!_state_label) {
         _state_label = tfy_label();
-        _state_label.tfy_textcolor(LCColor_B5, 1).tfy_fontSize(13).tfy_alignment(1);
+        _state_label.tfy_textcolor(LCColor_B5, 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(1);
     }
     return _state_label;
 }
@@ -153,7 +153,7 @@
 -(UILabel *)addtime_label{
     if (!_addtime_label) {
         _addtime_label = tfy_label();
-        _addtime_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(14).tfy_alignment(1);
+        _addtime_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:14]).tfy_alignment(1);
     }
     return _addtime_label;
 }

@@ -60,7 +60,7 @@
 -(TFY_FiledtextView *)phone_View{
     if (!_phone_View) {
         _phone_View = [TFY_FiledtextView new];
-        _phone_View.tfy_placeholder(@"注册手机号", 14, [UIColor tfy_colorWithHex:LCColor_B4]).tfy_keyboardType(UIKeyboardTypeNumberPad).tfy_borderStyle(UITextBorderStyleRoundedRect);
+        _phone_View.tfy_placeholder(@"注册手机号", [UIFont systemFontOfSize:14], [UIColor tfy_colorWithHex:LCColor_B4]).tfy_keyboardType(UIKeyboardTypeNumberPad).tfy_borderStyle(UITextBorderStyleRoundedRect);
         _phone_View.delegate = self;
     }
     return _phone_View;
@@ -68,7 +68,7 @@
 -(TFY_FiledtextView *)password_View{
     if (!_password_View) {
         _password_View = [TFY_FiledtextView new];
-        _password_View.tfy_placeholder(@"注册密码", 14, [UIColor tfy_colorWithHex:LCColor_B4]).tfy_keyboardType(UIKeyboardTypeASCIICapable).tfy_secureTextEntry(YES).tfy_borderStyle(UITextBorderStyleRoundedRect);
+        _password_View.tfy_placeholder(@"注册密码", [UIFont systemFontOfSize:14], [UIColor tfy_colorWithHex:LCColor_B4]).tfy_keyboardType(UIKeyboardTypeASCIICapable).tfy_secureTextEntry(YES).tfy_borderStyle(UITextBorderStyleRoundedRect);
         _password_View.delegate = self;
     }
     return _password_View;

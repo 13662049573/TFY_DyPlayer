@@ -91,7 +91,7 @@
 -(UILabel *)title_label{
     if (!_title_label) {
         _title_label = tfy_label();
-        _title_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(14).tfy_alignment(0);
+        _title_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:14]).tfy_alignment(0);
     }
     return _title_label;
 }
@@ -99,7 +99,7 @@
 -(UILabel *)arrow_label{
     if (!_arrow_label) {
         _arrow_label = tfy_label();
-        _arrow_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(13).tfy_alignment(2);
+        _arrow_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(2);
         _arrow_label.hidden = YES;
     }
     return _arrow_label;

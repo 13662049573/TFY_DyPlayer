@@ -11,7 +11,7 @@
 #import "TFY_KoreandramaController.h"
 #import "TFY_USdramaController.h"
 #import "TFY_mineController.h"
-@interface TabBar_Controller ()
+@interface TabBar_Controller ()<TfySY_TabBarDelegate>
 
 @end
 
@@ -21,47 +21,55 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self setupViewControllers];
+    // 添加子VC
+     [self addChildViewControllers];
+    
+    UIImage *images = [UIImage tfy_createImage:[UIColor tfy_colorWithHex:LCColor_B7]];
+    [self.tabBar setShadowImage:images];
     
 }
 
-- (void)setupViewControllers {
+- (void)addChildViewControllers{
+    TFY_NavigationController *vc1 = [self navcontroller:[TFY_recommendController new]];
+    TFY_NavigationController *vc2 = [self navcontroller:[TFY_KoreandramaController new]];
+    TFY_NavigationController *vc3 = [self navcontroller:[TFY_USdramaController new]];
+    TFY_NavigationController *vc4 = [self navcontroller:[TFY_mineController new]];
     
-    TFY_NavigationController *navVC = [[TFY_NavigationController alloc]initWithRootViewController:[[TFY_recommendController alloc] init]];
-    navVC.backIconImage = [[UIImage imageNamed:@"arrrow_iocn_my"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    TFY_NavigationController *navVC2 = [[TFY_NavigationController alloc]initWithRootViewController:[[TFY_KoreandramaController alloc] init]];
-    navVC2.backIconImage = [[UIImage imageNamed:@"arrrow_iocn_my"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    TFY_NavigationController *navVC3 = [[TFY_NavigationController alloc]initWithRootViewController:[[TFY_USdramaController alloc] init]];
-    navVC3.backIconImage = [[UIImage imageNamed:@"arrrow_iocn_my"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    TFY_NavigationController *navVC4 = [[TFY_NavigationController alloc]initWithRootViewController:[[TFY_mineController alloc] init]];
-    navVC4.backIconImage = [[UIImage imageNamed:@"arrrow_iocn_my"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    navVC4.barBackgroundColor = [UIColor tfy_colorWithHex:LCColor_A1];
-    navVC4.titleColor = [UIColor tfy_colorWithHex:LCColor_B5];
-    
-    [self setViewControllers:@[navVC,navVC2,navVC3,navVC4]];
-    
-    [self customizeTabBarForController:self];
+    NSArray <NSDictionary *>*VCArray =
+        @[@{@"vc":vc1,@"normalImg":@"tabLive",@"selectImg":@"tabLiveHL",@"itemTitle":@"推荐"},
+          @{@"vc":vc2,@"normalImg":@"tabYule",@"selectImg":@"tabYuleHL",@"itemTitle":@"韩剧"},
+          @{@"vc":vc3,@"normalImg":@"tabDiscovery",@"selectImg":@"tabDiscoveryHL",@"itemTitle":@"美剧"},
+          @{@"vc":vc4,@"normalImg":@"tabFocus",@"selectImg":@"tabFocusHL",@"itemTitle":@"我的"}];
+        NSMutableArray *tabBarConfs = @[].mutableCopy;
+        NSMutableArray *tabBarVCs = @[].mutableCopy;
+        [VCArray enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            TfySY_TabBarConfigModel *model = [TfySY_TabBarConfigModel new];
+            model.itemTitle = [obj objectForKey:@"itemTitle"];
+            model.selectImageName = [obj objectForKey:@"selectImg"];
+            model.normalImageName = [obj objectForKey:@"normalImg"];
+            model.normalColor = [UIColor tfy_colorWithHex:LCColor_B2];
+            model.selectColor = [UIColor tfy_colorWithHex:LCColor_A1];
+            UIViewController *vc = [obj objectForKey:@"vc"];
+            [tabBarVCs addObject:vc];
+            [tabBarConfs addObject:model];
+        }];
+        self.ControllerArray = tabBarVCs;
+        self.tfySY_TabBar = [[TfySY_TabBar alloc] initWithTabBarConfig:tabBarConfs];
+        self.tfySY_TabBar.backgroundColor = [UIColor whiteColor];
+        self.tfySY_TabBar.delegate = self;
+        [self.tabBar addSubview:self.tfySY_TabBar];
+
 }
-- (void)customizeTabBarForController:(TFY_TabBarController *)tabBarController{
-    
-    NSArray *normalImages = @[@"tabLive", @"tabYule",@"tabDiscovery",@"tabFocus"];
-    NSArray *selectedImages=@[@"tabLiveHL", @"tabYuleHL",@"tabDiscoveryHL",@"tabFocusHL"];
-    NSArray *titleArr = @[@"推荐",@"韩剧",@"美剧",@"我的"];
-    NSInteger index = 0;
-    for (TFY_TabBarItem *item in [[tabBarController tabBar] items]) {
-        //背景图片和点击效果图片
-        [item setBackgroundImage:[UIImage tfy_createImage:[UIColor tfy_colorWithHex:@"fafafa"]] withUnImage:[UIImage tfy_createImage:[UIColor tfy_colorWithHex:@"fafafa"]]];
-        //添加按钮图片
-        [item setFinishedSelectedImage:selectedImages[index] withFinishedUnselectedImage:normalImages[index]];
-        
-        [item tabarTitle:titleArr[index] FontOfSize:13 ColorTitle:[UIColor tfy_colorWithHex:LCColor_A1] Unselectedtitle:titleArr[index] UnTitleFontOfSize:13 UnColorTitle:[UIColor tfy_colorWithHex:LCColor_B2]];
-        
-        index++;
-    }
+- (void)TfySY_TabBar:(TfySY_TabBar *)tabbar selectIndex:(NSInteger)index{
+    [self setSelectedIndex:index];
 }
 
+-(TFY_NavigationController *)navcontroller:(UIViewController *)vc{
+    TFY_NavigationController *nav = [[TFY_NavigationController alloc] initWithRootViewController:vc];
+    nav.backimage = [UIImage tfy_imageFromGradientColors:@[[UIColor tfy_colorWithHex:LCColor_A1],[UIColor tfy_colorWithHex:LCColor_A1]] gradientType:TFY_GradientTypeUprightToLowleft imageSize:CGSizeMake(Width_W, kNavBarHeight)];
+    nav.backIconImage = [[UIImage imageNamed:@"arrrow_iocn_my"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav.titleColor = [UIColor tfy_colorWithHex:LCColor_B5];
+    return nav;
+}
 
 @end

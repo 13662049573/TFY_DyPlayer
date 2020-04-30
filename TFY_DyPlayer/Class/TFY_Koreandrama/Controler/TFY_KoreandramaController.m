@@ -42,6 +42,7 @@
 -(void)HerderDelegateClick:(NSInteger)index model:(nonnull Data *)model{
     TFY_MoreTwoController *vc = [TFY_MoreTwoController new];
     vc.model = model;
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end

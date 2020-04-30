@@ -10,55 +10,67 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^DownLoadDataCallBack)(NSData *data, NSError *error);
+typedef void (^DownLoadDataCallBack)(NSData * __nullable data, NSError * __nullable error);
 typedef void (^DownloadProgressBlock)(unsigned long long total, unsigned long long current);
 
 @interface ImageDownloader : NSObject<NSURLSessionDownloadDelegate>
 
-@property (nonatomic, strong) NSURLSession *session;
-@property (nonatomic, strong) NSURLSessionDownloadTask *task;
+@property (nonatomic, strong) NSURLSession * __nullable session;
+@property (nonatomic, strong) NSURLSessionDownloadTask * __nullable task;
 
 @property (nonatomic, assign) unsigned long long totalLength;
 @property (nonatomic, assign) unsigned long long currentLength;
 
-@property (nonatomic, copy) DownloadProgressBlock progressBlock;
-@property (nonatomic, copy) DownLoadDataCallBack callbackOnFinished;
+@property (nonatomic, copy) DownloadProgressBlock __nullable progressBlock;
+@property (nonatomic, copy) DownLoadDataCallBack __nullable callbackOnFinished;
 
-- (void)tfy_startDownloadImageWithUrl:(NSString *)url progress:(DownloadProgressBlock)progress finished:(DownLoadDataCallBack)finished;
+- (void)tfy_startDownloadImageWithUrl:(NSString *__nullable)url progress:(DownloadProgressBlock __nullable)progress finished:(DownLoadDataCallBack __nullable)finished;
 
 @end
 
-typedef void (^ImageBlock)(UIImage *image);
+static inline UIImageView * _Nonnull tfy_imageView(void){
+    return [[UIImageView alloc] init];
+}
+static inline UIImageView * _Nonnull tfy_imageframe(CGRect rect){
+    return [[UIImageView alloc] initWithFrame:rect];
+}
+
+typedef void (^ImageBlock)(UIImage *__nullable image);
 
 @interface UIImageView (TFY_Chain)
 /**
- *  初始化
- */
-UIImageView *tfy_imageView(void);
-/**
  *  图片赋值字符串
  */
-@property(nonatomic,copy,readonly)UIImageView *(^tfy_imge)(NSString *image_str);
+@property(nonatomic,copy,readonly)UIImageView *_Nonnull(^_Nonnull tfy_imge)(NSString *_Nonnull image_str);
 /**
  *  图片添加圆角
  */
-@property(nonatomic,copy,readonly)UIImageView *(^tfy_cornerRadius)(CGFloat cornerRadius);
+@property(nonatomic,copy,readonly)UIImageView *_Nonnull(^_Nonnull tfy_cornerRadius)(CGFloat cornerRadius);
 /**
  *  添加四边框和color 颜色  borderWidth 宽度
  */
-@property(nonatomic,copy,readonly)UIImageView *(^tfy_borders)(CGFloat borderWidth,NSString *color);
+@property(nonatomic,copy,readonly)UIImageView *_Nonnull(^_Nonnull tfy_borders)(CGFloat borderWidth,NSString *color);
 /**
  *  添加四边 color_str阴影颜色  shadowRadius阴影半径
  */
-@property(nonatomic,copy,readonly)UIImageView *(^tfy_bordersShadow)(NSString *color_str, CGFloat shadowRadius);
+@property(nonatomic,copy,readonly)UIImageView *_Nonnull(^_Nonnull tfy_bordersShadow)(NSString *_Nonnull color_str, CGFloat shadowRadius);
 /**
  *  图片HexString 背景颜色 alpha 背景透明度
  */
-@property(nonatomic,copy,readonly)UIImageView *(^tfy_backgroundColor)(NSString *HexString,CGFloat alpha);
+@property(nonatomic,copy,readonly)UIImageView *_Nonnull(^_Nonnull tfy_backgroundColor)(NSString *_Nonnull HexString,CGFloat alpha);
+/**
+ *  透明度
+ */
+@property(nonatomic,copy,readonly)UIImageView *_Nonnull(^_Nonnull tfy_alpha)(CGFloat alpha);
+/**
+ *  交互
+ */
+@property(nonatomic,copy,readonly)UIImageView *_Nonnull(^_Nonnull tfy_userInteractionEnabled)(BOOL userInteractionEnabled);
+
 /**
  *  图片 点击方法
  */
-@property(nonatomic,copy,readonly)UIImageView *(^tfy_action)(id object, SEL action);
+@property(nonatomic,copy,readonly)UIImageView *_Nonnull(^_Nonnull tfy_action)(id object, SEL action);
 /**
  *  下载完图像后获取/设置回调块。来自网络或磁盘的图像对象。
  */
@@ -78,11 +90,11 @@ UIImageView *tfy_imageView(void);
 /**
  *  使用`url`和占位符设置imageView`image`。下载是异步和缓存的。
  */
-- (void)tfy_setImageWithURLString:(NSString *)url placeholderImageName:(NSString *)placeholderImageName;
+- (void)tfy_setImageWithURLString:(NSString *__nullable)url placeholderImageName:(NSString *__nullable)placeholderImageName;
 /**
  *  使用`url`和占位符设置imageView`image`。下载是异步和缓存的。
  */
-- (void)tfy_setImageWithURLString:(NSString *)url placeholder:(UIImage *)placeholderImage;
+- (void)tfy_setImageWithURLString:(NSString *__nullable)url placeholder:(UIImage *__nullable)placeholderImage;
 /**
  * placeholderImage最初要设置的图像，直到图像请求完成。
  * completion操作完成时调用的块。该块没有返回值
@@ -91,7 +103,7 @@ UIImageView *tfy_imageView(void);
  * 指示图像是从本地缓存还是从网络检索的。
  * 第四个参数是原始图像网址。
  */
-- (void)tfy_setImageWithURLString:(NSString *)url placeholder:(UIImage *)placeholderImage completion:(void (^)(UIImage *image))completion;
+- (void)tfy_setImageWithURLString:(NSString *__nullable)url placeholder:(UIImage *__nullable)placeholderImage completion:(void (^)(UIImage *image))completion;
 /**
  * placeholderImageName最初要设置的图像名称，直到图像请求完成。
  * completion操作完成时调用的块。该块没有返回值
@@ -100,11 +112,11 @@ UIImageView *tfy_imageView(void);
  * 指示图像是从本地缓存还是从网络检索的。
  * 第四个参数是原始图像网址。
  */
-- (void)tfy_setImageWithURLString:(NSString *)url placeholderImageName:(NSString *)placeholderImageName completion:(void (^)(UIImage *image))completion;
+- (void)tfy_setImageWithURLString:(NSString *_Nonnull)url placeholderImageName:(NSString *_Nonnull)placeholderImageName completion:(void (^)(UIImage *_Nonnull image))completion;
 /**
  *  为UIImageView加入一个设置gif图内容的方法：
  */
--(void)tfy_setImage:(NSURL *)imageUrl;
+-(void)tfy_setImage:(NSURL *_Nonnull)imageUrl;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -464,4 +464,292 @@
     size.height = ceil(size.height);
     return size;
 }
+
+   //获取当前的时间
++(NSString*)getCurrentTimes{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    //现在时间,你可以输出来看下是什么格式
+    NSDate *datenow = [NSDate date];
+    //----------将nsdate按formatter格式转成nsstring
+    NSString *currentTimeString = [formatter stringFromDate:datenow];
+    NSLog(@"currentTimeString =  %@",currentTimeString);
+    return currentTimeString;
+}
+//获取当前时间戳有两种方法(以秒为单位)
++(NSString *)getNowTimeTimestamp{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"]; // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    //设置时区,这个对于时间的处理有时很重要
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
+    [formatter setTimeZone:timeZone];
+    NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
+    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
+    return timeSp;
+}
+ 
++(NSString *)getNowTimeTimestamp2{
+ 
+    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval a=[dat timeIntervalSince1970];
+    NSString*timeString = [NSString stringWithFormat:@"%0.f", a];//转为字符型
+    return timeString;
+}
+ //获取当前时间戳  （以毫秒为单位）
++(NSString *)getNowTimeTimestamp3{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss SSS"]; // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    //设置时区,这个对于时间的处理有时很重要
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
+    [formatter setTimeZone:timeZone];
+    NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
+    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]*1000];
+    return timeSp;
+}
+/**
+ *   给的是毫秒 返回 YYYY-MM-dd
+ */
++ (NSString *)stringToDate:(NSString *)string{
+    //给的是毫秒
+    //    NSTimeInterval time = [string doubleValue]/1000.0 + 28800;//因为时差问题要加8小时 == 28800 sec
+    //    NSDate *detaildate = [NSDate dateWithTimeIntervalSince1970:time];
+    //    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    //    NSString *currentDateStr = [dateFormatter stringFromDate:detaildate];
+    //    return currentDateStr;
+    
+    long long time=[string longLongValue];
+    
+    NSDate *d = [[NSDate alloc]initWithTimeIntervalSince1970:time/1000.0];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    
+    [formatter setDateFormat:@"YYYY-MM-dd"];
+    
+    NSString*timeString=[formatter stringFromDate:d];
+    return timeString;
+}
+/**
+ *   给的是毫秒 返回  HH:mm
+ */
++ (NSString *)stringHHMMToDate:(NSString *)string{
+    //给的是毫秒
+    //    NSTimeInterval time = [string doubleValue]/1000.0 + 28800;//因为时差问题要加8小时 == 28800 sec
+    //    NSDate *detaildate = [NSDate dateWithTimeIntervalSince1970:time];
+    //    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    //    NSString *currentDateStr = [dateFormatter stringFromDate:detaildate];
+    //    return currentDateStr;
+    
+    long long time=[string longLongValue];
+    
+    NSDate *d = [[NSDate alloc]initWithTimeIntervalSince1970:time/1000.0];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    
+    [formatter setDateFormat:@"HH:mm"];
+    
+    NSString*timeString=[formatter stringFromDate:d];
+    return timeString;
+}
+/**
+ *   给的是毫秒 返回  MM-dd HH:mm
+ */
++(NSString *)stringToDateNoYear:(NSString *)date{
+    long long time=[date longLongValue];
+    
+    NSDate *d = [[NSDate alloc]initWithTimeIntervalSince1970:time/1000.0];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    
+    [formatter setDateFormat:@"MM-dd HH:mm"];
+    
+    NSString*timeString=[formatter stringFromDate:d];
+    return timeString;
+    
+}
+/**
+*   给的是毫秒  返回  yyyy/MM/dd
+*/
++(NSString *)stringToDateOnlyYear:(NSString *)dateStr{
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    format.dateFormat = @"yyyy/MM/dd";
+    NSDate *date = [format dateFromString:dateStr];
+    
+    NSTimeInterval interval = [date timeIntervalSince1970];
+    long long totalMilliseconds = interval*1000 ;
+    return [NSString stringWithFormat:@"%lld",totalMilliseconds];
+}
+
++(NSString *)birthdayTime:(NSString *)str{
+    long long time=[str longLongValue];
+    
+    NSDate *d = [[NSDate alloc]initWithTimeIntervalSince1970:time];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    
+    [formatter setDateFormat:@"yyyy/MM/dd"];
+    
+    NSString*timeString=[formatter stringFromDate:d];
+    return timeString;
+}
+/**
+*   给的是毫秒  返回 yyyy年M月d日
+*/
++ (NSString *)dateToString:(NSString *)dateString{
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    format.dateFormat = @"yyyy年M月d日";
+    NSDate *date = [format dateFromString:dateString];
+    
+    NSTimeInterval interval = [date timeIntervalSince1970];
+    long long totalMilliseconds = interval*1000 ;
+    return [NSString stringWithFormat:@"%lld",totalMilliseconds];
+}
+/**
+ *   给的是毫秒 yyyy-MM-dd HH:mm
+ */
++(NSString *)togetherToTime:(NSString *)dateStr{
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    format.dateFormat = @"yyyy-MM-dd HH:mm";
+    NSDate *date = [format dateFromString:dateStr];
+    
+    NSTimeInterval interval = [date timeIntervalSince1970];
+    long long totalMilliseconds = interval*1000 ;
+    return [NSString stringWithFormat:@"%lld",totalMilliseconds];
+}
+/**
+*   给的是毫秒  yyyy-MM-dd HH:mm:ss
+*/
++(NSString *)chooseDateToTime:(NSString *)dateStr{
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    format.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSDate *date = [format dateFromString:dateStr];
+    
+    NSTimeInterval interval = [date timeIntervalSince1970];
+    long long totalMilliseconds = interval*1000 ;
+    return [NSString stringWithFormat:@"%lld",totalMilliseconds];
+}
+
+/**
+*   给的是分  返回 yyyy-MM-dd HH:mm
+*/
++(NSString *)timeWithStr:(NSString *)str{
+    long long time=[str longLongValue];
+    
+    NSDate *d = [[NSDate alloc]initWithTimeIntervalSince1970:time/1000.0];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    
+    NSString*timeString=[formatter stringFromDate:d];
+    return timeString;
+}
+/**
+*   给的是分  返回 HH:mm
+*/
++(NSString *)logTimeWithStr:(NSString *)str{
+    long long time=[str longLongValue];
+    
+    NSDate *d = [[NSDate alloc]initWithTimeIntervalSince1970:time/1000];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    
+    [formatter setDateFormat:@"HH:mm"];
+    
+    NSString*timeString=[formatter stringFromDate:d];
+    return timeString;
+}
+/**
+*   给的是毫秒  返回 MM.dd
+*/
++ (NSString *)secondsStringToDate:(NSString *)string{
+    //给的是秒
+    //NSTimeInterval time = [string doubleValue] + 28800;//因为时差问题要加8小时 == 28800 sec
+    NSTimeInterval time = [string doubleValue]/1000;
+    NSDate *detaildate = [NSDate dateWithTimeIntervalSince1970:time];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM.dd"];
+    NSString *currentDateStr = [dateFormatter stringFromDate:detaildate];
+    return currentDateStr;
+}
+/**
+ 移除结尾的子字符串, 可以输入多个
+ */
+- (NSString *)removeLastSubStrings:(NSString *)string, ... NS_REQUIRES_NIL_TERMINATION
+{
+    NSMutableArray *tempArr = @[].mutableCopy;
+    if (string) {
+        // 取出第一个参数
+        [tempArr addObject:string];
+        // 定义一个指向个数可变的参数列表指针；
+        va_list args;
+        // 用于存放取出的参数
+        NSString *arg;
+        // 初始化变量刚定义的va_list变量，这个宏的第二个参数是第一个可变参数的前一个参数，是一个固定的参数
+        va_start(args, string);
+        // 遍历全部参数 va_arg返回可变的参数(a_arg的第二个参数是你要返回的参数的类型)
+        while ((arg = va_arg(args, NSString *))) {
+            [tempArr addObject:arg];
+        }
+        // 清空参数列表，并置参数指针args无效
+        va_end(args);
+    }
+    
+    return [self removeLastSubStringsArray:tempArr];
+}
+
+/**
+ 移除结尾的子字符串, 使用数组传递多个
+ */
+- (NSString *)removeLastSubStringsArray:(NSArray<NSString *> *)strings {
+    NSString *result = self;
+    BOOL isHaveSubString = NO;
+    for (int i = 0; i < strings.count; i++) {
+        NSString *subString = strings[i];
+        if ([result hasSuffix:subString]) {
+            result = [result removeLastSubString:subString];
+            isHaveSubString = YES;
+        }
+    }
+    if (isHaveSubString) {
+        result = [result removeLastSubStringsArray:strings];
+    }
+    return result;
+}
+
+/**
+ 移除结尾的子字符串
+ */
+- (NSString *)removeLastSubString:(NSString *)string
+{
+    NSString *result = self;
+    if ([result hasSuffix:string]) {
+        result = [result substringToIndex:self.length - string.length];
+        result = [result removeLastSubString:string];
+    }
+    return result;
+}
+/**
+ * 判断当前的字符串是不是url
+ */
+- (BOOL)isUrl{
+    if(self == nil) {
+        return NO;
+    }
+    NSString *url;
+    if (self.length>4 && [[self substringToIndex:4] isEqualToString:@"www."]) {
+        url = [NSString stringWithFormat:@"http://%@",self];
+    }else{
+        url = self;
+    }
+    NSString *urlRegex = @"\\bhttps?://[a-zA-Z0-9\\-.]+(?::(\\d+))?(?:(?:/[a-zA-Z0-9\\-._?,'+\\&%$=~*!():@\\\\]*)+)?";
+    NSPredicate* urlTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegex];
+    return [urlTest evaluateWithObject:url];
+}
 @end

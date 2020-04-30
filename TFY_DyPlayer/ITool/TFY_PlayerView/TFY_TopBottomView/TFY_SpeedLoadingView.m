@@ -101,7 +101,7 @@
 -(UILabel *)speed_label{
     if (!_speed_label) {
         _speed_label = tfy_label();
-        _speed_label.tfy_textcolor(@"ffffff", 1).tfy_fontSize(13).tfy_alignment(1);
+        _speed_label.tfy_textcolor(@"ffffff", 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(1);
     }
     return _speed_label;
 }

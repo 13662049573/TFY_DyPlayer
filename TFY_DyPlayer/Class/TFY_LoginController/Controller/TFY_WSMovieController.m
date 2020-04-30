@@ -27,7 +27,7 @@
 -(UIButton *)enterMainButton{
     if (!_enterMainButton) {
         _enterMainButton = tfy_button();
-        _enterMainButton.tfy_text(@"进入应用").tfy_textcolor(@"ffffff").tfy_cornerRadius(10).tfy_alAlignment(1).tfy_borders(1, @"ffffff").tfy_action(self, @selector(enterMainAction:));
+        _enterMainButton.tfy_text(@"进入应用",UIControlStateNormal).tfy_textcolor(@"ffffff",UIControlStateNormal).tfy_cornerRadius(10).tfy_alAlignment(1).tfy_borders(1, @"ffffff").tfy_action(self, @selector(enterMainAction:),UIControlEventTouchUpInside);
     }
     return _enterMainButton;
 }

@@ -37,7 +37,7 @@
         NSArray *titleArr = @[@"ic_landing_qq",@"ic_landing_wechat",@"ic_landing_microblog"];
         [titleArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             
-            UIButton *button = tfy_button().tfy_image(titleArr[idx],UIControlStateNormal).tfy_action(self,@selector(buttonClick:));
+            UIButton *button = tfy_button().tfy_image(titleArr[idx],UIControlStateNormal).tfy_action(self,@selector(buttonClick:),UIControlEventTouchUpInside);
             
             button.tag = idx+200;
             [self.stackView addSubview:button];
@@ -73,7 +73,7 @@
 -(UILabel *)name_label{
     if (!_name_label) {
         _name_label = tfy_label();
-        _name_label.tfy_text(@"第三方账号快速登录").tfy_textcolor(LCColor_A2, 1).tfy_fontSize(18).tfy_alignment(1).tfy_adjustsWidth(YES);
+        _name_label.tfy_text(@"第三方账号快速登录").tfy_textcolor(LCColor_A2, 1).tfy_fontSize([UIFont systemFontOfSize:18]).tfy_alignment(1).tfy_adjustsWidth(YES);
     }
     return _name_label;
 }

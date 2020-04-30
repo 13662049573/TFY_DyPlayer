@@ -144,6 +144,7 @@ static NSString * herdertify4 = @"TFY_MineFooderReusableView";
         
         UIViewController *vc = [NSClassFromString(modes.controller) new];
         vc.navigationItem.title = modes.title_str;
+        vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

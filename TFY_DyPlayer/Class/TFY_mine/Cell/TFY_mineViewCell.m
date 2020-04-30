@@ -51,7 +51,7 @@
 -(UILabel *)title_label{
     if (!_title_label) {
         _title_label = tfy_label();
-        _title_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(15).tfy_alignment(1);
+        _title_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:15]).tfy_alignment(1);
     }
     return _title_label;
 }

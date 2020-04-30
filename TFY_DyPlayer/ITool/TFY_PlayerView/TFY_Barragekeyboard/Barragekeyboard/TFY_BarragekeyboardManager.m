@@ -240,7 +240,7 @@
     if (!_textView) {
         _textView = tfy_textView();
         _textView.placeholder = @"弹幕开始哦!";
-        _textView.placeholderColor = [UIColor tfy_colorWithHex:LCColor_B3]; _textView.tfy_enablesReturnKeyAutomatically(YES).tfy_allowsNonContiguousLayout(NO).tfy_scrollsToTop(NO).tfy_textContainerInset(UIEdgeInsetsMake(10, 10, 10, 10), 0).tfy_font(16).tfy_textcolor([UIColor tfy_colorWithHex:LCColor_B1]).tfy_keyboardAppearance(UIKeyboardAppearanceDark).tfy_cornerRadius(15).tfy_returnKeyType(UIReturnKeySend).tfy_scrollEnabled(YES);
+        _textView.placeholderColor = [UIColor tfy_colorWithHex:LCColor_B3]; _textView.tfy_enablesReturnKeyAutomatically(YES).tfy_allowsNonContiguousLayout(NO).tfy_scrollsToTop(NO).tfy_textContainerInset(UIEdgeInsetsMake(10, 10, 10, 10), 0).tfy_font([UIFont systemFontOfSize:16]).tfy_textcolor([UIColor tfy_colorWithHex:LCColor_B1]).tfy_keyboardAppearance(UIKeyboardAppearanceDark).tfy_cornerRadius(15).tfy_returnKeyType(UIReturnKeySend).tfy_scrollEnabled(YES);
         _textView.delegate = self;
     }
     return _textView;
@@ -249,7 +249,7 @@
 -(UIButton *)sendButton{
     if (!_sendButton) {
         _sendButton = tfy_button();
-        _sendButton.tfy_title(@"发送", LCColor_B5, 14).tfy_alAlignment(1).tfy_backgroundColor(LCColor_A1, 1).tfy_action(self, @selector(sendButtonCliick)).tfy_cornerRadius(20);
+        _sendButton.tfy_title(@"发送",UIControlStateNormal, LCColor_B5,UIControlStateNormal, [UIFont systemFontOfSize:14]).tfy_alAlignment(1).tfy_backgroundColor(LCColor_A1, 1).tfy_action(self, @selector(sendButtonCliick),UIControlEventTouchUpInside).tfy_cornerRadius(20);
     }
     return _sendButton;
 }
@@ -257,7 +257,7 @@
 -(UIButton *)expressionbtn{
     if (!_expressionbtn) {
         _expressionbtn = tfy_button();
-        _expressionbtn.tfy_image(@"Expression.bundle/ToolViewEmotion", UIControlStateNormal).tfy_image(@"Expression.bundle/ToolViewEmotionHL", UIControlStateHighlighted).tfy_image(@"Expression.bundle/ToolViewKeyboard", UIControlStateSelected).tfy_action(self, @selector(expressionbtnCliick:));
+        _expressionbtn.tfy_image(@"Expression.bundle/ToolViewEmotion", UIControlStateNormal).tfy_image(@"Expression.bundle/ToolViewEmotionHL", UIControlStateHighlighted).tfy_image(@"Expression.bundle/ToolViewKeyboard", UIControlStateSelected).tfy_action(self, @selector(expressionbtnCliick:),UIControlEventTouchUpInside);
     }
     return _expressionbtn;
 }

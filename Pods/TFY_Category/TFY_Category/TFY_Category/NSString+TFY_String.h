@@ -164,6 +164,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (BOOL)containsString:(NSString *)string;
 /**
+ * 判断当前的字符串是不是url
+ */
+- (BOOL)isUrl;
+/**
  * 判断字符串是否包含 set 。NSCharacterSet为一组Unicode字符。
  */
 - (BOOL)containsCharacterSet:(NSCharacterSet *)set;
@@ -199,6 +203,74 @@ NS_ASSUME_NONNULL_BEGIN
  *  计算字符串长度（一行时候）
  */
 - (CGSize)textSizeWithFont:(UIFont*)font limitWidth:(CGFloat)maxWidth;
+/**
+ * /获取当前的时间
+ */
++(NSString*)getCurrentTimes;
+/**
+ * 获取当前时间戳有两种方法(以秒为单位)
+ */
++(NSString *)getNowTimeTimestamp;
++(NSString *)getNowTimeTimestamp2;
+ /**
+  * 获取当前时间戳  （以毫秒为单位）
+  */
++(NSString *)getNowTimeTimestamp3;
+/**
+ *   给的是毫秒 返回 YYYY-MM-dd
+ */
++ (NSString *)stringToDate:(NSString *)string;
+
+/**
+ *   给的是毫秒 返回  HH:mm
+ */
++ (NSString *)stringHHMMToDate:(NSString *)string;
+/**
+ *   给的是毫秒 返回  MM-dd HH:mm
+ */
++(NSString *)stringToDateNoYear:(NSString *)date;
+/**
+ *   给的是毫秒  返回  yyyy/MM/dd
+ */
++(NSString *)stringToDateOnlyYear:(NSString *)dateStrv;
+
++(NSString *)birthdayTime:(NSString *)str;
+/**
+*   给的是毫秒  返回 yyyy年M月d日
+*/
++ (NSString *)dateToString:(NSString *)dateString;
+/**
+ *   给的是毫秒 yyyy-MM-dd HH:mm
+ */
++(NSString *)togetherToTime:(NSString *)dateStr;
+/**
+*   给的是毫秒  yyyy-MM-dd HH:mm:ss
+*/
++(NSString *)chooseDateToTime:(NSString *)dateStr;
+/**
+*   给的是分  返回 yyyy-MM-dd HH:mm
+*/
++(NSString *)timeWithStr:(NSString *)str;
+/**
+*   给的是分  返回 HH:mm
+*/
++(NSString *)logTimeWithStr:(NSString *)str;
+/**
+*   给的是毫秒  返回 MM.dd
+*/
++ (NSString *)secondsStringToDate:(NSString *)string;
+/**
+ 移除结尾的子字符串
+ */
+- (NSString *)removeLastSubString:(NSString *)string;
+/**
+ 移除结尾的子字符串, 使用数组传递多个
+ */
+- (NSString *)removeLastSubStringsArray:(NSArray<NSString *> *)strings;
+/**
+ 移除结尾的子字符串, 可以输入多个
+ */
+- (NSString *)removeLastSubStrings:(NSString *)string, ... NS_REQUIRES_NIL_TERMINATION;
 @end
 
 NS_ASSUME_NONNULL_END

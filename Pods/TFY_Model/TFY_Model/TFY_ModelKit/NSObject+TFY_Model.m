@@ -328,7 +328,7 @@ static const char ErrorKey = '\0';
 /**
  *  通过plist来创建一个模型数组 filename 文件名(仅限于mainBundle中的文件) filename 文件名(仅限于mainBundle中的文件)
  */
-+ (id)tfy_objectArrayWithFilename:(NSString *)filename{
++ (id)tfy_ModelobjectArrayWithFilename:(NSString *)filename{
     
     TFY_ExtensionAssertError(filename != nil, nil, [self class], @"filename参数为nil");
     id value = nil;;
@@ -338,7 +338,8 @@ static const char ErrorKey = '\0';
     else{
        value = [self tfy_objectArrayWithFile:[[NSBundle mainBundle] pathForResource:filename ofType:nil]];
     }
-    return value;
+    id Modelvalue = [self tfy_ModelWithJson:value];
+    return Modelvalue;
 }
 /**
  *  通过plist来创建一个模型数组 file 文件全路径 模型数组

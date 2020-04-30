@@ -16,7 +16,7 @@ static NSArray *_custumEmotions;
     if (_custumEmotions) {
         return _custumEmotions;
     }
-    _custumEmotions = [TFY_EmotionModel tfy_objectArrayWithFilename:@"Expression.bundle/normal_face.plist"];
+    _custumEmotions = [TFY_EmotionModel tfy_ModelWithJson:[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Expression.bundle/normal_face.plist" ofType:nil]]];
     return _custumEmotions;
 }
 

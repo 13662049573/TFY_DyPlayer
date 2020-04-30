@@ -1,1 +1,1 @@
-../../../TFY_AutoLayout/TFY_AutoLayout/TFY_AutoLayout/UITableViewCell+TFY_AutoHeightForCell.h
+../../../TFY_AutoLayout/TFY_AutoLayout/TFY_AutoLayout/IOS_Layout/UITableViewCell+TFY_AutoHeightForCell.h

@@ -411,7 +411,7 @@
 -(UIButton *)lockBtn{
     if (!_lockBtn) {
         _lockBtn = tfy_button();
-        _lockBtn.tfy_image(@"videoImages.bundle/unlock-nor", UIControlStateNormal).tfy_image(@"videoImages.bundle/lock-nor", UIControlStateSelected).tfy_action(self, @selector(lockButtonClickAction:));
+        _lockBtn.tfy_image(@"videoImages.bundle/unlock-nor", UIControlStateNormal).tfy_image(@"videoImages.bundle/lock-nor", UIControlStateSelected).tfy_action(self, @selector(lockButtonClickAction:),UIControlEventTouchUpInside);
     }
     return _lockBtn;
 }
@@ -422,7 +422,7 @@
         TFY_PLAYER_WS(myself);
         _speedView.Speekback = ^(CGFloat rate) {
             myself.player.rate = rate;
-            myself.bottomToolView.speed_btn.tfy_text([NSString stringWithFormat:@"%.2fX",rate]);
+            myself.bottomToolView.speed_btn.tfy_text([NSString stringWithFormat:@"%.2fX",rate],UIControlStateNormal);
         };
     }
     return _speedView;

@@ -52,7 +52,7 @@
 -(TFY_FiledtextView *)textfiled{
     if (!_textfiled) {
         _textfiled = [TFY_FiledtextView new];
-        _textfiled.tfy_placeholder(@"请输入你的称呼", 14, [UIColor tfy_colorWithHex:LCColor_B2]).tfy_font(15).tfy_borderStyle(UITextBorderStyleRoundedRect).tfy_borders(1, [UIColor tfy_colorWithHex:LCColor_A1]).tfy_cornerRadius(8).tfy_alAlignment(1);
+        _textfiled.tfy_placeholder(@"请输入你的称呼", [UIFont systemFontOfSize:14], [UIColor tfy_colorWithHex:LCColor_B2]).tfy_font([UIFont systemFontOfSize:15]).tfy_borderStyle(UITextBorderStyleRoundedRect).tfy_borders(1, [UIColor tfy_colorWithHex:LCColor_A1]).tfy_cornerRadius(8).tfy_alAlignment(1);
     }
     return _textfiled;
 }

@@ -114,78 +114,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  获取星期几
- *
- *  @return Return weekday number
- *  [1 - Sunday]
- *  [2 - Monday]
- *  [3 - Tuerday]
- *  [4 - Wednesday]
- *  [5 - Thursday]
- *  [6 - Friday]
- *  [7 - Saturday]
  */
 - (NSInteger)weekday;
 + (NSInteger)weekday:(NSDate *)date;
 
 /**
  *  获取星期几(名称)
- *
- *  @return Return weekday as a localized string
- *  [1 - Sunday]
- *  [2 - Monday]
- *  [3 - Tuerday]
- *  [4 - Wednesday]
- *  [5 - Thursday]
- *  [6 - Friday]
- *  [7 - Saturday]
  */
 - (NSString *)dayFromWeekday;
 + (NSString *)dayFromWeekday:(NSDate *)date;
 
 /**
  *  日期是否相等
- *
- *  @param anotherDate The another date to compare as NSDate
- *  @return Return YES if is same day, NO if not
  */
 - (BOOL)isSameDay:(NSDate *)anotherDate;
 
 /**
  *  是否是今天
- *
- *  @return Return if self is today
  */
 - (BOOL)isToday;
-
-/**
- *  Add days to self
- *
- *  @param days The number of days to add
- *  @return Return self by adding the gived days number
- */
-- (NSDate *)dateByAddingDays:(NSUInteger)days;
-
-/**
- *  Get the month as a localized string from the given month number
- *
- *  @param month The month to be converted in string
- *  [1 - January]
- *  [2 - February]
- *  [3 - March]
- *  [4 - April]
- *  [5 - May]
- *  [6 - June]
- *  [7 - July]
- *  [8 - August]
- *  [9 - September]
- *  [10 - October]
- *  [11 - November]
- *  [12 - December]
- *
- *  @return Return the given month as a localized string
- */
-+ (NSString *)monthWithMonthNumber:(NSInteger)month;
-
 /**
  * 根据日期返回字符串
  */
@@ -222,7 +169,133 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)hmsFormat;
 + (NSString *)ymdHmsFormat;
 
+/**当前日期加几年*/
+- (NSDate *)dateByAddingYears:(NSInteger)years;
+/**当前日期减几年*/
+- (NSDate *)dateByMinusYears:(NSInteger)years;
+/**当前日期加几月*/
+- (NSDate *)dateByAddingMonths:(NSInteger)months;
+/**当前日期减几月*/
+- (NSDate *)dateByMinusMonths:(NSInteger)months;
+/**当前日期加几周*/
+- (NSDate *)dateByAddingWeeks:(NSInteger)weeks;
+/**当前日期减几周*/
+- (NSDate *)dateByMinusWeeks:(NSInteger)weeks;
+/**当前日期加几天*/
+- (NSDate *)dateByAddingDays:(NSInteger)days;
+/**当前日期减几天*/
+- (NSDate *)dateByMinusDays:(NSInteger)days;
+/**当前日期加几小时*/
+- (NSDate *)dateByAddingHours:(NSInteger)hours;
+/**当前日期减几小时*/
+- (NSDate *)dateByMinusHours:(NSInteger)hours;
+/**当前日期加几分钟*/
+- (NSDate *)dateByAddingMinutes:(NSInteger)minutes;
+/**当前日期减几分钟*/
+- (NSDate *)dateByMinusMinutes:(NSInteger)minutes;
+/**当前日期加几秒*/
+- (NSDate *)dateByAddingSeconds:(NSInteger)seconds;
+/***当前日期减几秒*/
+- (NSDate *)dateByMinusSeconds:(NSInteger)seconds;
 
+/**
+ *  两个日期之间相差的年数
+ *  fromDateTime 开始日期
+ *  toDateTime   结束日期
+ *  天数
+ */
++ (NSInteger)yearsBetweenDate:(NSDate *)fromDateTime andDate:(NSDate *)toDateTime;
+
+/**
+ *  两个日期之间相差的月数
+ *  fromDateTime 开始日期
+ *  toDateTime   结束日期
+ *   天数
+ */
++ (NSInteger)monthsBetweenDate:(NSDate *)fromDateTime andDate:(NSDate *)toDateTime;
+
+/**
+ *  两个日期之间相差的天数
+ *  fromDateTime 开始日期
+ *  toDateTime   结束日期
+ *  天数
+ */
++ (NSInteger)daysBetweenDate:(NSDate *)fromDateTime andDate:(NSDate *)toDateTime;
+
+/**
+ *  两个日期之间相差的分钟
+ *  fromDateTime 开始日期
+ *  toDateTime   结束日期
+ *  分钟
+ */
++ (NSInteger)minutesBetweenDate:(NSDate *)fromDateTime andDate:(NSDate *)toDateTime;
+
+/**
+ *  两个日期之间相差的秒数
+ *  fromDateTime 开始日期
+ *  toDateTime   结束日期
+ *  秒数
+ */
++ (NSInteger)secondsBetweenDate:(NSDate *)fromDateTime andDate:(NSDate *)toDateTime;
+//日历需要的
+- (NSInteger)dayNumOfCurrentMonth;
+
+- (NSDate *)dateWithMonthBegainDate;
+
+- (NSDate *)dateWithWeekBegainDate;
+
+- (BOOL)isSameDayToDate:(NSDate *)date;
+
+/// 获取年
++ (NSInteger)year_str:(NSString *)dateStr;
+//计算一个月的总天数
++ (NSInteger)daysInthisMonth:(NSDate *)date;
+/// 获取月
++ (NSInteger)month_str:(NSString *)dateStr;
+/// 获取星期
++ (NSInteger)week:(NSString *)dateStr;
+/// 获取星期 中文 日
++ (NSString *)getWeekFromDate:(NSDate *)date;
+/// 获取星期 中文 周日
++ (NSString *)getChineseWeekFrom:(NSString *)dateStr;
+/// 获取日
++ (NSInteger)day_str:(NSString *)dateStr;
+/// 获取月共有多少天
++ (NSInteger)daysInMonth_str:(NSString *)dateStr;
+
+/// 获取当前日期 2018-01-01
++ (NSString *)currentDay;
+/// 获取当前小时 00:00
++ (NSString *)currentHour;
+/// 获取下月最后一天
++ (NSString *)nextMonthLastDay;
+
+/// 判断是否是今天
++ (BOOL)isToday:(NSString *)dateStr;
+/// 判断是否是明天
++ (BOOL)isTomorrow:(NSString *)dateStr;
+/// 判断是否是后天
++ (BOOL)isAfterTomorrow:(NSString *)dateStr;
+/// 判断是否是过去的时间
++ (BOOL)isHistoryTime:(NSString *)dateStr;
+
+/// 从时间戳获取具体时间 格式:6:00
++ (NSString *)hourStringWithInterval:(NSTimeInterval)timeInterval;
+/// 从时间戳获取具体小时 格式:6
++ (NSString *)hourTagWithInterval:(NSTimeInterval)timeInterval;
+/// 从毫秒级时间戳获取具体小时 格式:600
++ (NSString *)hourNumberWithInterval:(NSTimeInterval)timeInterval;
+/// 从时间戳获取具体日期 格式:2018-03-05
++ (NSString *)timeStringWithInterval:(NSTimeInterval)timeInterval;
+/// 从具体日期获取时间戳 毫秒
++ (NSTimeInterval)timeIntervalFromDateString:(NSString *)dateStr;
+
+/// 获取当前天的后几天的星期
++ (NSString *)getWeekAfterDay:(NSInteger)day;
+/// 获取当前天的后几天的日
++ (NSString *)getDayAfterDay:(NSInteger)day;
+/// 获取当前月的后几月
++ (NSString *)getMonthAfterMonth:(NSInteger)Month;
 @end
 
 NS_ASSUME_NONNULL_END

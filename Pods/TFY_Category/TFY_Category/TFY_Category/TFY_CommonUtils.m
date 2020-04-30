@@ -12,19 +12,8 @@
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
-//获取idfa
-#import <AdSupport/ASIdentifierManager.h>
-#import <sys/socket.h>
-#import <netinet/in.h>
 #pragma 手机授权需求系统库头文件
 #import <Photos/Photos.h>
-#import <EventKit/EventKit.h>
-#import <AddressBook/AddressBook.h>
-#import <Contacts/Contacts.h>
-#import <CoreLocation/CoreLocation.h>
-#import <CoreBluetooth/CoreBluetooth.h>
-#import <HealthKit/HealthKit.h>
-#import <MediaPlayer/MediaPlayer.h>
 #define IOS_10_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)
 #pragma 各种方法需要的系统头文件
 #import <CommonCrypto/CommonDigest.h>
@@ -79,14 +68,15 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     [[NSNotificationCenter defaultCenter] postNotificationName: kReachabilityChangedNotification object: noteObject];
 }
 
-@interface TFY_CommonUtils ()<CLLocationManagerDelegate,CBCentralManagerDelegate>
+@interface TFY_CommonUtils ()
 #pragma 获取网络需求
 @property(nonatomic , assign)SCNetworkReachabilityRef reachabilityRef;
-#pragma 手机授权需求
-@property(nonatomic,copy)callBack block;
-@property(nonatomic, strong)CLLocationManager *locationManager; //定位
-@property(nonatomic, strong)CBCentralManager *centralManager;    //蓝牙
-@property(nonatomic, strong)HKHealthStore *healthStore;          //健康
+@property (strong, nonatomic) dispatch_source_t timer;
+@property (assign, nonatomic) NSTimeInterval retryInterval;
+@property (assign, nonatomic) NSTimeInterval currentRetryInterval;
+@property (assign, nonatomic) NSTimeInterval maxRetryInterval;
+@property (strong, nonatomic) dispatch_queue_t queue;
+@property (copy, nonatomic) void (^reconnectBlock)(void);
 @end
 
 
@@ -99,6 +89,59 @@ const char* jailbreak_tool_pathes[] = {
     "/usr/sbin/sshd",
     "/etc/apt"
 };
+
+#pragma ------------------------------------------gcd定时器方法---------------------------------------
+
+- (instancetype)initWithInterval:(NSTimeInterval)interval repeats:(BOOL)repeats queue:(dispatch_queue_t)queue block:(void (^)(void))block {
+    self = [super init];
+    if (self) {
+        self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+        dispatch_source_set_timer(self.timer, dispatch_time(DISPATCH_TIME_NOW, interval * NSEC_PER_SEC), interval * NSEC_PER_SEC, 0);
+        dispatch_source_set_event_handler(self.timer, ^{
+            if (!repeats) {
+                dispatch_source_cancel(self.timer);
+            }
+            block();
+        });
+        dispatch_resume(self.timer);
+    }
+    return self;
+}
+
+- (void)dealloc {
+    [self cancel];
+    
+    [self stopNotifier];
+    if (_reachabilityRef != NULL)
+    {
+        CFRelease(_reachabilityRef);
+    }
+}
+
+//暂停
+- (void)pause{
+    if (self.timer) {
+        dispatch_suspend(self.timer);
+    }
+}
+//继续
+- (void)resume{
+    if (self.timer) {
+        dispatch_resume(self.timer);
+    }
+}
+//启动
+- (void)start{
+    [self resume];
+}
+//销毁
+- (void)cancel {
+    if (self.timer) {
+        dispatch_source_cancel(self.timer);
+    }
+}
+
+
 #pragma ------------------------------------------手机获取网络监听方法---------------------------------------
 
 + (instancetype)reachabilityWithHostName:(NSString *)hostName{
@@ -168,14 +211,6 @@ const char* jailbreak_tool_pathes[] = {
     if (_reachabilityRef != NULL)
     {
         SCNetworkReachabilityUnscheduleFromRunLoop(_reachabilityRef, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
-    }
-}
-
-- (void)dealloc{
-    [self stopNotifier];
-    if (_reachabilityRef != NULL)
-    {
-        CFRelease(_reachabilityRef);
     }
 }
 
@@ -279,11 +314,6 @@ const char* jailbreak_tool_pathes[] = {
     else if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyLTE"]){netconnType = @"4G";}
     return netconnType;
 }
-+(NSString *)getDeviceIDFA{
-    ASIdentifierManager *asIM = [[ASIdentifierManager alloc] init];
-    NSString *idfaStr = [asIM.advertisingIdentifier UUIDString];
-    return idfaStr;
-}
 
 +(NSString *)getDeviceIDFV{
     NSString* idfvStr      = [[UIDevice currentDevice] identifierForVendor].UUIDString;
@@ -365,327 +395,6 @@ const char* jailbreak_tool_pathes[] = {
 {
     return [TFY_CommonUtils shareInstance] ;
 }
-/**
- * 获取权限 type       类型  block      回调
- */
-- (void)permissonType:(TFY_PermissionType)type withHandle:(callBack)block{
-    self.block = block;
-    switch (type) {
-        case TFY_PermissionTypePhoto:
-        {
-            [self permissionTypePhotoAction];
-        }
-            break;
-        case TFY_PermissionTypeCamera:
-        {
-            [self permissionTypeCameraAction];
-        }
-            break;
-        case TFY_PermissionTypeMic:
-        {
-            [self permissionTypeMicAction];
-        }
-            break;
-        case TFY_PermissionTypeLocationWhen:
-        {
-            [self permissionTypeLocationWhenAction];
-        }
-            break;
-        case TFY_PermissionTypeCalendar:
-        {
-            [self permissionTypeCalendarAction];
-        }
-            break;
-        case TFY_PermissionTypeContacts:
-        {
-            [self permissionTypeContactsAction];
-        }
-            break;
-        case TFY_PermissionTypeBlue:
-        {
-            [self permissionTypeBlueAction];
-        }
-            break;
-        case TFY_PermissionTypeRemaine:
-        {
-            [self permissionTypeRemainerAction];
-        }
-            break;
-        case TFY_PermissionTypeHealth:
-        {
-            [self permissionTypeHealthAction];
-        }
-            break;
-        case TFY_PermissionTypeMediaLibrary:
-        {
-            [self permissionTypeMediaLibraryAction];
-        }
-            break;
-        default:
-            break;
-    }
-}
-/*
- *相册权限
- */
-- (void)permissionTypePhotoAction{
-    PHAuthorizationStatus photoStatus = [PHPhotoLibrary authorizationStatus];
-    __block TFY_CommonUtils *weakSelf = self;
-    if (photoStatus == PHAuthorizationStatusNotDetermined) {
-        
-        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-            if (status == PHAuthorizationStatusAuthorized) {
-                weakSelf.block(YES, @(photoStatus));
-            } else {
-                weakSelf.block(NO, @(photoStatus));
-            }
-        }];
-    } else if (photoStatus == PHAuthorizationStatusAuthorized) {
-        self.block(YES, @(photoStatus));
-    } else if(photoStatus == PHAuthorizationStatusRestricted||photoStatus == PHAuthorizationStatusDenied){
-        self.block(NO, @(photoStatus));
-        [self pushSetting:@"相册权限"];
-        
-    }else{
-        self.block(NO, @(photoStatus));
-    }
-}
-
-/*
- *相机权限
- */
-- (void)permissionTypeCameraAction{
-    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-    __block TFY_CommonUtils *weakSelf = self;
-    if(authStatus == AVAuthorizationStatusNotDetermined){
-        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-            weakSelf.block(granted, @(authStatus));
-        }];
-    }  else if (authStatus == AVAuthorizationStatusAuthorized) {
-        self.block(YES, @(authStatus));
-    } else if(authStatus == AVAuthorizationStatusRestricted||authStatus == AVAuthorizationStatusDenied){
-        self.block(NO, @(authStatus));
-        [self pushSetting:@"相机权限"];
-        
-    }else{
-        self.block(NO, @(authStatus));
-    }
-}
-
-/*
- *麦克风权限
- */
-- (void)permissionTypeMicAction{
-    AVAudioSessionRecordPermission micPermisson = [[AVAudioSession sharedInstance] recordPermission];
-    __block TFY_CommonUtils *weakSelf = self;
-    if (micPermisson == AVAudioSessionRecordPermissionUndetermined) {
-        [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
-            weakSelf.block(granted, @(micPermisson));
-        }];
-    } else if (micPermisson == AVAudioSessionRecordPermissionGranted) {
-        self.block(YES, @(micPermisson));
-    } else {
-        self.block(NO, @(micPermisson));
-        [self pushSetting:@"麦克风权限"];
-    }
-}
-
-
-/*
- *获取地理位置When
- */
-- (void)permissionTypeLocationWhenAction{
-    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-    if (status == kCLAuthorizationStatusNotDetermined) {
-        
-        if (!self.locationManager) {
-            self.locationManager = [[CLLocationManager alloc] init];
-            self.locationManager.delegate = self;
-        }
-        [self.locationManager requestWhenInUseAuthorization];
-        
-    } else if (status == kCLAuthorizationStatusAuthorizedWhenInUse){
-        self.block (YES, @(status));
-    } else {
-        self.block(NO, @(status));
-        [self pushSetting:@"使用期间访问地理位置权限"];
-    }
-}
-
-/*
- *日历
- */
-- (void)permissionTypeCalendarAction{
-    EKEntityType type  = EKEntityTypeEvent;
-    __block TFY_CommonUtils *weakSelf = self;
-    EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:type];
-    if (status == EKAuthorizationStatusNotDetermined) {
-        EKEventStore *eventStore = [[EKEventStore alloc] init];
-        [eventStore requestAccessToEntityType:type completion:^(BOOL granted, NSError * _Nullable error) {
-            weakSelf.block(granted,@(status));
-        }];
-    } else if (status == EKAuthorizationStatusAuthorized) {
-        self.block(YES,@(status));
-    } else {
-        [self pushSetting:@"日历权限"];
-        self.block(NO,@(status));
-    }
-}
-
-
-/*
- *联系人
- */
-- (void)permissionTypeContactsAction{
-    CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
-    __block TFY_CommonUtils *weakSelf = self;
-    if (status == CNAuthorizationStatusNotDetermined) {
-        CNContactStore *store = [[CNContactStore alloc] init];
-        [store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
-            if (granted) {
-                weakSelf.block(granted,[weakSelf openContact]);
-            }
-            weakSelf.block(granted,@(status));
-        }];
-    } else if (status == CNAuthorizationStatusAuthorized) {;
-        self.block(YES,[self openContact]);
-    } else {
-        self.block(NO,@(status));
-        [self pushSetting:@"联系人权限"];
-    }
-}
-
-
-/*
- *蓝牙
- */
-- (void)permissionTypeBlueAction{
-    if (!self.centralManager) {
-        self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil options:nil];
-    }
-}
-
-/*
- * 提醒
- */
-- (void)permissionTypeRemainerAction{
-    EKEntityType type  = EKEntityTypeReminder;
-    __block TFY_CommonUtils *weakSelf = self;
-    EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:type];
-    if (status == EKAuthorizationStatusNotDetermined) {
-        EKEventStore *eventStore = [[EKEventStore alloc] init];
-        [eventStore requestAccessToEntityType:type completion:^(BOOL granted, NSError * _Nullable error) {
-            weakSelf.block(granted,@(status));
-        }];
-    } else if (status == EKAuthorizationStatusAuthorized) {
-        self.block(YES,@(status));
-    } else {
-        [self pushSetting:@"日历权限"];
-        self.block(NO,@(status));
-    }
-}
-
-/*
- * 健康
- */
-- (void)permissionTypeHealthAction{
-    //查看healthKit在设备上是否可用，ipad不支持HealthKit
-    NSError *error;
-    if (![HKHealthStore isHealthDataAvailable]) {self.block(NO, error);return;}
-    if (!self.healthStore) {self.healthStore = [HKHealthStore new];}
-    __block TFY_CommonUtils *weakSelf = self;
-    NSSet *writeDataTypes = [self dataTypesToWrite];//写权限
-    NSSet *readDataTypes = [self dataTypesRead];//读权限
-    [self.healthStore requestAuthorizationToShareTypes:writeDataTypes readTypes:readDataTypes completion:^(BOOL success, NSError * _Nullable error) {
-        if (success) {
-            [weakSelf readStepCount];
-        }else{
-            weakSelf.block(NO, error);
-        }
-    }];
-}
-- (NSSet *)dataTypesToWrite
-{
-    HKQuantityType *heightType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeight];
-    HKQuantityType *weightType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
-    HKQuantityType *temperatureType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyTemperature];
-    HKQuantityType *activeEnergyType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierActiveEnergyBurned];
-    
-    return [NSSet setWithObjects:heightType, temperatureType, weightType,activeEnergyType,nil];
-}
-- (NSSet *)dataTypesRead
-{
-    HKQuantityType *heightType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeight];
-    HKQuantityType *weightType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
-    HKQuantityType *temperatureType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyTemperature];
-    HKCharacteristicType *birthdayType = [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierDateOfBirth];
-    HKCharacteristicType *sexType = [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierBiologicalSex];
-    HKQuantityType *stepCountType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
-    HKQuantityType *activeEnergyType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierActiveEnergyBurned];
-    
-    return [NSSet setWithObjects:heightType, temperatureType,birthdayType,sexType,weightType,stepCountType, activeEnergyType,nil];
-}
-
-/*
- * 多媒体
- */
-- (void)permissionTypeMediaLibraryAction{
-    __block TFY_CommonUtils *weakSelf = self;
-    [MPMediaLibrary requestAuthorization:^(MPMediaLibraryAuthorizationStatus status){
-        switch (status) {
-            case MPMediaLibraryAuthorizationStatusNotDetermined: {
-                weakSelf.block(NO, @(status));
-                break;
-            }
-            case MPMediaLibraryAuthorizationStatusRestricted: {
-                weakSelf.block(NO, @(status));
-                break;
-            }
-            case MPMediaLibraryAuthorizationStatusDenied: {
-                weakSelf.block(NO, @(status));
-                break;
-            }
-            case MPMediaLibraryAuthorizationStatusAuthorized: {
-                // authorized
-                weakSelf.block(YES, @(status));
-                break;
-            }
-            default: {
-                break;
-            }
-        }
-        
-    }];
-}
-
-/*
- * 查询步数数据
- */
-- (void)readStepCount
-{
-    HKQuantityType *stepType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
-    NSSortDescriptor *timeSortDescriptor = [[NSSortDescriptor alloc] initWithKey:HKSampleSortIdentifierEndDate ascending:NO];
-    
-    __block TFY_CommonUtils *weakSelf = self;
-    HKSampleQuery *query = [[HKSampleQuery alloc] initWithSampleType:stepType predicate:[TFY_CommonUtils predicateForSamplesToday] limit:HKObjectQueryNoLimit sortDescriptors:@[timeSortDescriptor] resultsHandler:^(HKSampleQuery *query, NSArray *results, NSError *error) {
-        if(error){
-            weakSelf.block(NO, error);
-        }
-        else{
-            NSInteger totleSteps = 0;
-            for(HKQuantitySample *quantitySample in results)
-            {
-                HKQuantity *quantity = quantitySample.quantity;
-                HKUnit *heightUnit = [HKUnit countUnit];
-                double usersHeight = [quantity doubleValueForUnit:heightUnit];
-                totleSteps += usersHeight;
-            }
-            weakSelf.block(YES,@(totleSteps));
-        }
-    }];
-    [self.healthStore executeQuery:query];
-
-}
 
 /*
  *跳转设置
@@ -702,10 +411,6 @@ const char* jailbreak_tool_pathes[] = {
             if( [[UIApplication sharedApplication]canOpenURL:url] ) {
                 [[UIApplication sharedApplication]openURL:url options:@{}completionHandler:^(BOOL        success) {
                 }];
-            }
-        }else{
-            if( [[UIApplication sharedApplication]canOpenURL:url] ) {
-                [[UIApplication sharedApplication]openURL:url];
             }
         }
     }];
@@ -747,91 +452,51 @@ const char* jailbreak_tool_pathes[] = {
     return currentVC;
 }
 
-/*!
- *  @brief  当天时间段(可以获取某一段时间)
- *
- *  @return 时间段
+/**
+ *  截取控制器所生产图片
  */
-+ (NSPredicate *)predicateForSamplesToday {
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDate *now = [NSDate date];
-    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:now];
-    [components setHour:0];
-    [components setMinute:0];
-    [components setSecond: 0];
++ (void )screenSnapshot:(UIView *)snapshotView finishBlock:(void(^)(UIImage *snapShotImage))finishBlock{
+    UIView *snapshotFinalView = snapshotView;
     
-    NSDate *startDate = [calendar dateFromComponents:components];
-    NSDate *endDate = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:startDate options:0];
-    NSPredicate *predicate = [HKQuery predicateForSamplesWithStartDate:startDate endDate:endDate options:HKQueryOptionNone];
-    return predicate;
-}
-
-
-//有通讯录权限-- 获取通讯录
-- (NSArray*)openContact{
-    // 获取指定的字段
-    NSArray *keysToFetch = @[CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey];
-    CNContactFetchRequest *fetchRequest = [[CNContactFetchRequest alloc] initWithKeysToFetch:keysToFetch];
-    CNContactStore *contactStore = [[CNContactStore alloc] init];
-    NSMutableArray *arr = [NSMutableArray new];
-    [contactStore enumerateContactsWithFetchRequest:fetchRequest error:nil usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
-        //拼接姓名
-        NSString *nameStr = [NSString stringWithFormat:@"%@%@",contact.familyName,contact.givenName];
+    if([snapshotView isKindOfClass:[WKWebView class]]){
+        //WKWebView
+        snapshotFinalView = (WKWebView *)snapshotView;
         
-        NSArray *phoneNumbers = contact.phoneNumbers;
+    }else if([snapshotView isKindOfClass:[UIWebView class]]){
         
-        for (CNLabeledValue *labelValue in phoneNumbers) {
-            CNPhoneNumber *phoneNumber = labelValue.value;
-            NSString * string = phoneNumber.stringValue ;
-            //去掉电话中的特殊字符
-            string = [string stringByReplacingOccurrencesOfString:@"+86" withString:@""];
-            string = [string stringByReplacingOccurrencesOfString:@"-" withString:@""];
-            string = [string stringByReplacingOccurrencesOfString:@"(" withString:@""];
-            string = [string stringByReplacingOccurrencesOfString:@")" withString:@""];
-            string = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
-            string = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
-            [arr addObject:@{@"name":nameStr,@"phone":string}];
+        //UIWebView
+        UIWebView *webView = (UIWebView *)snapshotView;
+        snapshotFinalView = webView.scrollView;
+    }else if([snapshotView isKindOfClass:[UIScrollView class]] ||
+             [snapshotView isKindOfClass:[UITableView class]] ||
+             [snapshotView isKindOfClass:[UICollectionView class]]
+             ){
+        //ScrollView
+        snapshotFinalView = (UIScrollView *)snapshotView;
+    }else{
+        NSLog(@"不支持的类型");
+    }
+    
+    [snapshotFinalView screenSnapshot:^(UIImage *snapShotImage) {
+        if (snapShotImage != nil && finishBlock) {
+            finishBlock(snapShotImage);
         }
     }];
-    return [NSArray arrayWithArray:arr];
-    
 }
 
-#pragma mark - CLLocationManagerDelegate
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    self.block(YES, error);
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-    self.block(YES, newLocation);
-    [self stopLocationService];
-}
-
-- (void)stopLocationService
-{
-    [self.locationManager stopUpdatingLocation];
-    self.locationManager.delegate=nil;
-    self.locationManager = nil;
-}
-
-#pragma mark - CBCentralManagerDelegate
--(void)centralManagerDidUpdateState:(CBCentralManager *)central
-{
-    NSError *error=nil;
-    //蓝牙第一次以及之后每次蓝牙状态改变都会调用这个函数
-    if(central.state == CBManagerStatePoweredOn){
-        NSLog(@"蓝牙设备开着");
-        self.block(YES, error);
-    }
-    else{
-        NSLog(@"蓝牙设备关着");
-        [self pushSetting:@"蓝牙设备"];
-        self.block(NO, error);
+/**
+ * 温度单位转换方法
+ */
++(CGFloat)temperatureUnitExchangeValue:(CGFloat)value changeTo:(TFY_Temperature)unit{
+    if (unit == TFY_Fahrenheit) {
+        return 32 + 1.8 * value; //华氏度
+    }else {
+        return (value - 32) / 1.8; //摄氏度
     }
 }
+
+
 
 #pragma ------------------------------------------各种方法使用------------------------------------------
 
@@ -1675,6 +1340,34 @@ const char* jailbreak_tool_pathes[] = {
     }
     return bankNum;
 }
+
++(NSString *)hiddenEmailNum:(NSString *)EmailStr
+{
+    NSString *symbolStr = @"******************";
+    NSString * lastStr =  @"@";//截取符
+    NSRange rangeLenth = [EmailStr rangeOfString:lastStr];
+    //开始
+    NSRange rangeBegin = NSMakeRange(0, 2);
+    NSString *beginStr = [EmailStr substringWithRange:rangeBegin];
+    
+    //隐藏部分
+    NSRange rangeHidden = NSMakeRange(2, rangeLenth.location - 4);
+    NSString * hiddenStr = [EmailStr substringWithRange:rangeHidden];
+    
+    //替换隐藏部分
+    NSRange rangSymbol = NSMakeRange(0, hiddenStr.length);
+    NSString *newHiddenStr = [symbolStr substringWithRange:rangSymbol];
+    
+    //结尾
+    NSRange rangeEnd = NSMakeRange(rangeLenth.location - 2, EmailStr.length - rangeLenth.location + 2);
+    NSString *endStr = [EmailStr substringWithRange:rangeEnd];
+    
+    NSString * newStr = [NSString stringWithFormat:@"%@%@%@",beginStr,newHiddenStr,endStr];
+    
+    return newStr;
+}
+
+
 //去掉小数点后无效的0
 + (NSString *)deleteFailureZero:(NSString *)string
 {
@@ -1909,10 +1602,10 @@ const char* jailbreak_tool_pathes[] = {
     objc_property_t * properties = class_copyPropertyList(className, &outCount);
     for (unsigned int i = 0; i < outCount; i ++) {
         objc_property_t property = properties[i];
-        //属性名
-        const char * name = property_getName(property);
-        //属性描述
-        const char * propertyAttr = property_getAttributes(property);
+//        //属性名
+//        const char * name = property_getName(property);
+//        //属性描述
+//        const char * propertyAttr = property_getAttributes(property);
         //属性的特性
         unsigned int attrCount = 0;
         objc_property_attribute_t * attrs = property_copyAttributeList(property, &attrCount);
@@ -1971,6 +1664,15 @@ const char* jailbreak_tool_pathes[] = {
         return YES;
     }
     return NO;
+}
+/**
+ * 检测用户输入密码是否以字母开头，6-18位数字和字母组合
+ */
++(BOOL)detectionIsPasswordQualified:(NSString *)patternStr{
+    NSString *pattern = @"^(?![0-9]+$)(?![a-zA-Z]+$)[a-zA-Z0-9]{6,18}";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+    BOOL isMatch = [pred evaluateWithObject:patternStr];
+    return isMatch;
 }
 /**
  * 检测字符串中是否包含表情符号
@@ -2340,8 +2042,487 @@ const char* jailbreak_tool_pathes[] = {
     }
 }
 
+/**
+ *  判断是否为纯汉字
+ */
++ (BOOL)isChineseCharacters:(NSString *)string{
+    //中文编码范围是0x4e00~0x9fa5
+       NSString *regex = @"[\u4e00-\u9fa5]+";
+       
+       return [self isValidateByRegex:regex Object:string];
+}
 
+/**
+ * 判断是否包含字母
+ */
++ (BOOL)isContainLetters:(NSString *)string{
+    if (!string) {return NO;}
+    
+    NSRegularExpression *numberRegular = [NSRegularExpression regularExpressionWithPattern:@"[A-Za-z]" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSInteger count = [numberRegular numberOfMatchesInString:string options:NSMatchingReportProgress range:NSMakeRange(0, string.length)];
+    
+    //count是str中包含[A-Za-z]数字的个数，只要count>0，说明str中包含数字
+    if (count > 0) {return YES;}
+    
+    return NO;
+}
 
+/**
+ *  判断4-8位汉字：位数可更改
+ */
++ (BOOL)combinationChineseCharacters:(NSString *)string{
+    NSString *regex = @"^[\u4e00-\u9fa5]{4,8}$";
+    
+    return [self isValidateByRegex:regex Object:string];
+}
+/**
+ *  判断6-18位字母或数字组合：位数可更改
+ */
++ (BOOL)combinationOfLettersOrNumbers:(NSString *)string{
+    NSString *regex = @"^[A-Za-z0-9]{6,18}+$";
+    
+    return [self isValidateByRegex:regex Object:string];
+}
+/**
+ *  判断仅中文、字母或数字
+ */
++ (BOOL)isChineseOrLettersOrNumbers:(NSString *)string{
+    NSString *regex = @"^[A-Za-z0-9\\u4e00-\u9fa5]+?$";
+    
+    return [self isValidateByRegex:regex Object:string];
+}
+/**
+ * 判断6~18位字母开头，只能包含“字母”，“数字”，“下划线”：位数可更改
+ */
++ (BOOL)isValidPassword:(NSString *)string{
+    NSString *regex = @"^([a-zA-Z]|[a-zA-Z0-9_]|[0-9]){6,18}$";
+    return [self isValidateByRegex:regex Object:string];
+}
+/**
+ * 判断是否为大写字母
+ */
++ (BOOL)isCapitalLetters:(NSString *)string{
+    NSString *regex =@"[A-Z]*";
+       
+       return [self isValidateByRegex:regex Object:string];
+}
+
+/**
+ *  判断是否为小写字母
+ */
++ (BOOL)isLowercaseLetters:(NSString *)string{
+    NSString *regex =@"[a-z]*";
+       
+       return [self isValidateByRegex:regex Object:string];
+}
+/**
+ * 判断是否以字母开头
+ */
++ (BOOL)isLettersBegin:(NSString *)string{
+    if(string.length <= 0) {
+        
+        return NO;
+        
+    }else {
+        
+        NSString *firstStr = [string substringToIndex:1];
+        
+        NSString *regex = @"[a-zA-Z]*";
+        
+        return [self isValidateByRegex:regex Object:firstStr];
+    }
+}
+
+/**
+ * 判断是否以汉字开头
+ */
++ (BOOL)isChineseBegin:(NSString *)string{
+    if(string.length <= 0) {
+        
+        return NO;
+        
+    }else {
+        
+        NSString *firstStr = [string substringToIndex:1];
+        
+        NSString *regex = @"[\u4e00-\u9fa5]+";
+        
+        return [self isValidateByRegex:regex Object:firstStr];
+    }
+}
+
+/**
+ *  验证运营商:移动
+ */
++ (BOOL)isMobilePperators:(NSString *)string{
+    if(string.length != 11) {
+           
+           return NO;
+       }else {
+           
+           /**
+            * 移动号段正则表达式
+            */
+           NSString *CM_NUM = @"^((13[4-9])|(147)|(15[0-2,7-9])|(178)|(18[2-4,7-8]))\\d{8}|(1705)\\d{7}$";
+           
+           return [self isValidateByRegex:CM_NUM Object:string];
+       }
+}
+/** 验证运营商:联通 */
++ (BOOL)isUnicomPperators:(NSString *)string {
+    
+    if(string.length != 11) {
+        
+        return NO;
+    }else {
+        
+        /**
+         * 联通号段正则表达式
+         */
+        NSString *CU_NUM = @"^((13[0-2])|(145)|(15[5-6])|(176)|(18[5,6]))\\d{8}|(1709)\\d{7}$";
+        
+        return [self isValidateByRegex:CU_NUM Object:string];
+    }
+}
+
+/** 验证运营商:电信 */
++ (BOOL)isTelecomPperators:(NSString *)string {
+    
+    if(string.length != 11) {
+        
+        return NO;
+    }else {
+        
+        /**
+         * 电信号段正则表达式
+         */
+        NSString *CT_NUM = @"(^1(33|53|77|8[019])\\d{8}$)|(^1700\\d{7}$)";
+        
+        return [self isValidateByRegex:CT_NUM Object:string];
+    }
+}
+//验证正则表达式
++ (BOOL)isValidateByRegex:(NSString *)regex Object:(NSString *)object {
+    
+    if(object.length <= 0) {
+        
+        return NO;
+    }else {
+        
+        NSPredicate *pre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+        return [pre evaluateWithObject:object];
+    }
+}
++(BOOL)suibian:(NSArray  *)array{
+    NSMutableArray *tempArr = [NSMutableArray array];
+    NSMutableArray *tempArr2 = [NSMutableArray array];
+
+    for (int i = 1; i < array.count; i ++) {
+        if ([array[i] integerValue] > [array[i - 1] integerValue] ) {
+            
+            NSInteger max = [array[i] integerValue];
+            NSInteger min = [array[i - 1] integerValue];
+            if (max - min == 1) {
+                [tempArr addObject:@"yes"];
+            }
+        }
+    }
+    for (int i = 1; i < array.count; i ++) {
+        if ([array[i] integerValue] < [array[i - 1] integerValue]  ) {
+            
+            NSInteger max = [array[i - 1] integerValue];
+            NSInteger min = [array[i] integerValue];
+            if (max - min == 1) {
+                [tempArr2 addObject:@"yes"];
+            }
+        }
+    }
+    if (tempArr.count == 5 || tempArr2.count == 5) {
+        return YES;
+    }else{
+        
+        return NO;
+    }
+    
+}
+
++(BOOL)hasSerialSubstrWithString:(NSString *)string{
+    NSUInteger markLength = 3;
+    if(markLength > string.length){
+        return  NO;
+    }
+    
+    NSUInteger length = string.length;
+    NSUInteger substrLength = 0;
+    NSUInteger index = 0;
+    BOOL isDesc = 1;
+    // 65-90 A-Z  97-122 a-z
+    while (index < length) {
+        int asciiCode = [string characterAtIndex:index];
+        NSLog(@"%d,%lu",asciiCode,substrLength);
+        if(!(asciiCode >= 65 && asciiCode <= 90) && !(asciiCode >= 97 && asciiCode <= 122) ){
+            if(index >= length - 1){
+                return  NO;
+            }else {
+                index++;
+                substrLength = 0;
+                isDesc = NO;
+                NSLog(@"d1");
+                continue;
+            }
+            
+        }
+        if(index + 1 >= length){
+            return NO;
+        }
+        int nextAscii = [string characterAtIndex:index + 1];
+        if(!(nextAscii >= 65 && nextAscii <= 90)  && !(nextAscii >= 97 && nextAscii <= 122) ){
+            substrLength = 0;
+            index += 2;
+            continue;
+        }
+        
+        if(nextAscii - asciiCode == 1 ){
+            if(substrLength == 0){
+                substrLength++;
+                index++;
+                isDesc = NO;
+                continue;
+            }else{
+                if(isDesc){
+                    
+                    substrLength = 0;
+                    index += 1;
+                    continue;
+                }else{
+                    substrLength++;
+                    index++;
+                    if(substrLength >= markLength){
+                        return YES;
+                    }
+                    continue;
+                }
+            }
+            
+        }else if(nextAscii -asciiCode == -1){
+            
+            if(substrLength == 0){
+                substrLength++;
+                index++;
+                isDesc = YES;
+                continue;
+            }else{
+                if(isDesc){
+                    substrLength++;
+                    index++;
+                    if(substrLength >= markLength){
+                        return YES;
+                    }
+                    continue;
+                    
+                }else{
+                    substrLength = 0;
+                    index += 1;
+                    continue;
+                }
+            }
+        }else {
+            substrLength = 0;
+            index ++;
+            continue;
+        }
+    }
+    return NO;
+}
+/**
+ * pincode是相同的或连续的
+ */
++(BOOL)checkPincode:(NSString*)pincode{
+    
+    BOOL isTure = NO;//不符合规则，pincode是相同的或连续的
+    NSString *pincodeRegex = @"^(?=.*\\d+)(?!.*?([\\d])\\1{4})[\\d]{5}$";
+    NSPredicate *pincodePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pincodeRegex];
+   
+    NSMutableArray * arr = [NSMutableArray arrayWithCapacity:0];
+    if ([pincodePredicate evaluateWithObject:pincode]) {
+       
+        // 遍历字符串，按字符来遍历。每个字符将通过block参数中的substring传出
+        [pincode enumerateSubstringsInRange:NSMakeRange(0, pincode.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+            //将遍历出来的字符串添加到数组中
+            [arr addObject:substring];
+           
+        }];
+       
+        BOOL isInscend = [self judgeInscend:arr];
+        BOOL isDescend = [self judgeDescend:arr];
+        if ( !isInscend && !isDescend) {
+            isTure = YES;
+        }
+    }
+    return isTure;
+}
+
++ (BOOL)judgeInscend:(NSArray *)arr{
+    //递增12345
+    int j = 0;
+    for (int i = 0; i<arr.count; i++) {
+        if (i>0) {
+            int num = [arr[i] intValue];
+            int num_ = [arr[i-1] intValue] +1;
+            if (num == num_) {
+                j++;
+            }
+        }
+    }
+    if (j == arr.count - 1) {
+        return YES;
+    }
+    return NO;
+}
++ (BOOL)judgeDescend:(NSArray *)arr{
+    //递减54321
+    int j=0;//计数归零,用于递减判断
+    for (int i = 0; i<arr.count; i++) {
+        if (i>0) {
+            int num = [arr[i] intValue];
+            int num_ = [arr[i-1] intValue]-1;
+            if (num == num_) {
+                j++;
+            }
+        }
+    }
+    if (j == arr.count - 1) {
+        return YES;
+    }
+    return NO;
+}
+ 
+//判断是否相等
++ (BOOL)judgeEqual:(NSArray *)arr{
+    int j=0;
+    int firstNum = [arr[0] intValue];
+    for (int i = 0; i<arr.count; i++) {
+        if (firstNum == [arr[i] intValue]) {
+            j++;
+        }
+    }
+    if (j == arr.count - 1) {
+        return YES;
+    }
+    return NO;
+}
+/**
+ * 检测WIFI功能是否打开
+ */
++(BOOL)isWiFiOpened
+{
+    NSCountedSet * cset = [NSCountedSet new];
+    struct ifaddrs *interfaces;
+    if( ! getifaddrs(&interfaces) )
+    {
+        for( struct ifaddrs *interface = interfaces; interface; interface = interface->ifa_next)
+        {
+            if ( (interface->ifa_flags & IFF_UP) == IFF_UP )
+            {
+                [cset addObject:[NSString stringWithUTF8String:interface->ifa_name]];
+            }
+        }
+    }
+    return [cset countForObject:@"awdl0"] > 1 ? YES : NO;
+}
+/**判断当前时间和结束时间是否是将来  YES */
++(BOOL)compareDate:(NSDate*)stary withDate:(NSDate*)end{
+    NSComparisonResult result = [stary compare: end];
+      if (result==NSOrderedSame){
+        //相等
+        return NO;
+    }else if (result==NSOrderedAscending){
+       //结束时间大于开始时间
+        return YES;
+    }else if (result==NSOrderedDescending){
+        //结束时间小于开始时间
+        return NO;
+    }
+    return NO;
+}
+/**
+ * 识别整体字符串里面是否包含指定字符串  YES
+ */
++(BOOL)judgmentstring:(NSString *)string OfString:(NSString *)ofString{
+    BOOL str_bool= NO;
+    if([string rangeOfString:ofString].location !=NSNotFound){
+        str_bool = YES;
+    }else{
+       str_bool = NO;
+    }
+    return str_bool;
+}
+/**
+ * 获取当前IP地址
+ */
++(nullable NSString*)getCurrentWifiIP
+{
+    NSString *address = nil;
+    struct ifaddrs *interfaces = NULL;
+    struct ifaddrs *temp_addr = NULL;
+    int success = 0;
+    // retrieve the current interfaces - returns 0 on success
+    success = getifaddrs(&interfaces);
+    if (success == 0) {
+        // Loop through linked list of interfaces
+        temp_addr = interfaces;
+        while(temp_addr != NULL) {
+            if(temp_addr->ifa_addr->sa_family == AF_INET) {
+                // Check if interface is en0 which is the wifi connection on the iPhone
+                if([[NSString stringWithUTF8String:temp_addr->ifa_name] isEqualToString:@"en0"]) {
+                    // Get NSString from C String
+                    address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)];
+                }
+            }
+            temp_addr = temp_addr->ifa_next;
+        }
+    }
+    // Free memory
+    freeifaddrs(interfaces);
+    return address;
+}
+/**
+ *  拼接http://或者https://
+ */
++ (NSString *)getCompleteWebsite:(NSString *)urlStr{
+    NSString *returnUrlStr = nil;
+    NSString *scheme = nil;
+    
+    assert(urlStr != nil);
+    
+    urlStr = [urlStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if ( (urlStr != nil) && (urlStr.length != 0) ) {
+        NSRange  urlRange = [urlStr rangeOfString:@"://"];
+        if (urlRange.location == NSNotFound) {
+            returnUrlStr = [NSString stringWithFormat:@"http://%@", urlStr];
+        } else {
+            scheme = [urlStr substringWithRange:NSMakeRange(0, urlRange.location)];
+            assert(scheme != nil);
+            
+            if ( ([scheme compare:@"http"  options:NSCaseInsensitiveSearch] == NSOrderedSame)
+                || ([scheme compare:@"https" options:NSCaseInsensitiveSearch] == NSOrderedSame) ) {
+                returnUrlStr = urlStr;
+            } else {
+                //不支持的URL方案
+            }
+        }
+    }
+    return returnUrlStr;
+}
+
++ (NSString *)getStringWithRange:(NSRange)range
+{
+    NSMutableString *string = [NSMutableString string];
+    for (int i = 0; i < range.length ; i++) {
+        [string appendString:@" "];
+    }
+    return string;
+}
 
 
 /**
@@ -2547,11 +2728,43 @@ static CGRect oldframe;
     NSArray *arr = [unArch decodeObjectForKey:key];
     return arr;
 }
+
+/**
+*  将数组拆分成固定长度的子数组
+*/
++(NSArray *)splitArray:(NSArray *)array withSubSize:(int)subSize{
+    //  数组将被拆分成指定长度数组的个数
+    unsigned long count = array.count % subSize == 0 ? (array.count / subSize) : (array.count / subSize + 1);
+    //  用来保存指定长度数组的可变数组对象
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
+    
+    //利用总个数进行循环，将指定长度的元素加入数组
+    for (int i = 0; i < count; i ++) {
+        //数组下标
+        int index = i * subSize;
+        //保存拆分的固定长度的数组元素的可变数组
+        NSMutableArray *arr1 = [[NSMutableArray alloc] init];
+        //移除子数组的所有元素
+        [arr1 removeAllObjects];
+        
+        int j = index;
+        //将数组下标乘以1、2、3，得到拆分时数组的最大下标值，但最大不能超过数组的总大小
+        while (j < subSize*(i + 1) && j < array.count) {
+            [arr1 addObject:[array objectAtIndex:j]];
+            j += 1;
+        }
+        //将子数组添加到保存子数组的数组中
+        [arr addObject:[arr1 copy]];
+    }
+    return [arr copy];
+}
+
+
 /**
  *  直接跳转到手机浏览器
  */
 +(void)openURLAtSafari:(NSString *)urlString{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString] options:@{} completionHandler:^(BOOL success) {}];
 }
 /**
  *  设置语音提示
@@ -2917,5 +3130,64 @@ static CGRect oldframe;
     
     return vc.view;
 }
+/**
+ *  横屏截图长度 --- 获取主图片数据所返回的总图片长度 vertical 横屏 1 竖屏 0
+ */
++ (void)WKWebViewScroll:(WKWebView *)webView vertical:(NSInteger)vertical CaptureCompletionHandler:(void(^)(UIImage *capturedImage))completionHandler{
+    // 制作了一个UIView的副本
+    UIView *snapShotView = [webView snapshotViewAfterScreenUpdates:YES];
+    
+    snapShotView.frame = CGRectMake(webView.frame.origin.x, webView.frame.origin.y, snapShotView.frame.size.width, snapShotView.frame.size.height);
+    
+    [webView.superview addSubview:snapShotView];
+    
+    // 获取当前UIView可滚动的内容长度
+    CGPoint scrollOffset = webView.scrollView.contentOffset;
+    
+    // 向上取整数 － 可滚动长度与UIView本身屏幕边界坐标相差倍数 这里是横屏所以修改了获取方法，如果是竖屏可以改成高度
+    float maxIndex = ceilf(webView.scrollView.contentSize.height/webView.bounds.size.height);
+    if (vertical==1) {
+        maxIndex = ceilf(webView.scrollView.contentSize.width/webView.bounds.size.width);
+    }
+    // 保持清晰度
+    UIGraphicsBeginImageContextWithOptions(webView.scrollView.contentSize, YES, [UIScreen mainScreen].scale);
+    
+    // 滚动截图
+    [self ZTContentScroll:webView PageDraw:0 maxIndex:(int)maxIndex vertical:vertical drawCallback:^{
+        UIImage *capturedImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        // 恢复原UIView
+        [webView.scrollView setContentOffset:scrollOffset animated:NO];
+        [snapShotView removeFromSuperview];
+                
+        completionHandler(capturedImage);
+        
+    }];
+}
 
+// 滚动截图
++(void)ZTContentScroll:(WKWebView *)webView PageDraw:(int)index maxIndex:(int)maxIndex vertical:(NSInteger)vertical drawCallback:(void(^)(void))drawCallback{
+    CGRect splitFrame;
+    if (vertical==1) {
+        // 这里是横屏所以修改了获取方法，如果是竖屏可以改成高度 改变偏移量
+        [webView.scrollView setContentOffset:CGPointMake((float)index * webView.frame.size.width, 0)];
+        //这里是横屏所以修改了获取方法，如果是竖屏可以改成高度 改变偏移量
+        splitFrame = CGRectMake((float)index * webView.frame.size.width,0 , webView.bounds.size.width, webView.bounds.size.height);
+    }
+    else{
+        [webView.scrollView setContentOffset:CGPointMake(0, (float)index * webView.frame.size.height)];
+        
+        splitFrame = CGRectMake(0, (float)index * webView.frame.size.height, webView.bounds.size.width, webView.bounds.size.height);
+    }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [webView drawViewHierarchyInRect:splitFrame afterScreenUpdates:YES];
+        if(index < maxIndex){
+            [self ZTContentScroll:webView PageDraw: index + 1 maxIndex:maxIndex vertical:vertical drawCallback:drawCallback];
+        }else{
+            drawCallback();
+        }
+    });
+}
 @end

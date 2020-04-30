@@ -127,4 +127,18 @@ typedef NS_ENUM(NSInteger, GradientChangeDirection) {
  *   ios 13 添加颜色的判断 提供了的新方法，可以在 block 中判断 traitCollection.userInterfaceStyle，根据系统模式设置返回的颜色。
  */
 +(UIColor *)generateDynamicColor:(UIColor *)lightColor darkColor:(UIColor *)darkColor;
+/**将颜色对象转换为canvas用字符串格式*/
+-(NSString *)tfy_canvasColorString;
+/***将颜色对象转换为Web用字符串格式*/
+-(NSString *)tfy_webColorString;
+/***将颜色对象变亮*/
+-(UIColor *)tfy_lighten;
+/***将颜色对象变暗*/
+-(UIColor *)tfy_darken;
+/**将两个颜色对象混合*/
+-(UIColor *)tfy_mix:(UIColor *)c;
+/**适合各种颜色值*/
++(UIColor *)colorWithHexString:(NSString *)hexString;
+/***颜色转字符串*/
++(NSString*)stringWithColor:(UIColor *)color;
 @end

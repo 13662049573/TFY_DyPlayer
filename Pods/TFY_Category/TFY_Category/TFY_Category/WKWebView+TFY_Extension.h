@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WKWebView (TFY_Extension)
 //显示加载网页的进度条
 - (void)tfy_showProgressWithColor:(UIColor *)color;
+
+- (void )screenSnapshot:(void(^)(UIImage *snapShotImage))finishBlock;
 @end
 
 NS_ASSUME_NONNULL_END

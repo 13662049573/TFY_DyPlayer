@@ -172,7 +172,7 @@
 -(UILabel *)fastTimeLabel{
     if (!_fastTimeLabel) {
         _fastTimeLabel = tfy_label();
-        _fastTimeLabel.tfy_textcolor(@"ffffff", 1).tfy_fontSize(14).tfy_alignment(1).tfy_adjustsWidth(YES);
+        _fastTimeLabel.tfy_textcolor(@"ffffff", 1).tfy_fontSize([UIFont systemFontOfSize:14]).tfy_alignment(1).tfy_adjustsWidth(YES);
     }
     return _fastTimeLabel;
 }
@@ -180,7 +180,7 @@
 -(UILabel *)faillabel{
     if (!_faillabel) {
         _faillabel = tfy_label();
-        _faillabel.tfy_textcolor(@"ffffff", 1).tfy_fontSize(14).tfy_alignment(1).tfy_adjustsWidth(YES);
+        _faillabel.tfy_textcolor(@"ffffff", 1).tfy_fontSize([UIFont systemFontOfSize:14]).tfy_alignment(1).tfy_adjustsWidth(YES);
     }
     return _faillabel;
 }
@@ -196,7 +196,7 @@
 -(UIButton *)failBtn{
     if (!_failBtn) {
         _failBtn = tfy_button();
-        _failBtn.tfy_image(@"videoImages.bundle/replay", UIControlStateNormal).tfy_action(self, @selector(failBtn_btnClick));
+        _failBtn.tfy_image(@"videoImages.bundle/replay", UIControlStateNormal).tfy_action(self, @selector(failBtn_btnClick),UIControlEventTouchUpInside);
     }
     return _failBtn;
 }

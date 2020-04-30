@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (TFY_PlayerRotation)
-
++ (UIViewController *)currentViewController;
 @end
 
 @interface UINavigationController (TFY_PlayerRotation)

@@ -23,10 +23,9 @@
     if ([className hasPrefix:@"UI"] == NO) {
         if ([className isEqualToString:@"TFY_recommendController"] || [className isEqualToString:@"TFY_KoreandramaController"] || [className isEqualToString:@"TFY_USdramaController"] || [className isEqualToString:@"TFY_mineController"]) {
             
-            [[self tfy_tabBarController] setTabBarHidden:NO animated:YES Hidden:NO];
         }
         else{
-            [[self tfy_tabBarController] setTabBarHidden:YES animated:YES Hidden:YES];
+           
         }
     }
 }

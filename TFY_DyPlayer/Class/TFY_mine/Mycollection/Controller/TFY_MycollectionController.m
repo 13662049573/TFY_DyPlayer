@@ -21,9 +21,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self addharder];
-    
-    [[self tfy_tabBarController] setTabBarHidden:YES animated:YES Hidden:YES];
-    
 }
 
 - (void)viewDidLoad {
@@ -105,6 +102,7 @@
                 if ([data.tfy_ids isEqualToString:models.id]) {
                     TFY_PlayerVideoController *vc = [TFY_PlayerVideoController new];
                     vc.currentPlayIndex = [data.tfy_videoId integerValue];
+                    vc.hidesBottomBarWhenPushed = YES;
                     [vc VideoID:data.tfy_ids Playertype:PlayertypeStateWatchistor PlayerSeektime:data.tfy_seconds];
                     [self.navigationController pushViewController:vc animated:YES];
                 }
@@ -112,6 +110,7 @@
         }
         else{
             TFY_PlayerVideoController *vc = [TFY_PlayerVideoController new];
+            vc.hidesBottomBarWhenPushed = YES;
             [vc VideoID:models.id Playertype:PlayertypeStateVideo PlayerSeektime:0];
             [self.navigationController pushViewController:vc animated:YES];
         }

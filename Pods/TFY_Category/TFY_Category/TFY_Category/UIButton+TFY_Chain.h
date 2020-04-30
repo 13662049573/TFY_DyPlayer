@@ -20,33 +20,41 @@ typedef NS_ENUM(NSInteger, ButtonPosition) {
     ButtonPositionImageBottom_titleTop = 3,
 };
 
+static inline UIButton * _Nonnull tfy_buttontype(UIButtonType type){
+    return [UIButton buttonWithType:type];
+}
+static inline UIButton * _Nonnull tfy_button(void){
+    return [[UIButton alloc] init];
+}
+static inline UIButton * _Nonnull tfy_buttonframe(CGRect rect){
+    return [[UIButton alloc] initWithFrame:rect];
+}
 NS_ASSUME_NONNULL_BEGIN
+
+typedef void (^ActionBlock)(UIButton * _Nonnull button);
+typedef void(^ButtonLimitTimesTapBlock)(NSUInteger time, BOOL *stop, UIButton *button);
 
 @interface UIButton (TFY_Chain)
 /**
- *  按钮初始化
- */
-UIButton *tfy_button(void);
-/**
  *  文本输入
  */
-@property(nonatomic,copy,readonly)UIButton *(^tfy_text)(NSString *title_str);
+@property(nonatomic,copy,readonly)UIButton *(^tfy_text)(NSString *title_str,UIControlState state);
 /**
- *  文本颜色
+ *  文本颜色 color_str 字符串或者 UIColor
  */
-@property(nonatomic,copy,readonly)UIButton *(^tfy_textcolor)(NSString *color_str);
+@property(nonatomic,copy,readonly)UIButton *(^tfy_textcolor)(id color_str,UIControlState state);
 /**
- *  文本大小
+ *  文本大小 font_str 表示UIFont
  */
-@property(nonatomic,copy,readonly)UIButton *(^tfy_font)(CGFloat font_str);
+@property(nonatomic,copy,readonly)UIButton *(^tfy_font)(UIFont *font_str);
 /**
  *  按钮 title_str 文本文字 color_str 文字颜色  font文字大小
  */
-@property(nonatomic,copy,readonly)UIButton *(^tfy_title)(NSString *title_str,NSString *color_str,CGFloat font);
+@property(nonatomic,copy,readonly)UIButton *(^tfy_title)(NSString *title_str,UIControlState titlestate,id color_str,UIControlState colorstate,UIFont *font);
 /**
  *  按钮  HexString 背景颜色 alpha 背景透明度
  */
-@property(nonatomic,copy,readonly)UIButton *(^tfy_backgroundColor)(NSString *HexString,CGFloat alpha);
+@property(nonatomic,copy,readonly)UIButton *(^tfy_backgroundColor)(id HexString,CGFloat alpha);
 /**
  *  按钮  alignment 0 左 1 中 2 右
  */
@@ -54,11 +62,11 @@ UIButton *tfy_button(void);
 /**
  *  添加四边框和color 颜色  borderWidth 宽度
  */
-@property(nonatomic,copy,readonly)UIButton *(^tfy_borders)(CGFloat borderWidth, NSString *color);
+@property(nonatomic,copy,readonly)UIButton *(^tfy_borders)(CGFloat borderWidth, id color);
 /**
  *  添加四边 color_str阴影颜色  shadowRadius阴影半径
  */
-@property(nonatomic,copy,readonly)UIButton *(^tfy_bordersShadow)(NSString *color_str, CGFloat shadowRadius);
+@property(nonatomic,copy,readonly)UIButton *(^tfy_bordersShadow)(id color_str, CGFloat shadowRadius);
 /**
  *  按钮  cornerRadius 圆角
  */
@@ -66,23 +74,72 @@ UIButton *tfy_button(void);
 /**
  *  按钮  image_str 图片字符串  state 状态
  */
-@property(nonatomic,copy,readonly)UIButton *(^tfy_image)(NSString *image_str,UIControlState state);
+@property(nonatomic,copy,readonly)UIButton *(^tfy_image)(id image_id,UIControlState state);
 /**
  *  按钮  backimage_str 背景图片 state 状态
  */
-@property(nonatomic,copy,readonly)UIButton *(^tfy_backgroundImage)(NSString *backimage_str,UIControlState state);
+@property(nonatomic,copy,readonly)UIButton *(^tfy_backgroundImage)(id image_id,UIControlState state);
 /**
  *  按钮 点击方法
  */
-@property(nonatomic,copy,readonly)UIButton *(^tfy_action)(id object, SEL action);
+@property(nonatomic,copy,readonly)UIButton *(^tfy_action)(id object, SEL action,UIControlEvents events);
 /**
  *  文本可变字符串输入
  */
-@property(nonatomic,copy,readonly)UIButton *(^tfy_attributrdString)(NSAttributedString *attributrdString);
+@property(nonatomic,copy,readonly)UIButton *(^tfy_attributrdString)(NSAttributedString *attributrdString,UIControlState state);
 /**
  *  文本是否开启随宽度文字超出自动缩小
  */
 @property(nonatomic,copy,readonly)UIButton *(^tfy_adjustsWidth)(BOOL adjustsWidth);
+/**
+ * 点击次数
+ */
+@property (nonatomic, copy, readonly) UIButton * (^ buttonTapTime) (ButtonLimitTimesTapBlock block);
+
+/**
+ * 时间间隔
+ */
+@property (nonatomic, copy, readonly) UIButton* (^ tapSpaceTime) (NSTimeInterval spaceTime);
+/**
+ *  文本的字体是否开始换行 0 自动换行
+ */
+@property(nonatomic, copy, readonly)UIButton *(^tfy_numberOfLines)(NSInteger numberOfLines);
+/**
+ * 文字省略格式
+ */
+@property(nonatomic, copy, readonly)UIButton *(^tfy_lineBreakMode)(NSLineBreakMode mode);
+/**
+ * 添加指定的View
+ */
+@property(nonatomic, copy, readonly)UIButton *(^tfy_addToSuperView)(UIView *view);
+/**
+ * 隐藏本类
+ */
+@property(nonatomic, copy, readonly)UIButton *(^tfy_hidden)(BOOL hidden);
+/**
+ * 透明度
+ */
+@property(nonatomic, copy, readonly)UIButton *(^tfy_alpha)(CGFloat alpha);
+/**
+ * 交互开关
+ */
+@property(nonatomic, copy, readonly)UIButton *(^tfy_userInteractionEnabled)(BOOL userInteractionEnabled);
+/**
+ *  位置偏移量
+ */
+@property(nonatomic,copy,readonly)UIButton *(^tfy_contentEdgeInsets)(UIEdgeInsets insets);
+/**
+ *  文字偏移量
+ */
+@property(nonatomic,copy,readonly)UIButton *(^tfy_titleEdgeInsets)(UIEdgeInsets insets);
+/**
+ *  图片偏移量
+ */
+@property(nonatomic,copy,readonly)UIButton *(^tfy_imageEdgeInsets)(UIEdgeInsets insets);
+/**
+ * 取消之前de
+ */
+- (void)cancelRecordTime;
 /**
  *  button的大小要大于 图片大小+文字大小+spacing   spacing 图片和文字的间隔
  */
@@ -115,6 +172,34 @@ UIButton *tfy_button(void);
  *  动画结束
  */
 - (void)hide;
+
+/**
+ *  绑定button
+ **/
+-(void)BindingBtnactionBlock:(ActionBlock _Nonnull)actionBlock;
+/**
+ *  加载完毕停止旋转
+ *  title:停止后button的文字
+ *  textColor :字体色 如果颜色不变就为nil
+ *  backgroundColor :背景色 如果颜色不变就为nil
+ **/
+-(void)stopLoading:(NSString*_Nullable)title textColor:(UIColor*_Nullable)textColor backgroundColor:(UIColor*_Nullable)backColor;
+/**
+ *  设置加载圆圈的宽度 默认是5
+ **/
+@property(nonatomic,assign)NSInteger lineWidths;
+/**
+ *  设置加载圆圈距离上下边距的宽度 默认是5
+ **/
+@property(nonatomic,assign)NSInteger topHeight;
+/**
+ *  设置开始加载时候的圆圈颜色渐变值 1
+ **/
+@property(nonatomic,strong)UIColor * _Nullable startColorOne;
+/**
+ *  设置开始加载时候的圆圈颜色渐变值 2
+ **/
+@property(nonatomic,strong)UIColor * _Nullable startColorTwo;
 @end
 
 NS_ASSUME_NONNULL_END

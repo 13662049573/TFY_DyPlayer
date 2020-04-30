@@ -48,7 +48,7 @@
     
     self.name_label.tfy_text(_models.title_str);
     
-    self.textfiled.tfy_placeholder(_models.placeholder_str, 13, [UIColor tfy_colorWithHex:LCColor_B3]).tfy_secureTextEntry(_models.secureText_bool).tfy_borderStyle(_models.borderStyle);
+    self.textfiled.tfy_placeholder(_models.placeholder_str, [UIFont systemFontOfSize:13], [UIColor tfy_colorWithHex:LCColor_B3]).tfy_secureTextEntry(_models.secureText_bool).tfy_borderStyle(_models.borderStyle);
     
     self.captcha_btn.hidden = _models.code_bool;
     
@@ -95,7 +95,7 @@
 -(UIButton *)captcha_btn{
     if (!_captcha_btn) {
         _captcha_btn = tfy_button();
-        _captcha_btn.tfy_title(@"获取验证码", LCColor_A1, 14).tfy_alAlignment(0).tfy_action(self, @selector(captcha_btnClick:)).tfy_cornerRadius(8).tfy_alAlignment(1);
+        _captcha_btn.tfy_title(@"获取验证码",UIControlStateNormal, LCColor_A1,UIControlStateNormal, [UIFont systemFontOfSize:14]).tfy_alAlignment(0).tfy_action(self, @selector(captcha_btnClick:),UIControlEventTouchUpInside).tfy_cornerRadius(8).tfy_alAlignment(1);
         _captcha_btn.CompleteBlock = ^{
           
             NSLog(@"倒计时结束");
@@ -107,7 +107,7 @@
 -(UILabel *)name_label{
     if (!_name_label) {
         _name_label = tfy_label();
-        _name_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(14).tfy_alignment(1).tfy_adjustsWidth(YES);
+        _name_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:14]).tfy_alignment(1).tfy_adjustsWidth(YES);
     }
     return _name_label;
 }

@@ -41,12 +41,12 @@ typedef NS_ENUM(NSUInteger, TFY_GradientType) {
 /**
  *  加载.Bound文件下图片(无子文件夹，若加载非png图片需要拼接后缀名) image 图片名
  */
-+ (UIImage *)tfy_bundleImage:(NSString *)image;
++ (UIImage *)tfy_bundleImage:(NSString *)image Resource:(NSString *)name;
 
 /**
  *  加载.Bound文件下子文件夹图片(若加载非png图片需要拼接后缀名) fileName 图片文件夹名  fileImage 图片名
  */
-+ (UIImage *)tfy_fileImage:(NSString *)fileImage fileName:(NSString *)fileName;
++ (UIImage *)tfy_fileImage:(NSString *)fileImage fileName:(NSString *)fileName Resource:(NSString *)name;
 
 /**
  *  字符串转图片
@@ -101,7 +101,7 @@ typedef NS_ENUM(NSUInteger, TFY_GradientType) {
 /**
  *  截屏 返回截屏的图片
  */
-+ (UIImage *)tfy_screenShot;
+- (UIImage *)tfy_screenShot;
 
 /**
  *  图片进行压缩 image   要压缩的图片  percent 要压缩的比例(建议在0.3以上)  压缩之后的图片 压缩之后为image/jpeg 格式
@@ -159,10 +159,12 @@ typedef NS_ENUM(NSUInteger, TFY_GradientType) {
 + (UIImage *)tfy_spliceFirstImage:(UIImage *)firstImage secondImage:(UIImage *)secondImage;
 
 /**
- * 生成二维码图片  一个二维码图片，水印在二维码中央 waterImage 水印图片 size 二维码Size  dataDic 二维码中的信息
+ * 生成二维码图片  一个二维码图片，水印在二维码中央 waterImage 水印图片 size 二维码Size  dataDic 二维码中的信息--或-字符串
  */
-+ (UIImage *)tfy_qrCodeImageForDataDic:(NSDictionary *)dataDic size:(CGSize)size waterImage:(UIImage *)waterImage;
++ (UIImage *)tfy_qrCodeImageForDataDic:(id)dataDic size:(CGSize)size waterImage:(UIImage *)waterImage;
 
+/**生成二维码*/
++ (UIImage *)tfy_generateQRCodeWithString:(NSString *)string Size:(CGFloat)size;
 /**
  *  修改二维码颜色  修改颜色后的二维码图片
  */
@@ -194,12 +196,24 @@ typedef NS_ENUM(NSUInteger, TFY_GradientType) {
  */
 + (UIImage *)tfy_addSlaveHeaderImage:(UIImage *)slaveheaderImage toMasterMidImage:(UIImage *)mastermidImage toMasterFootImage:(UIImage *)masterfootImage;
 /**
+ * slaveheaderImage 头部图片
+ * leftImage 左侧图片
+ * masterImage 主图片
+ * rightImage 右侧图片
+ * masterfootImage 底部图片
+ */
++ (UIImage *)tfy_combineWithHeaderImage:(UIImage *)slaveheaderImage LeftImg:(UIImage*)leftImage toMasterImage:(UIImage *)masterImage rightImg:(UIImage*)rightImage FootImage:(UIImage *)masterfootImage;
+/**
  *  leftImage:左侧图片 rightImage:右侧图片 margin:两者间隔
  */
-+ (UIImage *)tfy_combineWithLeftImg:(UIImage*)leftImage rightImg:(UIImage*)rightImage withMargin:(NSInteger)margin;
+- (UIImage *)tfy_combineWithLeftImg:(UIImage*)leftImage rightImg:(UIImage*)rightImage withMargin:(NSInteger)margin;
 /**
  * *masterImage  主图片，生成的图片的宽度为masterImage的宽度
  * slaveImage   从图片，拼接在masterImage的下面
  */
 + (UIImage *)tfy_addSlaveImage:(UIImage *)slaveImage toMasterImage:(UIImage *)masterImage;
+/**
+ *  拼接快照 imagesArr 快照的数组
+ */
++ (UIImage *)getImageFromImagesArray:(NSArray *)imagesArr;
 @end

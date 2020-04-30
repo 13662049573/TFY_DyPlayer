@@ -44,7 +44,7 @@
 - (UIButton *)closeBtn {
     if (!_closeBtn) {
         _closeBtn = tfy_button();
-        _closeBtn.tfy_image(@"videoImages.bundle/close", UIControlStateNormal).tfy_action(self, @selector(closeBtnClick:));
+        _closeBtn.tfy_image(@"videoImages.bundle/close", UIControlStateNormal).tfy_action(self, @selector(closeBtnClick:),UIControlEventTouchUpInside);
     }
     return _closeBtn;
 }

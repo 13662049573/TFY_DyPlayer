@@ -41,8 +41,6 @@
         vc.videoUrl = [[NSBundle mainBundle]pathForResource:@"qidong"ofType:@"mp4"];
         self.window.rootViewController = vc;
     }
-    
-    
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -76,21 +74,7 @@
     
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-}
-
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-/// 在这里写支持的旋转方向，为了防止横屏方向，应用启动时候界面变为横屏模式
+// 在这里写支持的旋转方向，为了防止横屏方向，应用启动时候界面变为横屏模式
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     if(self.enablePortrait)
     {

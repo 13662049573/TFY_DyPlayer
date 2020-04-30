@@ -83,9 +83,9 @@
  *
  *  images  bundle名：images.bundle
  */
-+ (UIImage *)tfy_bundleImage:(NSString *)image {
++ (UIImage *)tfy_bundleImage:(NSString *)image Resource:(NSString *)name{
     
-    return [UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] pathForResource:@"Images" ofType:@"bundle"] stringByAppendingPathComponent:image]];
+    return [UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] pathForResource:name ofType:@"bundle"] stringByAppendingPathComponent:image]];
 }
 
 /**
@@ -97,9 +97,9 @@
  *
  *  images bundle名：images.bundle
  */
-+ (UIImage *)tfy_fileImage:(NSString *)fileImage fileName:(NSString *)fileName {
++ (UIImage *)tfy_fileImage:(NSString *)fileImage fileName:(NSString *)fileName Resource:(NSString *)name{
     
-    return [UIImage imageWithContentsOfFile:[[[[NSBundle mainBundle] pathForResource:@"Images" ofType:@"bundle"] stringByAppendingPathComponent:fileName] stringByAppendingPathComponent:fileImage]];
+    return [UIImage imageWithContentsOfFile:[[[[NSBundle mainBundle] pathForResource:name ofType:@"bundle"] stringByAppendingPathComponent:fileName] stringByAppendingPathComponent:fileImage]];
 }
 
 //字符串转图片
@@ -245,19 +245,22 @@
  */
 + (UIImage *)tfy_viewShotWithView:(UIView *)view{
     
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0);
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]){
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, [UIScreen mainScreen].scale);
+    } else {
+        UIGraphicsBeginImageContext(view.bounds.size);
+    }
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *aImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return aImage;
+    
+    return image;
 }
 
 /**
- *  截屏
- *
- *  @return 返回截取的屏幕的图像
+ *  截屏 返回截取的屏幕的图像
  */
-+ (UIImage *)tfy_screenShot
+-(UIImage *)tfy_screenShot
 {
     CGSize imageSize = [[UIScreen mainScreen] bounds].size;
     //开启图形上下文
@@ -506,23 +509,6 @@
         return CGSizeZero;
     
     //NSString *absoluteString = URL.absoluteString;
-    
-#ifdef dispatch_main_sync_safe
-    if([[SDImageCache sharedImageCache] diskImageExistsWithKey:absoluteString])
-    {
-        UIImage* image = [[SDImageCache sharedImageCache] imageFromMemoryCacheForKey:absoluteString];
-        if(!image)
-        {
-            NSData* data = [[SDImageCache sharedImageCache] performSelector:@selector(diskImageDataBySearchingAllPathsForKey:) withObject:URL.absoluteString];
-            image = [UIImage imageWithData:data];
-        }
-        if(!image)
-        {
-            return image.size;
-        }
-    }
-#endif
-    
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
     NSString* pathExtendsion = [URL.pathExtension lowercaseString];
     
@@ -536,18 +522,6 @@
     }
     else{
         size = [self tfy_downloadJPGImageSizeWithRequest:request];
-    }
-    if(CGSizeEqualToSize(CGSizeZero, size))
-    {
-        NSData* data = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:URL] returningResponse:nil error:nil];
-        UIImage* image = [UIImage imageWithData:data];
-        if(image)
-        {
-#ifdef dispatch_main_sync_safe
-            [[SDImageCache sharedImageCache] storeImage:image recalculateFromImage:YES imageData:data forKey:URL.absoluteString toDisk:YES];
-#endif
-            size = image.size;
-        }
     }
     return size;
 }
@@ -733,41 +707,15 @@
 + (UIImage *)tfy_imageByApplyingAlpha:(CGFloat)alpha  image:(UIImage*)image {
     
     UIGraphicsBeginImageContextWithOptions(image.size, NO, 0.0f);
-    
-    
-    
     CGContextRef ctx = UIGraphicsGetCurrentContext();
-    
     CGRect area = CGRectMake(0, 0, image.size.width, image.size.height);
-    
-    
-    
     CGContextScaleCTM(ctx, 1, -1);
-    
     CGContextTranslateCTM(ctx, 0, -area.size.height);
-    
-    
-    
     CGContextSetBlendMode(ctx, kCGBlendModeMultiply);
-    
-    
-    
     CGContextSetAlpha(ctx, alpha);
-    
-    
-    
     CGContextDrawImage(ctx, area, image.CGImage);
-    
-    
-    
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    
-    
     UIGraphicsEndImageContext();
-    
-    
-    
     return newImage;
     
 }
@@ -787,7 +735,7 @@
     return newPic;
 }
 
-+ (UIImage *)tfy_qrCodeImageForDataDic:(NSDictionary *)dataDic size:(CGSize)size waterImage:(UIImage *)waterImage {
++ (UIImage *)tfy_qrCodeImageForDataDic:(id)dataDic size:(CGSize)size waterImage:(UIImage *)waterImage {
     
     //创建名为"CIQRCodeGenerator"的CIFilter
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
@@ -795,31 +743,67 @@
     [filter setDefaults];
     
     //将所需尽心转为UTF8的数据，并设置给filter
-    NSData *data = [NSJSONSerialization dataWithJSONObject:dataDic options:NSJSONWritingPrettyPrinted error:nil];
-    [filter setValue:data forKey:@"inputMessage"];
-    
+    if ([dataDic isKindOfClass:[NSDictionary class]]) {
+        NSData *data = [NSJSONSerialization dataWithJSONObject:dataDic options:NSJSONWritingPrettyPrinted error:nil];
+        [filter setValue:data forKey:@"inputMessage"];
+    }
+    if ([dataDic isKindOfClass:[NSString class]]) {
+        NSData *data = [dataDic dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+        [filter setValue:data forKey:@"inputMessage"];
+    }
     //设置二维码的纠错水平，越高纠错水平越高，可以污损的范围越大
-    /*
-     * L: 7%
-     * M: 15%
-     * Q: 25%
-     * H: 30%
-     */
+    /** L: 7%  M: 15%  Q: 25% H: 30% */
     [filter setValue:@"H" forKey:@"inputCorrectionLevel"];
     
     //拿到二维码图片，此时的图片不是很清晰，需要二次加工
     CIImage *outPutImage = [filter outputImage];
-    
     //如果有水印图片，那么添加水印后在调整清晰度，
     //如果没有直接，直接调节清晰度
     if (!waterImage) {
         return [[[self alloc] init] tfy_getHDImageWithCIImage:outPutImage size:size];
     } else {
-        
         return [[[self alloc] init] tfy_getHDImageWithCIImage:outPutImage size:size waterImage:waterImage];;
     }
 }
+//生成二维码
++ (UIImage *)tfy_generateQRCodeWithString:(NSString *)string Size:(CGFloat)size
+{
+    //创建过滤器
+    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    //过滤器恢复默认
+    [filter setDefaults];
+    //给过滤器添加数据<字符串长度893>
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    [filter setValue:data forKey:@"inputMessage"];
+    //获取二维码过滤器生成二维码
+    CIImage *image = [filter outputImage];
+    UIImage *img = [[[self alloc] init] createNonInterpolatedUIImageFromCIImage:image WithSize:size];
+    return img;
+}
 
+//二维码清晰
+- (UIImage *)createNonInterpolatedUIImageFromCIImage:(CIImage *)image WithSize:(CGFloat)size
+{
+    CGRect extent = CGRectIntegral(image.extent);
+    CGFloat scale = MIN(size/CGRectGetWidth(extent), size/CGRectGetHeight(extent));
+    
+    //创建bitmap
+    size_t width = CGRectGetWidth(extent)*scale;
+    size_t height = CGRectGetHeight(extent)*scale;
+    CGColorSpaceRef cs = CGColorSpaceCreateDeviceGray();
+    CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, cs, (CGBitmapInfo)kCGImageAlphaNone);
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CGImageRef bitmapImage = [context createCGImage:image fromRect:extent];
+    CGContextSetInterpolationQuality(bitmapRef, kCGInterpolationNone);
+    CGContextScaleCTM(bitmapRef, scale, scale);
+    CGContextDrawImage(bitmapRef, extent, bitmapImage);
+    
+    //保存图片
+    CGImageRef scaledImage = CGBitmapContextCreateImage(bitmapRef);
+    CGContextRelease(bitmapRef);
+    CGImageRelease(bitmapImage);
+    return [UIImage imageWithCGImage:scaledImage];
+}
 /**
  调整二维码清晰度
  
@@ -1089,8 +1073,52 @@ void TFY_ProviderReleaseData(void * info, const void * data, size_t size) {
     
     return resultImage;
 }
+
+/**
+ * slaveheaderImage 头部图片
+ * leftImage 左侧图片
+ * masterImage 主图片
+ * rightImage 右侧图片
+ * masterfootImage 底部图片
+ */
++ (UIImage *)tfy_combineWithHeaderImage:(UIImage *)slaveheaderImage LeftImg:(UIImage*)leftImage toMasterImage:(UIImage *)masterImage rightImg:(UIImage*)rightImage FootImage:(UIImage *)masterfootImage{
+   
+    CGFloat width = masterImage.size.width + leftImage.size.width + rightImage.size.width;
+    CGFloat height = slaveheaderImage.size.height + masterImage.size.height + masterfootImage.size.height;
+    
+    CGSize offScreenSize = CGSizeMake(width, height);
+    
+    UIGraphicsBeginImageContextWithOptions(offScreenSize, YES, [UIScreen mainScreen].scale);
+    //给画布添加颜色
+    [[UIColor whiteColor] setFill];
+    CGRect bounds = CGRectMake(0, 0, width, height);
+    UIRectFill(bounds);
+    //拼接第一份头部图片
+    CGRect rectT = CGRectMake(0, 0, width, slaveheaderImage.size.height);
+    [slaveheaderImage drawInRect:rectT];
+    //再头部图片完成后拼接第二份左边这个图片
+    CGRect rectL = CGRectMake(0,rectT.origin.y + slaveheaderImage.size.height, leftImage.size.width, leftImage.size.height);
+    [leftImage drawInRect:rectL];
+    //这里是主图片曲线图
+    CGRect rect = CGRectMake(rectL.origin.x + leftImage.size.width, rectT.origin.y+slaveheaderImage.size.height, masterImage.size.width, masterImage.size.height);
+    [masterImage drawInRect:rect];
+    //拼接右侧图片
+    CGRect rectR = CGRectMake(rectL.origin.x + leftImage.size.width + masterImage.size.width, rectT.origin.y+slaveheaderImage.size.height, rightImage.size.width, rightImage.size.height);
+    [rightImage drawInRect:rectR];
+    //拼接下部分图片，这里按照自己图片需求更改位置
+    CGRect rectB = CGRectMake(width/2-masterfootImage.size.width/2,rect.origin.y + masterImage.size.height, masterfootImage.size.width, masterfootImage.size.height);
+    [masterfootImage drawInRect:rectB];
+    //合成图片
+    UIImage* imagez = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return imagez;
+}
+
+
 //leftImage:左侧图片 rightImage:右侧图片 margin:两者间隔
-+ (UIImage *)tfy_combineWithLeftImg:(UIImage*)leftImage rightImg:(UIImage*)rightImage withMargin:(NSInteger)margin{
+- (UIImage *)tfy_combineWithLeftImg:(UIImage*)leftImage rightImg:(UIImage*)rightImage withMargin:(NSInteger)margin{
     if (rightImage == nil) {
         return leftImage;
     }
@@ -1118,24 +1146,67 @@ void TFY_ProviderReleaseData(void * info, const void * data, size_t size) {
  * slaveImage   从图片，拼接在masterImage的下面
  */
 + (UIImage *)tfy_addSlaveImage:(UIImage *)slaveImage toMasterImage:(UIImage *)masterImage{
- CGSize size;
-   size.width = masterImage.size.width;
-   size.height = masterImage.size.height + slaveImage.size.height;
- 
-   UIGraphicsBeginImageContextWithOptions(size, YES, 0.0);
- 
- //Draw masterImage
-   [masterImage drawInRect:CGRectMake(0, 0, masterImage.size.width, masterImage.size.height)];
- 
- //Draw slaveImage
-   [slaveImage drawInRect:CGRectMake(0, masterImage.size.height, masterImage.size.width, slaveImage.size.height)];
- 
-   UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
- 
-   UIGraphicsEndImageContext();
- 
-    return resultImage;
     
- }
+    CGFloat width = masterImage.size.width;
+    if (masterImage.size.width<slaveImage.size.width) {
+        width = slaveImage.size.width;
+    }
+    CGFloat height = masterImage.size.height + slaveImage.size.height;
+    CGSize offScreenSize = CGSizeMake(width, height);
 
+    UIGraphicsBeginImageContextWithOptions(offScreenSize, YES, [UIScreen mainScreen].scale);
+    
+    //给画布添加颜色
+    [[UIColor whiteColor] setFill];
+    CGRect bounds = CGRectMake(0, 0, width, height);
+    UIRectFill(bounds);
+
+    CGRect rect =CGRectMake(0, 0, width, masterImage.size.height);
+    [masterImage drawInRect:rect];
+
+    [slaveImage drawInRect:CGRectMake(width/2-slaveImage.size.width/2, rect.origin.y+ masterImage.size.height, slaveImage.size.width, slaveImage.size.height)];
+
+    UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
+
+    UIGraphicsEndImageContext();
+
+   return resultImage;
+}
+/**
+ *  拼接快照 imagesArr 快照的数组
+ */
+#pragma mark 拼接快照
++ (UIImage *)getImageFromImagesArray:(NSArray *)imagesArr
+{
+
+    UIImage *image;
+    @autoreleasepool{
+        CGSize imageTotalSize = [self getImageTotalSizeFromImagesArray:imagesArr];
+        UIGraphicsBeginImageContextWithOptions(imageTotalSize, NO, [UIScreen mainScreen].scale);
+        
+        //拼接图片
+        int imageOffset = 0;
+        for (UIImage *images in imagesArr) {
+            [images drawAtPoint:CGPointMake(0, imageOffset)];
+            imageOffset += images.size.height;
+        }
+        
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    return image;
+
+}
+
+#pragma mark 获取全部图片拼接后size
++ (CGSize)getImageTotalSizeFromImagesArray:(NSArray *)imagesArr
+{
+    CGSize totalSize = CGSizeZero;
+    for (UIImage *image in imagesArr) {
+        CGSize imageSize = [image size];
+        totalSize.height += imageSize.height;
+        totalSize.width = MAX(totalSize.width, imageSize.width);
+    }
+    return totalSize;
+}
 @end

@@ -329,7 +329,7 @@ static inline NSString *cachePath() {
             }
         }
         
-        session = [manager GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+        session = [manager GET:url parameters:params headers:httpHeaders progress:^(NSProgress * _Nonnull downloadProgress) {
             if (progress) {
                 progress(downloadProgress.completedUnitCount, downloadProgress.totalUnitCount);
             }
@@ -423,7 +423,7 @@ static inline NSString *cachePath() {
         }
         
         
-        session = [manager POST:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+        session = [manager POST:url parameters:params headers:httpHeaders progress:^(NSProgress * _Nonnull downloadProgress) {
             if (progress) {
                 progress(downloadProgress.completedUnitCount, downloadProgress.totalUnitCount);
             }
@@ -566,7 +566,7 @@ static inline NSString *cachePath() {
     NSString *absolute = [self absoluteUrlWithPath:url];
     
     TFY_AppDotNetAPIClient *manager = [self manager];
-    TFY_URLSessionTask *session = [manager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    TFY_URLSessionTask *session = [manager POST:url parameters:parameters headers:httpHeaders constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSData *imageData = UIImageJPEGRepresentation(image, 1);
         
         NSString *imageFileName = filename;
@@ -1034,12 +1034,12 @@ static inline NSString *cachePath() {
 
 + (void)dismissSuccessHUD
 {
-    [TFY_ProgressHUD dismissWithSuccess:@"数据获取成功"];
+    [TFY_ProgressHUD dismissStatus:@"数据获取成功"];
     
 }
 + (void)dismissErrorHUD
 {
-     [TFY_ProgressHUD dismissWithError:@"数据获取失败"];
+     [TFY_ProgressHUD dismissStatus:@"数据获取失败"];
     
 }
 #pragma mark  - Cookie

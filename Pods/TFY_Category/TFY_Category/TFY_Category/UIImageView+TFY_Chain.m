@@ -214,9 +214,6 @@
 
 @implementation UIImageView (TFY_Chain)
 
-UIImageView *tfy_imageView(void){
-    return [UIImageView new];
-}
 
 -(UIImageView *(^)(NSString *image_str))tfy_imge{
     WSelf(myself);
@@ -268,6 +265,27 @@ UIImageView *tfy_imageView(void){
     return ^(NSString *HexString,CGFloat alpha){
         [myself setBackgroundColor:[myself btncolorWithHexString:HexString alpha:alpha]];
         [myself setUserInteractionEnabled:YES];
+        return myself;
+    };
+}
+
+/**
+ *  透明度
+ */
+-(UIImageView *(^)(CGFloat alpha))tfy_alpha{
+    WSelf(myself);
+    return ^(CGFloat alpha){
+        myself.alpha = alpha;
+        return myself;
+    };
+}
+/**
+ *  交互
+ */
+-(UIImageView *(^)(BOOL userInteractionEnabled))tfy_userInteractionEnabled{
+    WSelf(myself);
+    return ^(BOOL userInteractionEnabled){
+        myself.userInteractionEnabled = userInteractionEnabled;
         return myself;
     };
 }
@@ -379,11 +397,11 @@ UIImageView *tfy_imageView(void){
 #pragma mark - public method
 
 - (void)tfy_setImageWithURLString:(NSString *)url placeholderImageName:(NSString *)placeholderImageName {
-    return [self tfy_setImageWithURLString:url placeholderImageName:placeholderImageName completion:nil];
+    return [self tfy_setImageWithURLString:url placeholderImageName:placeholderImageName completion:^(UIImage * _Nonnull image) {}];
 }
 
 - (void)tfy_setImageWithURLString:(NSString *)url placeholder:(UIImage *)placeholderImage {
-    return [self tfy_setImageWithURLString:url placeholder:placeholderImage completion:nil];
+    return [self tfy_setImageWithURLString:url placeholder:placeholderImage completion:^(UIImage * _Nonnull image) {}];
 }
 
 - (void)tfy_setImageWithURLString:(NSString *)url placeholderImageName:(NSString *)placeholderImage completion:(void (^)(UIImage *image))completion {
@@ -491,7 +509,7 @@ UIImageView *tfy_imageView(void){
     }
     
     [self cancelRequest];
-    self.tfy_imageDownloader = nil;
+    self.tfy_imageDownloader = [ImageDownloader new];
     
     WSelf(myslef);
     

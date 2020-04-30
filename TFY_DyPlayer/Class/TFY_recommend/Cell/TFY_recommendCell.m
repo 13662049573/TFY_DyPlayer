@@ -98,7 +98,7 @@
 -(UILabel *)name_label{
     if (!_name_label) {
         _name_label = tfy_label();
-        _name_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(12).tfy_alignment(1).tfy_numberOfLines(0);
+        _name_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:12]).tfy_alignment(1).tfy_numberOfLines(0);
     }
     return _name_label;
 }
@@ -106,7 +106,7 @@
 -(UILabel *)hits_label{
     if (!_hits_label) {
         _hits_label = tfy_label();
-        _hits_label.tfy_textcolor(LCColor_B3, 1).tfy_fontSize(10).tfy_alignment(1).tfy_adjustsWidth(YES);
+        _hits_label.tfy_textcolor(LCColor_B3, 1).tfy_fontSize([UIFont systemFontOfSize:10]).tfy_alignment(1).tfy_adjustsWidth(YES);
     }
     return _hits_label;
 }
@@ -114,7 +114,7 @@
 -(UILabel *)state_label{
     if (!_state_label) {
         _state_label = tfy_label();
-        _state_label.tfy_textcolor(LCColor_B5, 1).tfy_fontSize(12).tfy_alignment(1).tfy_adjustsWidth(YES);
+        _state_label.tfy_textcolor(LCColor_B5, 1).tfy_fontSize([UIFont systemFontOfSize:12]).tfy_alignment(1).tfy_adjustsWidth(YES);
     }
     return _state_label;
 }
@@ -122,7 +122,7 @@
 -(UILabel *)info_label{
     if (!_info_label) {
         _info_label = tfy_label();
-        _info_label.tfy_textcolor(LCColor_B5, 1).tfy_fontSize(10).tfy_alignment(1).tfy_adjustsWidth(YES);
+        _info_label.tfy_textcolor(LCColor_B5, 1).tfy_fontSize([UIFont systemFontOfSize:10]).tfy_alignment(1).tfy_adjustsWidth(YES);
     }
     return _info_label;
 }

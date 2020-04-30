@@ -63,8 +63,6 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
     [super viewWillAppear:animated];
     self.player.viewControllerDisappear = NO;
     
-    [[self tfy_tabBarController] setTabBarHidden:YES animated:YES Hidden:YES];
-    
     [self AppDelegateenablePortrait:YES lockedScreen:NO];
     
     [self collectionSqlite];

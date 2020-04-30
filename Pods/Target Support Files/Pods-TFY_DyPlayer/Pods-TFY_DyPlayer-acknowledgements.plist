@@ -14,7 +14,7 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright (c) 2011-2016 Alamofire Software Foundation (http://alamofire.org/)
+			<string>Copyright (c) 2011-2020 Alamofire Software Foundation (http://alamofire.org/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -279,7 +279,7 @@ Copyright (c) 2019 田风有 The MIT License (MIT)
 
 Copyright (c) 2019 田风有
 
-Copyright (c) 2019-2026 YJSettingTableView Software Foundation (https://github.com/13662049573/TFY_ProgressHUD)
+Copyright (c) 2019-2026 YJSettingTableView Software Foundation (https://github.com/13662049573/TFY_ProgressHUD.git)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -349,7 +349,7 @@ Copyright (c) 2019 田风有 The MIT License (MIT)
 
 Copyright (c) 2019 田风有
 
-Copyright (c) 2019-2026 YJSettingTableView Software Foundation (https://github.com/13662049573/TFY_TabarController)
+Copyright (c) 2019-2026 YJSettingTableView Software Foundation (https://github.com/13662049573/TFY_TabBarController)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -371,7 +371,7 @@ THE SOFTWARE.</string>
 			<key>License</key>
 			<string>MIT</string>
 			<key>Title</key>
-			<string>TFY_TabarController</string>
+			<string>TFY_TabBarKit</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

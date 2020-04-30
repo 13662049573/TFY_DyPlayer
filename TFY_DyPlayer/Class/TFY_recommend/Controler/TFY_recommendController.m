@@ -112,6 +112,7 @@
                 if ([models.tfy_ids isEqualToString:model.id]) {
                     TFY_PlayerVideoController *vc = [TFY_PlayerVideoController new];
                     vc.currentPlayIndex = [models.tfy_videoId integerValue];
+                    vc.hidesBottomBarWhenPushed = YES;
                     [vc VideoID:models.tfy_ids Playertype:PlayertypeStateWatchistor PlayerSeektime:models.tfy_seconds];
                     [self.navigationController pushViewController:vc animated:YES];
                 }
@@ -120,6 +121,7 @@
         else{
             TFY_PlayerVideoController *vc = [TFY_PlayerVideoController new];
             [vc VideoID:model.id Playertype:PlayertypeStateVideo PlayerSeektime:0];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
@@ -130,6 +132,7 @@
     
     TFY_MoreController *vc = [TFY_MoreController new];
     vc.model = model;
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 
 }

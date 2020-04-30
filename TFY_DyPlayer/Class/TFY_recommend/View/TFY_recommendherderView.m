@@ -63,7 +63,7 @@
 -(UILabel *)title_label{
     if (!_title_label) {
         _title_label = tfy_label();
-        _title_label.tfy_textcolor(LCColor_B1, 1).tfy_alignment(0).tfy_fontSize(14).tfy_adjustsWidth(YES);
+        _title_label.tfy_textcolor(LCColor_B1, 1).tfy_alignment(0).tfy_fontSize([UIFont systemFontOfSize:14]).tfy_adjustsWidth(YES);
     }
     return _title_label;
 }
@@ -71,7 +71,7 @@
 -(UIButton *)arrow_btn{
     if (!_arrow_btn) {
         _arrow_btn = tfy_button();
-        _arrow_btn.tfy_title(@"更多", LCColor_B2, 11).tfy_image(@"jiantou", UIControlStateNormal).tfy_action(self, @selector(arrow_btnClick:));
+        _arrow_btn.tfy_title(@"更多",UIControlStateNormal, LCColor_B2,UIControlStateNormal, [UIFont systemFontOfSize:11]).tfy_image(@"jiantou", UIControlStateNormal).tfy_action(self, @selector(arrow_btnClick:),UIControlEventTouchUpInside);
         [_arrow_btn tfy_layouEdgeInsetsPosition:ButtonPositionImageRight_titleLeft spacing:15];
     }
     return _arrow_btn;

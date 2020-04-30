@@ -12,5 +12,10 @@
 #import "TFY_NavigationController.h"
 #import "UINavigationController+TFY_Extension.h"
 #import "UIBarButtonItem+TFY_Chain.h"
+#import "TFY_PopController.h"
+#import "UIViewController+TFY_PopController.h"
+#import "TFY_PopControllerAnimationProtocol.h"
+#import "TFY_PopControllerAnimatedTransitioning.h"
+
 
 #endif /* TFY_Navigation_h */

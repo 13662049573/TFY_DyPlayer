@@ -482,4 +482,190 @@ static void RGBtoHSV( float r, float g, float b, float *h, float *s, float *v )
     }
 }
 
+
+///  获取canvas用的颜色字符串
+- (NSString *)tfy_canvasColorString
+{
+    CGFloat *arrRGBA = [self tfy_getRGB];
+    int r = arrRGBA[0] * 255;
+    int g = arrRGBA[1] * 255;
+    int b = arrRGBA[2] * 255;
+    float a = arrRGBA[3];
+    return [NSString stringWithFormat:@"rgba(%d,%d,%d,%f)", r, g, b, a];
+}
+ 
+///  获取网页颜色字串
+- (NSString *)tfy_webColorString
+{
+    CGFloat *arrRGBA = [self tfy_getRGB];
+    int r = arrRGBA[0] * 255;
+    int g = arrRGBA[1] * 255;
+    int b = arrRGBA[2] * 255;
+    NSLog(@"%d,%d,%d", r, g, b);
+    NSString *webColor = [NSString stringWithFormat:@"#%02X%02X%02X", r, g, b];
+    return webColor;
+}
+ 
+/// 加亮
+- (UIColor *)tfy_lighten
+{
+    CGFloat *rgb = [self tfy_getRGB];
+    CGFloat r = rgb[0];
+    CGFloat g = rgb[1];
+    CGFloat b = rgb[2];
+    CGFloat alpha = rgb[3];
+    
+    r = r + (1 - r) / 6.18;
+    g = g + (1 - g) / 6.18;
+    b = b + (1 - b) / 6.18;
+    
+    UIColor * uiColor = [UIColor colorWithRed:r green:g blue:b alpha:alpha];
+    return uiColor;
+}
+ 
+- (UIColor *)tfy_darken{ //变暗
+    CGFloat *rgb = [self tfy_getRGB];
+    CGFloat r = rgb[0];
+    CGFloat g = rgb[1];
+    CGFloat b = rgb[2];
+    CGFloat alpha = rgb[3];
+    
+    r = r * 0.618;
+    g = g * 0.618;
+    b = b * 0.618;
+    
+    UIColor *uiColor = [UIColor colorWithRed:r green:g blue:b alpha:alpha];
+    return uiColor;
+}
+ 
+- (UIColor *)tfy_mix:(UIColor *)color{
+    CGFloat * rgb1 = [self tfy_getRGB];
+    CGFloat r1 = rgb1[0];
+    CGFloat g1 = rgb1[1];
+    CGFloat b1 = rgb1[2];
+    CGFloat alpha1 = rgb1[3];
+ 
+    CGFloat * rgb2 = [color tfy_getRGB];
+    CGFloat r2 = rgb2[0];
+    CGFloat g2 = rgb2[1];
+    CGFloat b2 = rgb2[2];
+    CGFloat alpha2 = rgb2[3];
+    
+    //mix them!!
+    CGFloat r = (r1 + r2) / 2.0;
+    CGFloat g = (g1 + g2) / 2.0;
+    CGFloat b = (b1 + b2) / 2.0;
+    CGFloat alpha = (alpha1 + alpha2) / 2.0;
+    
+    UIColor * uiColor = [UIColor colorWithRed:r green:g blue:b alpha:alpha];
+    return uiColor;
+}
+//获取颜色对象的RGB数值
+- (CGFloat *)tfy_getRGB{
+    UIColor * uiColor = self;
+    
+    CGColorRef cgColor = [uiColor CGColor];
+    
+    int numComponents = CGColorGetNumberOfComponents(cgColor);
+ 
+    if (numComponents == 4){
+        static CGFloat * components = Nil;
+        components = (CGFloat *) CGColorGetComponents(cgColor);
+        return (CGFloat *)components;
+    } else { //否则默认返回黑色
+        static CGFloat components[4] = {0};
+        CGFloat f = 0;
+         //非RGB空间的系统颜色单独处理
+        if ([uiColor isEqual:[UIColor whiteColor]]) {
+            f = 1.0;
+        } else if ([uiColor isEqual:[UIColor lightGrayColor]]) {
+            f = 0.8;
+        } else if ([uiColor isEqual:[UIColor grayColor]]) {
+            f = 0.5;
+        }
+        components[0] = f;
+        components[1] = f;
+        components[2] = f;
+        components[3] = 1.0;
+        return (CGFloat *)components;
+    }
+}
+
++(UIColor *)colorWithHexString:(NSString *)hexString{
+    
+    NSString *colorString = [[hexString stringByReplacingOccurrencesOfString:@"#" withString: @""] uppercaseString];
+    CGFloat alpha, red, blue, green;
+    switch ([colorString length]) {
+        case 3: // #RGB
+            alpha = 1.0f;
+            red   = [self colorComponentFrom: colorString start: 0 length: 1 Case:1];
+            green = [self colorComponentFrom: colorString start: 1 length: 1 Case:2];
+            blue  = [self colorComponentFrom: colorString start: 2 length: 1 Case:3];
+            break;
+        case 4: // #ARGB
+            alpha = [self colorComponentFrom: colorString start: 0 length: 1 Case:0];
+            red   = [self colorComponentFrom: colorString start: 1 length: 1 Case:1];
+            green = [self colorComponentFrom: colorString start: 2 length: 1 Case:2];
+            blue  = [self colorComponentFrom: colorString start: 3 length: 1 Case:3];
+            break;
+        case 6: // #RRGGBB
+            alpha = 1.0f;
+            red   = [self colorComponentFrom: colorString start: 0 length: 2 Case:1];
+            green = [self colorComponentFrom: colorString start: 2 length: 2 Case:2];
+            blue  = [self colorComponentFrom: colorString start: 4 length: 2 Case:3];
+            break;
+        case 8: // #AARRGGBB
+            alpha = [self colorComponentFrom: colorString start: 0 length: 2 Case:0];
+            red   = [self colorComponentFrom: colorString start: 2 length: 2 Case:1];
+            green = [self colorComponentFrom: colorString start: 4 length: 2 Case:2];
+            blue  = [self colorComponentFrom: colorString start: 6 length: 2 Case:3];
+            break;
+        default:
+            return nil;
+            break;
+    }
+    return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
+}
+
++(NSString*)stringWithColor:(UIColor *)color
+{
+    if (color==nil) {
+        return @"";
+    }
+    CGFloat r,g,b,a;
+    [color getRed:&r green:&g blue:&b alpha:&a];
+    
+    //rgba
+    return [NSString stringWithFormat:@"[%d,%d,%d,%f]",(int)(r*255),(int)(g*255),(int)(b*255),a];
+}
+
++(CGFloat)colorComponentFrom:(NSString *)string start:(NSUInteger)start length:(NSUInteger)length Case:(int)ARGB{
+    NSString *substring = [string substringWithRange: NSMakeRange(start, length)];
+    NSString *fullHex = length == 2 ? substring : [NSString stringWithFormat: @"%@%@", substring, substring];
+    unsigned hexComponent;
+    [[NSScanner scannerWithString: fullHex] scanHexInt: &hexComponent];
+    switch (ARGB) {
+        case 0://alpha
+            return hexComponent / 255.0;
+            
+            break;
+        case 1://red
+            
+            return ( hexComponent )/ 255.0;
+            
+            break;
+        case 2://green
+            return (hexComponent)/ 255.0;
+            
+            break;
+        case 3://blue
+            return (hexComponent) / 255.0;
+            
+            break;
+        default:
+            break;
+    }
+    return 0;
+}
+
 @end

@@ -53,7 +53,7 @@
 -(UILabel *)name_label{
     if (!_name_label) {
         _name_label = tfy_label();
-        _name_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(12).tfy_alignment(1).tfy_numberOfLines(0);
+        _name_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:12]).tfy_alignment(1).tfy_numberOfLines(0);
     }
     return _name_label;
 }
@@ -62,7 +62,7 @@
 -(UILabel *)time_label{
     if (!_time_label) {
         _time_label = tfy_label();
-        _time_label.tfy_textcolor(LCColor_B5, 1).tfy_fontSize(13).tfy_alignment(1).tfy_adjustsWidth(YES).tfy_backgroundColor(@"1AA3F0", 2);
+        _time_label.tfy_textcolor(LCColor_B5, 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(1).tfy_adjustsWidth(YES).tfy_backgroundColor(@"1AA3F0", 2);
     }
     return _time_label;
 }

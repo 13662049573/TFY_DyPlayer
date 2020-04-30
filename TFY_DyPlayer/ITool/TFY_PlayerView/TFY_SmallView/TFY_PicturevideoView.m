@@ -45,7 +45,7 @@
         NSArray *titleArr = @[@"微信",@"QQ",@"新浪",@"空间",@"朋友圈",@"保存相册"];
         [titleArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             
-            UIButton *button = tfy_button().tfy_image(imageArr[idx],UIControlStateNormal).tfy_title(titleArr[idx],@"ffffff",14).tfy_alAlignment(1).tfy_action(self,@selector(buttonClick:));
+            UIButton *button = tfy_button().tfy_image(imageArr[idx],UIControlStateNormal).tfy_title(titleArr[idx],UIControlStateNormal,@"ffffff",UIControlStateNormal,[UIFont systemFontOfSize:14]).tfy_alAlignment(1).tfy_action(self,@selector(buttonClick:),UIControlEventTouchUpInside);
             button.tag = idx+1;
             button.imageEdgeInsets = UIEdgeInsetsMake(10, 30, 40, 0);
             button.titleEdgeInsets = UIEdgeInsetsMake(0, -30, -50, 0);
@@ -137,7 +137,7 @@
 -(UIButton *)close_btn{
     if (!_close_btn) {
         _close_btn = tfy_button();
-        _close_btn.tfy_image(@"videoImages.bundle/close", UIControlStateNormal).tfy_action(self, @selector(close_btnClick));
+        _close_btn.tfy_image(@"videoImages.bundle/close", UIControlStateNormal).tfy_action(self, @selector(close_btnClick),UIControlEventTouchUpInside);
     }
     return _close_btn;
 }
@@ -153,7 +153,7 @@
 -(UILabel *)title_label{
     if (!_title_label) {
         _title_label = tfy_label();
-        _title_label.tfy_textcolor(@"ffffff", 1).tfy_fontSize(14).tfy_numberOfLines(0).tfy_alignment(1).tfy_text(@"获取的图片可以进行以下分享!");
+        _title_label.tfy_textcolor(@"ffffff", 1).tfy_fontSize([UIFont systemFontOfSize:14]).tfy_numberOfLines(0).tfy_alignment(1).tfy_text(@"获取的图片可以进行以下分享!");
     }
     return _title_label;
 }

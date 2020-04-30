@@ -1,29 +1,46 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
-  - AFNetworking/NSURLSession (3.2.1):
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.1)
-  - AFNetworking/Security (3.2.1)
-  - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - IQKeyboardManager (6.5.0)
-  - MJRefresh (3.2.0)
+  - IQKeyboardManager (6.5.5)
+  - MJRefresh (3.4.1)
   - ReactiveObjC (3.1.1)
-  - TFY_AutoLayout (2.4.7)
-  - TFY_Category (2.6.7)
-  - TFY_Model (2.6.4)
-  - TFY_Navigation (2.1.2)
-  - TFY_ProgressHUD (2.2.0)
-  - TFY_SimplifytableViewKit (2.1.4)
-  - TFY_TabarController (2.1.9)
+  - TFY_AutoLayout (2.5.2):
+    - TFY_AutoLayout/IOS_Layout (= 2.5.2)
+    - TFY_AutoLayout/MAC_Layout (= 2.5.2)
+    - TFY_AutoLayout/Util (= 2.5.2)
+  - TFY_AutoLayout/IOS_Layout (2.5.2):
+    - TFY_AutoLayout/Util
+  - TFY_AutoLayout/MAC_Layout (2.5.2):
+    - TFY_AutoLayout/Util
+  - TFY_AutoLayout/Util (2.5.2)
+  - TFY_Category (3.2.4)
+  - TFY_Model (2.6.6)
+  - TFY_Navigation (2.2.2):
+    - TFY_Navigation/TFY_NavControoler (= 2.2.2)
+    - TFY_Navigation/TFY_PopController (= 2.2.2)
+  - TFY_Navigation/TFY_NavControoler (2.2.2):
+    - TFY_Navigation/TFY_PopController
+  - TFY_Navigation/TFY_PopController (2.2.2)
+  - TFY_ProgressHUD (2.3.9)
+  - TFY_SimplifytableViewKit (2.1.8)
+  - TFY_TabBarKit (1.0.4):
+    - TFY_TabBarKit/TFY_CustomizeTabBar (= 1.0.4)
+    - TFY_TabBarKit/TFY_SystemTabBar (= 1.0.4)
+  - TFY_TabBarKit/TFY_CustomizeTabBar (1.0.4)
+  - TFY_TabBarKit/TFY_SystemTabBar (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
@@ -36,10 +53,10 @@ DEPENDENCIES:
   - TFY_Navigation
   - TFY_ProgressHUD
   - TFY_SimplifytableViewKit
-  - TFY_TabarController
+  - TFY_TabBarKit
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - IQKeyboardManager
     - MJRefresh
@@ -50,21 +67,21 @@ SPEC REPOS:
     - TFY_Navigation
     - TFY_ProgressHUD
     - TFY_SimplifytableViewKit
-    - TFY_TabarController
+    - TFY_TabBarKit
 
 SPEC CHECKSUMS:
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  IQKeyboardManager: 700e5155d6a292383b54e8678aec769e14fc78fc
-  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
+  MJRefresh: 3153c59a363159092c08b2177ec3a7d09f90bfaf
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
-  TFY_AutoLayout: 3856cd8766f67cd8aeca980281d630e28cdbfd12
-  TFY_Category: f13b435b033d3ed8bf3b645ec703daa9d011014f
-  TFY_Model: 0edfcd6fc0a026be792fa51e42ca638d6f07655e
-  TFY_Navigation: ba7d9ab33214a06ec440c21e8ea623cd086179ac
-  TFY_ProgressHUD: 543348e5fc1a835fb1d0450a0f0b6ac97dcbd788
-  TFY_SimplifytableViewKit: 6cb8041d11077228028f5440b6e79aa4714e1a53
-  TFY_TabarController: d49c7349dfa1279aa08e1a0ccff178e84a8030d6
+  TFY_AutoLayout: 792116abdb3fb2758c59d29ac16322bbfe8441ab
+  TFY_Category: cad3e51a85518c56eabad2ab9146e0b922a979b2
+  TFY_Model: 4b291352c264b7e9d209496f5234be79ed54a686
+  TFY_Navigation: 3523efe2942ef7bede46223f5bb0553e8842096e
+  TFY_ProgressHUD: f0201d5f5be0784435e23d385687572ab16410a4
+  TFY_SimplifytableViewKit: 89e6d40925eae80ca5ee9a2fb129bd584c86c72f
+  TFY_TabBarKit: ce1945a285b3abbf6f8c429509fcf3ae0f5ed1bf
 
-PODFILE CHECKSUM: 380f7c388ab8d3cce81c5703f8d344c592227311
+PODFILE CHECKSUM: bb6f96fd57b9aaf9bb73e59431d3363341c5e8cc
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.9.1

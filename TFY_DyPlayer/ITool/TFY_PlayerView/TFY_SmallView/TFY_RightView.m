@@ -63,7 +63,7 @@
 -(UILabel *)count_label{
     if (!_count_label) {
         _count_label = tfy_label();
-        _count_label.tfy_textcolor(@"ffffff", 1).tfy_fontSize(12).tfy_alignment(1).tfy_adjustsWidth(YES);
+        _count_label.tfy_textcolor(@"ffffff", 1).tfy_fontSize([UIFont systemFontOfSize:12]).tfy_alignment(1).tfy_adjustsWidth(YES);
     }
     return _count_label;
 }

@@ -60,7 +60,7 @@
 -(UILabel *)name_label{
     if (!_name_label) {
         _name_label = tfy_label();
-        _name_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(15).tfy_alignment(0).tfy_adjustsWidth(YES);
+        _name_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:15]).tfy_alignment(0).tfy_adjustsWidth(YES);
     }
     return _name_label;
 }

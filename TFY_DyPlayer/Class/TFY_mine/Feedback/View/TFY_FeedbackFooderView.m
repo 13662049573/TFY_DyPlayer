@@ -25,7 +25,7 @@
 
 -(UIButton *)btn{
     if (!_btn) {
-        _btn = tfy_button().tfy_title(@"提交",@"ffffff",15).tfy_alAlignment(1).tfy_action(self,@selector(btnClick)).tfy_backgroundColor(LCColor_A1,1).tfy_cornerRadius(10);
+        _btn = tfy_button().tfy_title(@"提交",UIControlStateNormal,@"ffffff",UIControlStateNormal,[UIFont systemFontOfSize:15]).tfy_alAlignment(1).tfy_action(self,@selector(btnClick),UIControlEventTouchUpInside).tfy_backgroundColor(LCColor_A1,1).tfy_cornerRadius(10);
     }
     return _btn;
 }

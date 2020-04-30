@@ -2,6 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios,'10.0'
 inhibit_all_warnings!
+
 target 'TFY_DyPlayer' do
   
 pod 'ReactiveObjC'
@@ -12,7 +13,7 @@ pod 'TFY_Category'
 pod 'TFY_Model'
 pod 'TFY_ProgressHUD'
 pod 'TFY_Navigation'
-pod 'TFY_TabarController'
+pod 'TFY_TabBarKit'
 pod 'TFY_SimplifytableViewKit'
 pod 'TFY_AutoLayout'
 

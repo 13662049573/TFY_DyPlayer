@@ -100,6 +100,7 @@
                 if ([models.tfy_ids isEqualToString:vod.id]) {
                     TFY_PlayerVideoController *vc = [TFY_PlayerVideoController new];
                     vc.currentPlayIndex = [models.tfy_videoId integerValue];
+                    vc.hidesBottomBarWhenPushed = YES;
                     [vc VideoID:models.tfy_ids Playertype:PlayertypeStateWatchistor PlayerSeektime:models.tfy_seconds];
                     [self.navigationController pushViewController:vc animated:YES];
                 }
@@ -107,6 +108,7 @@
         }
         else{
             TFY_PlayerVideoController *vc = [TFY_PlayerVideoController new];
+            vc.hidesBottomBarWhenPushed = YES;
             [vc VideoID:vod.id Playertype:PlayertypeStateVideo PlayerSeektime:0];
             [self.navigationController pushViewController:vc animated:YES];
         }

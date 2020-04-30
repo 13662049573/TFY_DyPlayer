@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## AFNetworking
 
-Copyright (c) 2011-2016 Alamofire Software Foundation (http://alamofire.org/)
+Copyright (c) 2011-2020 Alamofire Software Foundation (http://alamofire.org/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -220,7 +220,7 @@ Copyright (c) 2019 田风有 The MIT License (MIT)
 
 Copyright (c) 2019 田风有
 
-Copyright (c) 2019-2026 YJSettingTableView Software Foundation (https://github.com/13662049573/TFY_ProgressHUD)
+Copyright (c) 2019-2026 YJSettingTableView Software Foundation (https://github.com/13662049573/TFY_ProgressHUD.git)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -269,7 +269,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-## TFY_TabarController
+## TFY_TabBarKit
 
 
 The MIT License (MIT)
@@ -278,7 +278,7 @@ Copyright (c) 2019 田风有 The MIT License (MIT)
 
 Copyright (c) 2019 田风有
 
-Copyright (c) 2019-2026 YJSettingTableView Software Foundation (https://github.com/13662049573/TFY_TabarController)
+Copyright (c) 2019-2026 YJSettingTableView Software Foundation (https://github.com/13662049573/TFY_TabBarController)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

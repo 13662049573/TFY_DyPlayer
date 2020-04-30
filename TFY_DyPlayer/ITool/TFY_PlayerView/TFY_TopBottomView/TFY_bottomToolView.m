@@ -223,7 +223,7 @@
 -(UIButton *)playOrPauseBtn{
     if (!_playOrPauseBtn) {
         _playOrPauseBtn = tfy_button();
-        _playOrPauseBtn.tfy_image(@"videoImages.bundle/Stop", UIControlStateNormal).tfy_image(@"videoImages.bundle/bottom_window", UIControlStateSelected).tfy_action(self, @selector(player_btnClick:));
+        _playOrPauseBtn.tfy_image(@"videoImages.bundle/Stop", UIControlStateNormal).tfy_image(@"videoImages.bundle/bottom_window", UIControlStateSelected).tfy_action(self, @selector(player_btnClick:),UIControlEventTouchUpInside);
     }
     return _playOrPauseBtn;
 }
@@ -232,21 +232,21 @@
 -(UILabel *)currentTimeLabel{
     if (!_currentTimeLabel) {
         _currentTimeLabel = tfy_label();
-        _currentTimeLabel.tfy_text(@"00:00").tfy_textcolor(@"ffffff", 1).tfy_fontSize(13).tfy_alignment(1).tfy_adjustsWidth(YES);
+        _currentTimeLabel.tfy_text(@"00:00").tfy_textcolor(@"ffffff", 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(1).tfy_adjustsWidth(YES);
     }
     return _currentTimeLabel;
 }
 -(UILabel *)totalTimeLabel{
     if (!_totalTimeLabel) {
         _totalTimeLabel = tfy_label();
-        _totalTimeLabel.tfy_text(@"00:00").tfy_textcolor(@"ffffff", 1).tfy_fontSize(13).tfy_alignment(1).tfy_adjustsWidth(YES);
+        _totalTimeLabel.tfy_text(@"00:00").tfy_textcolor(@"ffffff", 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(1).tfy_adjustsWidth(YES);
     }
     return _totalTimeLabel;
 }
 -(UIButton *)fullScreenBtn{
     if (!_fullScreenBtn) {
         _fullScreenBtn = tfy_button();
-        _fullScreenBtn.tfy_image(@"videoImages.bundle/btn_zoom_in", UIControlStateNormal).tfy_image(@"videoImages.bundle/btn_zoom_out", UIControlStateSelected).tfy_action(self, @selector(fullscreen_btnClick:));
+        _fullScreenBtn.tfy_image(@"videoImages.bundle/btn_zoom_in", UIControlStateNormal).tfy_image(@"videoImages.bundle/btn_zoom_out", UIControlStateSelected).tfy_action(self, @selector(fullscreen_btnClick:),UIControlEventTouchUpInside);
         
     }
     return _fullScreenBtn;
@@ -254,7 +254,7 @@
 -(UIButton *)selection_btn{
     if (!_selection_btn) {
         _selection_btn = tfy_button();
-        _selection_btn.tfy_title(@"选集", @"ffffff", 13).tfy_action(self, @selector(selection_btnClick:));
+        _selection_btn.tfy_title(@"选集",UIControlStateNormal, @"ffffff",UIControlStateNormal, [UIFont systemFontOfSize:13]).tfy_action(self, @selector(selection_btnClick:),UIControlEventTouchUpInside);
     }
     return _selection_btn;
 }
@@ -262,7 +262,7 @@
 -(UIButton *)speed_btn{
     if (!_speed_btn) {
         _speed_btn = tfy_button();
-        _speed_btn.tfy_title(@"倍速", @"ffffff", 13).tfy_action(self, @selector(doublespeed_btnClick:));
+        _speed_btn.tfy_title(@"倍速",UIControlStateNormal, @"ffffff",UIControlStateNormal, [UIFont systemFontOfSize:13]).tfy_action(self, @selector(doublespeed_btnClick:),UIControlEventTouchUpInside);
     }
     return _speed_btn;
 }
@@ -270,7 +270,7 @@
 -(UIButton *)nextbtn{
     if (!_nextbtn) {
         _nextbtn = tfy_button();
-        _nextbtn.tfy_image(@"videoImages.bundle/btn_next_normal", UIControlStateNormal).tfy_action(self, @selector(nextbtnClick));
+        _nextbtn.tfy_image(@"videoImages.bundle/btn_next_normal", UIControlStateNormal).tfy_action(self, @selector(nextbtnClick),UIControlEventTouchUpInside);
     }
     return _nextbtn;
 }
@@ -278,7 +278,7 @@
 -(UIButton *)barrage_btn{
     if (!_barrage_btn) {
         _barrage_btn = tfy_button();
-        _barrage_btn.tfy_image(@"videoImages.bundle/barrageopening", UIControlStateNormal).tfy_image(@"videoImages.bundle/barrageoff", UIControlStateSelected).tfy_action(self, @selector(barrage_btnClick:));
+        _barrage_btn.tfy_image(@"videoImages.bundle/barrageopening", UIControlStateNormal).tfy_image(@"videoImages.bundle/barrageoff", UIControlStateSelected).tfy_action(self, @selector(barrage_btnClick:),UIControlEventTouchUpInside);
     }
     return _barrage_btn;
 }

@@ -30,9 +30,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self addharder];
-    
-    [[self tfy_tabBarController] setTabBarHidden:YES animated:YES Hidden:YES];
-
 }
 
 - (void)viewDidLoad {
@@ -100,17 +97,18 @@
     if (self.customView_btn.selected) {
         NSArray *indexPaths = self.tableView.indexPathsForSelectedRows;
         if (indexPaths.count > 0) {
-            self.deleteBtn.tfy_text([NSString stringWithFormat:@"删除(%lu)", (unsigned long)indexPaths.count]).tfy_backgroundColor(LCColor_A2,1);
+            self.deleteBtn.tfy_text([NSString stringWithFormat:@"删除(%lu)", (unsigned long)indexPaths.count],UIControlStateNormal).tfy_backgroundColor(LCColor_A2,1);
             self.deleteBtn.enabled = YES;
         }
         if (indexPaths.count == self.dataSouce.count) {
-            self.allSelbtn.tfy_text(@"取消全选");
+            self.allSelbtn.tfy_text(@"取消全选",UIControlStateNormal);
         }
     }
     else{
         TFY_PlayerVideoModel *models = self.dataSouce[indexPath.row];
         TFY_PlayerVideoController *vc = [TFY_PlayerVideoController new];
         vc.currentPlayIndex = [models.tfy_videoId integerValue];
+        vc.hidesBottomBarWhenPushed = YES;
         [vc VideoID:models.tfy_ids Playertype:PlayertypeStateWatchistor PlayerSeektime:models.tfy_seconds];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -151,9 +149,9 @@
             self.deleteBtn.tfy_backgroundColor(LCColor_A2,0.6);
             self.deleteBtn.enabled = NO;
         }
-        self.deleteBtn.tfy_text(deleteBtnTitle);
+        self.deleteBtn.tfy_text(deleteBtnTitle,UIControlStateNormal);
         if (indexPaths.count < self.dataSouce.count){
-            self.allSelbtn.tfy_text(@"全选");
+            self.allSelbtn.tfy_text(@"全选",UIControlStateNormal);
         }
     }
 }
@@ -169,7 +167,7 @@
     if (!_rightView) {
         _rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
         self.customView_btn = [[UIButton alloc] initWithFrame:CGRectMake(9, 0, 40, 40)];
-        self.customView_btn.tfy_image(@"nav_deleteBtn", UIControlStateNormal).tfy_image(@"nav_cancelBtn", UIControlStateSelected).tfy_action(self, @selector(customView_btnClick:));
+        self.customView_btn.tfy_image(@"nav_deleteBtn", UIControlStateNormal).tfy_image(@"nav_cancelBtn", UIControlStateSelected).tfy_action(self, @selector(customView_btnClick:),UIControlEventTouchUpInside);
         [_rightView addSubview:self.customView_btn];
     }
     return _rightView;
@@ -201,17 +199,17 @@
     NSArray *indexPaths = self.tableView.indexPathsForSelectedRows;
     if (btn.tag==1) {
         if ([self.allSelbtn.titleLabel.text isEqualToString:@"全选"]) {
-            self.allSelbtn.tfy_text(@"取消全选");
+            self.allSelbtn.tfy_text(@"取消全选",UIControlStateNormal);
             for (int i = 0; i < self.dataSouce.count; i ++) {
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
                 [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
             }
-            self.deleteBtn.tfy_text([NSString stringWithFormat:@"删除(%lu)", (unsigned long)self.dataSouce.count]).tfy_backgroundColor(LCColor_A2,1);
+            self.deleteBtn.tfy_text([NSString stringWithFormat:@"删除(%lu)", (unsigned long)self.dataSouce.count],UIControlStateNormal).tfy_backgroundColor(LCColor_A2,1);
             self.deleteBtn.enabled = YES;
             
         }
         else{
-            self.allSelbtn.tfy_text(@"全选");
+            self.allSelbtn.tfy_text(@"全选",UIControlStateNormal);
             // 取消全选
             [self cancelAllSelect];
         }
@@ -228,7 +226,7 @@
         }
         [self.dataSouce removeObjectsAtIndexes:indexes];
         [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-        if (self.dataSouce.count == 0) self.allSelbtn.tfy_text(@"全选");
+        if (self.dataSouce.count == 0) self.allSelbtn.tfy_text(@"全选",UIControlStateNormal);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self customView_btnClick:self.customView_btn];
             [self reloadNavRightBtn];
@@ -242,7 +240,7 @@
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
-    self.deleteBtn.tfy_text(@"删除").tfy_backgroundColor(LCColor_A2,0.6);
+    self.deleteBtn.tfy_text(@"删除",UIControlStateNormal).tfy_backgroundColor(LCColor_A2,0.6);
     self.deleteBtn.enabled = NO;
 }
 
@@ -261,7 +259,7 @@
 -(UIButton *)allSelbtn{
     if (!_allSelbtn) {
         _allSelbtn = tfy_button();
-        _allSelbtn.tfy_title(@"全选", LCColor_B5, 15).tfy_action(self, @selector(allSelbtnClick:)).tfy_backgroundColor(LCColor_A2,1).tfy_cornerRadius(10);
+        _allSelbtn.tfy_title(@"全选",UIControlStateNormal, LCColor_B5,UIControlStateNormal, [UIFont systemFontOfSize:15]).tfy_action(self, @selector(allSelbtnClick:),UIControlEventTouchUpInside).tfy_backgroundColor(LCColor_A2,1).tfy_cornerRadius(10);
         _allSelbtn.tag=1;
     }
     return _allSelbtn;
@@ -270,7 +268,7 @@
 -(UIButton *)deleteBtn{
     if (!_deleteBtn) {
         _deleteBtn = tfy_button();
-        _deleteBtn.tfy_title(@"删除", LCColor_B5, 15).tfy_action(self, @selector(allSelbtnClick:)).tfy_backgroundColor(LCColor_A2,0.6).tfy_cornerRadius(10);
+        _deleteBtn.tfy_title(@"删除",UIControlStateNormal, LCColor_B5,UIControlStateNormal, [UIFont systemFontOfSize:15]).tfy_action(self, @selector(allSelbtnClick:),UIControlEventTouchUpInside).tfy_backgroundColor(LCColor_A2,0.6).tfy_cornerRadius(10);
         _deleteBtn.tag=2;
         _deleteBtn.enabled = NO;
     }

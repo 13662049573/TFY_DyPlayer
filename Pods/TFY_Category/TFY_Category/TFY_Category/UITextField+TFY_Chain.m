@@ -13,19 +13,18 @@
 @implementation UITextField (TFY_Chain)
 
 /**
- *  按钮初始化
- */
-UITextField *tfy_textField(void){
-    return [[UITextField alloc] init];
-}
-/**
  *  占位文本文本输入
  */
--(UITextField *(^)(NSString *title_str,CGFloat font,UIColor *color))tfy_placeholder{
+-(UITextField *(^)(NSString *title_str,UIFont *font,id color))tfy_placeholder{
     WSelf(myself);
-    return ^(NSString *title_str,CGFloat font,UIColor *color){
+    return ^(NSString *title_str,UIFont *font,id color){
         myself.placeholder = title_str;
-        myself.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName: color ,NSFontAttributeName:[UIFont systemFontOfSize:font]}];
+        if ([color isKindOfClass:[NSString class]]) {
+            myself.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName: [self btncolorWithHexString:color alpha:1] ,NSFontAttributeName:font}];
+        }
+        if ([color isKindOfClass:[UIColor class]]) {
+           myself.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName: color ,NSFontAttributeName:font}];
+        }
         return myself;
     };
 }
@@ -42,20 +41,25 @@ UITextField *tfy_textField(void){
 /**
  *  文本颜色
  */
--(UITextField *(^)(UIColor *color_str))tfy_textcolor{
+-(UITextField *(^)(id color_str))tfy_textcolor{
     WSelf(myself);
-    return ^(UIColor *color_str){
-        myself.textColor = color_str;
+    return ^(id color_str){
+        if ([color_str isKindOfClass:[NSString class]]) {
+            myself.textColor = [self btncolorWithHexString:color_str alpha:1];
+        }
+        if ([color_str isKindOfClass:[UIColor class]]) {
+            myself.textColor = color_str;
+        }
         return myself;
     };
 }
 /**
  *  文本大小
  */
--(UITextField *(^)(CGFloat font))tfy_font{
+-(UITextField *(^)(UIFont *font))tfy_font{
     WSelf(myself);
-    return ^(CGFloat font){
-        myself.font = [UIFont systemFontOfSize:font];
+    return ^(UIFont *font){
+        myself.font = font;
         return myself;
     };
 }
@@ -63,22 +67,32 @@ UITextField *tfy_textField(void){
 /**
  *  按钮 title_str 文本文字 color_str 文字颜色  font文字大小
  */
--(UITextField *(^)(NSString *title_str,UIColor *color_str,CGFloat font))tfy_title{
+-(UITextField *(^)(NSString *title_str,id color_str,UIFont *font))tfy_title{
     WSelf(myself);
-    return ^(NSString *title_str,UIColor *color_str,CGFloat font){
+    return ^(NSString *title_str,id color_str,UIFont *font){
         myself.text = title_str;
-        myself.textColor = color_str;
-        myself.font = [UIFont systemFontOfSize:font];
+        if ([color_str isKindOfClass:[NSString class]]) {
+             myself.textColor = [self btncolorWithHexString:color_str alpha:1];
+        }
+        if ([color_str isKindOfClass:[UIColor class]]) {
+             myself.textColor = color_str;
+        }
+        myself.font = font;
         return myself;
     };
 }
 /**
  *  按钮  HexString 背景颜色 alpha 背景透明度
  */
--(UITextField *(^)(UIColor *color))tfy_backgroundColor{
+-(UITextField *(^)(id color))tfy_backgroundColor{
     WSelf(myself);
-    return ^(UIColor *color){
-        myself.backgroundColor = color;
+    return ^(id color){
+        if ([color isKindOfClass:[NSString class]]) {
+            myself.backgroundColor = [self btncolorWithHexString:color alpha:1];
+        }
+        if ([color isKindOfClass:[UIColor class]]) {
+            myself.backgroundColor = color;
+        }
         return myself;
     };
 }
@@ -105,22 +119,32 @@ UITextField *tfy_textField(void){
 /**
  *  添加四边框和color 颜色  borderWidth 宽度
  */
--(UITextField *(^)(CGFloat borderWidth, UIColor *color))tfy_borders{
+-(UITextField *(^)(CGFloat borderWidth, id color))tfy_borders{
     WSelf(myself);
-    return ^(CGFloat borderWidth, UIColor *color){
+    return ^(CGFloat borderWidth, id color){
         myself.layer.borderWidth = borderWidth;
-        myself.layer.borderColor = color.CGColor;
+        if ([color isKindOfClass:[NSString class]]) {
+            myself.layer.borderColor = [self btncolorWithHexString:color alpha:1].CGColor;
+        }
+        if ([color isKindOfClass:[UIColor class]]) {
+            myself.layer.borderColor = [(UIColor *)color CGColor];
+        }
         return myself;
     };
 }
 /**
  *  添加四边 color_str阴影颜色  shadowRadius阴影半径
  */
--(UITextField *(^)(UIColor *color, CGFloat shadowRadius))tfy_bordersShadow{
+-(UITextField *(^)(id color, CGFloat shadowRadius))tfy_bordersShadow{
     WSelf(myself);
-    return ^(UIColor *color, CGFloat shadowRadius){
+    return ^(id color, CGFloat shadowRadius){
         // 阴影颜色
-        myself.layer.shadowColor = color.CGColor;
+        if ([color isKindOfClass:[NSString class]]) {
+            myself.layer.shadowColor = [self btncolorWithHexString:color alpha:1].CGColor;
+        }
+        if ([color isKindOfClass:[UIColor class]]) {
+            myself.layer.shadowColor = [(UIColor *)color CGColor];
+        }
         // 阴影偏移，默认(0, -3)
         myself.layer.shadowOffset = CGSizeMake(0,0);
         // 阴影透明度，默认0
@@ -295,5 +319,61 @@ UITextField *tfy_textField(void){
         [myself addTarget:object action:action forControlEvents:controlEvents];
         return myself;
     };
+}
+/**
+ * 添加指定的View
+ */
+-(UITextField *(^)(UIView *view))tfy_addToSuperView{
+    WSelf(myself);
+    return ^(UIView *view){
+        [view addSubview:myself];
+        return myself;
+    };
+}
+
+-(UIColor *)btncolorWithHexString:(NSString *)color alpha:(CGFloat)alpha
+{
+    //删除字符串中的空格
+    NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    // String should be 6 or 8 characters
+    if ([cString length] < 6)
+    {
+        return [UIColor clearColor];
+    }
+    // strip 0X if it appears
+    //如果是0x开头的，那么截取字符串，字符串从索引为2的位置开始，一直到末尾
+    if ([cString hasPrefix:@"0X"])
+    {
+        cString = [cString substringFromIndex:2];
+    }
+    //如果是#开头的，那么截取字符串，字符串从索引为1的位置开始，一直到末尾
+    if ([cString hasPrefix:@"#"])
+    {
+        cString = [cString substringFromIndex:1];
+    }
+    if ([cString length] != 6)
+    {
+        return [UIColor clearColor];
+    }
+    
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    //r                       截取的range = (0,2)
+    NSString *rString = [cString substringWithRange:range];
+    //g
+    range.location = 2;//     截取的range = (2,2)
+    NSString *gString = [cString substringWithRange:range];
+    //b
+    range.location = 4;//     截取的range = (4,2)
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;//将字符串十六进制两位数字转为十进制整数
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    return [UIColor colorWithRed:((float)r / 255.0f) green:((float)g / 255.0f) blue:((float)b / 255.0f) alpha:alpha];
 }
 @end

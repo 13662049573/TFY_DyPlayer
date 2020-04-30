@@ -91,7 +91,7 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
 -(UILabel *)name_label{
     if (!_name_label) {
         _name_label = tfy_label();
-        _name_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(15).tfy_alignment(0).tfy_numberOfLines(0);
+        _name_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:15]).tfy_alignment(0).tfy_numberOfLines(0);
     }
     return _name_label;
 }
@@ -99,7 +99,7 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
 -(UILabel *)type_label{
     if (!_type_label) {
         _type_label = tfy_label();
-        _type_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(15).tfy_alignment(2).tfy_numberOfLines(0);
+        _type_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:15]).tfy_alignment(2).tfy_numberOfLines(0);
     }
     return _type_label;
 }
@@ -107,14 +107,14 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
 -(UILabel *)daoyan_label{
     if (!_daoyan_label) {
         _daoyan_label = tfy_label();
-        _daoyan_label.tfy_textcolor(LCColor_B2, 1).tfy_fontSize(13).tfy_alignment(0).tfy_numberOfLines(0);
+        _daoyan_label.tfy_textcolor(LCColor_B2, 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(0).tfy_numberOfLines(0);
     }
     return _daoyan_label;
 }
 -(UILabel *)zhuyan_label{
     if (!_zhuyan_label) {
         _zhuyan_label = tfy_label();
-        _zhuyan_label.tfy_textcolor(LCColor_B2, 1).tfy_fontSize(13).tfy_alignment(0).tfy_numberOfLines(0);
+        _zhuyan_label.tfy_textcolor(LCColor_B2, 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(0).tfy_numberOfLines(0);
     }
     return _zhuyan_label;
 }
@@ -122,7 +122,7 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
 -(UILabel *)hits_label{
     if (!_hits_label) {
         _hits_label = tfy_label();
-        _hits_label.tfy_textcolor(LCColor_B2, 1).tfy_fontSize(13).tfy_alignment(0);
+        _hits_label.tfy_textcolor(LCColor_B2, 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(0);
     }
     return _hits_label;
 }
@@ -130,7 +130,7 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
 -(UILabel *)pf_label{
     if (!_pf_label) {
         _pf_label = tfy_label();
-        _pf_label.tfy_textcolor(LCColor_B5, 1).tfy_fontSize(13).tfy_alignment(1).tfy_backgroundColor(@"1AA3F0", 1).tfy_cornerRadius(8);
+        _pf_label.tfy_textcolor(LCColor_B5, 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(1).tfy_backgroundColor(@"1AA3F0", 1).tfy_cornerRadius(8);
     }
     return _pf_label;
 }
@@ -138,7 +138,7 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
 -(UILabel *)text_label{
     if (!_text_label) {
         _text_label = tfy_label();
-        _text_label.tfy_textcolor(LCColor_B3, 1).tfy_fontSize(12).tfy_alignment(0).tfy_numberOfLines(0);
+        _text_label.tfy_textcolor(LCColor_B3, 1).tfy_fontSize([UIFont systemFontOfSize:12]).tfy_alignment(0).tfy_numberOfLines(0);
     }
     return _text_label;
 }
@@ -146,7 +146,7 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
 -(UILabel *)state_label{
     if (!_state_label) {
         _state_label = tfy_label();
-        _state_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(13).tfy_alignment(0);
+        _state_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(0);
     }
     return _state_label;
 }
@@ -154,7 +154,7 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
 -(UILabel *)addtime_label{
     if (!_addtime_label) {
         _addtime_label = tfy_label();
-        _addtime_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(13).tfy_alignment(2);
+        _addtime_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(2);
     }
     return _addtime_label;
 }
@@ -162,7 +162,7 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
 -(UIButton *)collection_btn{
     if (!_collection_btn) {
         _collection_btn = tfy_button();
-        _collection_btn.tfy_image(@"empty_heart", UIControlStateNormal).tfy_image(@"red_heart", UIControlStateSelected).tfy_action(self, @selector(collection_btnClick:));
+        _collection_btn.tfy_image(@"empty_heart", UIControlStateNormal).tfy_image(@"red_heart", UIControlStateSelected).tfy_action(self, @selector(collection_btnClick:),UIControlEventTouchUpInside);
     }
     return _collection_btn;
 }

@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  filename 文件名(仅限于mainBundle中的文件) 如果末尾json格式返回字典，plist格式返回数组
  */
-+ (id)tfy_objectArrayWithFilename:(NSString *)filename;
++ (id)tfy_ModelobjectArrayWithFilename:(NSString *)filename;
 /**
  * 字典转模型过程中遇到的错误
  */

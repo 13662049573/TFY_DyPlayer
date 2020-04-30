@@ -57,7 +57,7 @@
 -(UIButton *)photo_btn{
     if (!_photo_btn) {
         _photo_btn = tfy_button();
-        _photo_btn.tfy_image(@"videoImages.bundle/dy_share_to_screenshot_normal", UIControlStateNormal).tfy_action(self, @selector(photo_btnClick:));
+        _photo_btn.tfy_image(@"videoImages.bundle/dy_share_to_screenshot_normal", UIControlStateNormal).tfy_action(self, @selector(photo_btnClick:),UIControlEventTouchUpInside);
     }
     return _photo_btn;
 }
@@ -65,7 +65,7 @@
 -(UIButton *)cropping_btn{
     if (!_cropping_btn) {
         _cropping_btn = tfy_button();
-        _cropping_btn.tfy_image(@"videoImages.bundle/dy_share_to_record_normal", UIControlStateNormal).tfy_action(self, @selector(cropping_btnClick:));
+        _cropping_btn.tfy_image(@"videoImages.bundle/dy_share_to_record_normal", UIControlStateNormal).tfy_action(self, @selector(cropping_btnClick:),UIControlEventTouchUpInside);
     }
     return _cropping_btn;
 }

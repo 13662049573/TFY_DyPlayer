@@ -29,9 +29,23 @@
 #import "UIDevice+Orientation.h"
 #import "UITextField+TFY_Chain.h"
 #import "UITextView+TFY_Chain.h"
+#import "UIScrollView+TFY_Chain.h"
+#import "UIAlertController+TFY_Chain.h"
+#import "UITableViewCell+TFY_Chain.h"
+#import "UIControl+TFY_Chain.h"
+#import "NSMutableAttributedString+TFY_Chain.h"
+#import "NSMutableParagraphStyle+TFY_Chain.h"
+#import "UIApplication+TFY_Chain.h"
+#import "UIWindow+TFY_Chain.h"
+#import "UIScreen+TFY_Chain.h"
+#import "UIFont+TFY_Chain.h"
+#import "NSTimer+TFY_Chain.h"
+
 
 
 #import "TFY_CommonUtils.h"
 #import "TFY_HandlerVideo.h"
+#import "ScenePackage.h"
+
 
 #endif /* TFY_CategoryHerder_h */

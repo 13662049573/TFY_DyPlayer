@@ -591,7 +591,6 @@
     return self.tableData.sectionDatas[(NSUInteger) section].headerView;
 }
 
-
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     return self.tableData.sectionDatas[(NSUInteger) section].footerView;
 }
@@ -608,6 +607,10 @@
     return self.tableData.sectionIndexArr;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    return index;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger section = (NSUInteger) indexPath.section;
     NSUInteger index = (NSUInteger) indexPath.row;
@@ -619,7 +622,6 @@
     return cellData.rowHeight;
     
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger section = (NSUInteger) indexPath.section;
@@ -639,7 +641,6 @@
     if (cellData.event) {
         cellData.event(tableView,indexPath,cellData.data);
     }
-    
 }
 
 

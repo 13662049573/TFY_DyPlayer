@@ -61,6 +61,7 @@
                     if (![TFY_CommonUtils judgeIsEmptyWithString:models.controller]) {
                         UIViewController *vc = [NSClassFromString(models.controller) new];
                         vc.navigationItem.title = models.title_str;
+                        vc.hidesBottomBarWhenPushed = YES;
                         [self.navigationController pushViewController:vc animated:YES];
                     }
                 }).tfy_rowHeight(50);

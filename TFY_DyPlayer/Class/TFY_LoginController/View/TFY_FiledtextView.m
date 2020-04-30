@@ -18,7 +18,7 @@
 {
     self = [super init];
     if (self) {
-        self.tfy_backgroundColor([UIColor tfy_colorWithHexString:LCColor_B6 alpha:0.6]).tfy_font(14).tfy_clearButtonMode(UITextFieldViewModeAlways);
+        self.tfy_backgroundColor([UIColor tfy_colorWithHexString:LCColor_B6 alpha:0.6]).tfy_font([UIFont systemFontOfSize:14]).tfy_clearButtonMode(UITextFieldViewModeAlways);
     }
     return self;
 }

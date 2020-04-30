@@ -35,11 +35,11 @@
         [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"username" object:nil] subscribeNext:^(NSNotification * _Nullable x) {
             NSString *username = [TFY_CommonUtils getStrValueInUDWithKey:@"username"];
             if (![TFY_CommonUtils judgeIsEmptyWithString:username]) {
-                self.phone_btn.tfy_text(username);
+                self.phone_btn.tfy_text(username,UIControlStateNormal);
                 self.phone_btn.enabled = NO;
             }
             else{
-                self.phone_btn.tfy_text(@"登录/注册");
+                self.phone_btn.tfy_text(@"登录/注册",UIControlStateNormal);
                 self.phone_btn.enabled = YES;
             }
         }];
@@ -50,7 +50,7 @@
 -(void)setName_string:(NSString *)name_string{
     _name_string = name_string;
     
-    self.phone_btn.tfy_text(_name_string);
+    self.phone_btn.tfy_text(_name_string,UIControlStateNormal);
 }
 
 
@@ -81,14 +81,14 @@
 -(UIButton *)phone_btn{
     if (!_phone_btn) {
         _phone_btn = tfy_button();
-        _phone_btn.tfy_textcolor(LCColor_B1).tfy_text(@"登录/注册").tfy_alAlignment(1).tfy_font(19).tfy_action(self, @selector(phone_btnClick:));
+        _phone_btn.tfy_textcolor(LCColor_B1,UIControlStateNormal).tfy_text(@"登录/注册",UIControlStateNormal).tfy_alAlignment(1).tfy_font([UIFont systemFontOfSize:19]).tfy_action(self, @selector(phone_btnClick:),UIControlEventTouchUpInside);
         NSString *username = [TFY_CommonUtils getStrValueInUDWithKey:@"username"];
         if (![TFY_CommonUtils judgeIsEmptyWithString:username]) {
-            _phone_btn.tfy_text(username);
+            _phone_btn.tfy_text(username,UIControlStateNormal);
             _phone_btn.enabled = NO;
         }
         else{
-            _phone_btn.tfy_text(@"登录/注册");
+            _phone_btn.tfy_text(@"登录/注册",UIControlStateNormal);
             _phone_btn.enabled = YES;
         }
     }

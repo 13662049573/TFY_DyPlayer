@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^tfy_deallocTask)(id _Nonnull object);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (TFY_Associated)
@@ -99,6 +101,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  将字典中乱码转成中文显示
  */
 -(NSString *)tfy_jsonString;
+
+- (void)addDeallocTask:(tfy_deallocTask)task;
 @end
 
 NS_ASSUME_NONNULL_END

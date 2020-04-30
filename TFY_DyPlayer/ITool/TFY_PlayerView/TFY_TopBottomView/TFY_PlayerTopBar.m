@@ -70,7 +70,7 @@
 -(UIButton *)arrow_btn{
     if (!_arrow_btn) {
         _arrow_btn = tfy_button();
-        _arrow_btn.tfy_image(@"videoImages.bundle/arrow_left_white", UIControlStateNormal).tfy_action(self, @selector(arrow_btnClick));
+        _arrow_btn.tfy_image(@"videoImages.bundle/arrow_left_white", UIControlStateNormal).tfy_action(self, @selector(arrow_btnClick),UIControlEventTouchUpInside);
     }
     return _arrow_btn;
 }
@@ -78,7 +78,7 @@
 -(UIButton *)report_btn{
     if (!_report_btn) {
         _report_btn = tfy_button();
-        _report_btn.tfy_image(@"videoImages.bundle/report", UIControlStateNormal).tfy_action(self, @selector(report_btnClick));
+        _report_btn.tfy_image(@"videoImages.bundle/report", UIControlStateNormal).tfy_action(self, @selector(report_btnClick),UIControlEventTouchUpInside);
     }
     return _report_btn;
 }
@@ -86,7 +86,7 @@
 -(UILabel *)title_label{
     if (!_title_label) {
         _title_label = tfy_label();
-        _title_label.tfy_textcolor(@"ffffff", 1).tfy_fontSize(14).tfy_alignment(0).tfy_text(@"标题").tfy_numberOfLines(0);
+        _title_label.tfy_textcolor(@"ffffff", 1).tfy_fontSize([UIFont systemFontOfSize:14]).tfy_alignment(0).tfy_text(@"标题").tfy_numberOfLines(0);
     }
     return _title_label;
 }

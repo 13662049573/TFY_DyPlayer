@@ -44,7 +44,7 @@
 -(UILabel *)title_label{
     if (!_title_label) {
         _title_label = tfy_label();
-        _title_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(14).tfy_alignment(0);
+        _title_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:14]).tfy_alignment(0);
     }
     return _title_label;
 }
@@ -52,7 +52,7 @@
 -(UILabel *)decs_label{
     if (!_decs_label) {
         _decs_label = tfy_label();
-        _decs_label.tfy_textcolor(LCColor_B2, 1).tfy_fontSize(13).tfy_alignment(0);
+        _decs_label.tfy_textcolor(LCColor_B2, 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(0);
     }
     return _decs_label;
 }

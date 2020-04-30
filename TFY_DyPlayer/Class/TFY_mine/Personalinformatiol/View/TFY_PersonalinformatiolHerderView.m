@@ -69,7 +69,7 @@
 -(UILabel *)name_label{
     if (!_name_label) {
         _name_label = tfy_label();
-        _name_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize(15).tfy_alignment(0);
+        _name_label.tfy_textcolor(LCColor_B1, 1).tfy_fontSize([UIFont systemFontOfSize:15]).tfy_alignment(0);
         NSString *username = [TFY_CommonUtils getStrValueInUDWithKey:@"username"];
         if (![TFY_CommonUtils judgeIsEmptyWithString:username]) {
             _name_label.tfy_text(username);
@@ -84,7 +84,7 @@
 -(UILabel *)title_label{
     if (!_title_label) {
         _title_label = tfy_label();
-        _title_label.tfy_textcolor(LCColor_B3, 1).tfy_fontSize(13).tfy_alignment(0).tfy_text(@"你还不是会员");
+        _title_label.tfy_textcolor(LCColor_B3, 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(0).tfy_text(@"你还不是会员");
     }
     return _title_label;
 }
@@ -92,7 +92,7 @@
 -(UILabel *)desc_label{
     if (!_desc_label) {
         _desc_label = tfy_label();
-        _desc_label.tfy_textcolor(LCColor_B3, 1).tfy_fontSize(13).tfy_alignment(0).tfy_numberOfLines(0).tfy_text(@"资料完成度0，完成绑定手机等后面信息，每完成一项数据，完成度增加百分之二十，全部完成可以获取12元/月优惠开通VIP");
+        _desc_label.tfy_textcolor(LCColor_B3, 1).tfy_fontSize([UIFont systemFontOfSize:13]).tfy_alignment(0).tfy_numberOfLines(0).tfy_text(@"资料完成度0，完成绑定手机等后面信息，每完成一项数据，完成度增加百分之二十，全部完成可以获取12元/月优惠开通VIP");
     }
     return _desc_label;
 }

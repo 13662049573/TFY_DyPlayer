@@ -6,11 +6,11 @@
 //  Copyright © 2019 恋机科技. All rights reserved.
 //
 
-#import "TFY_TabBarController.h"
+#import "TfySY_TabBarController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TabBar_Controller : TFY_TabBarController
+@interface TabBar_Controller : TfySY_TabBarController
 
 @end
 

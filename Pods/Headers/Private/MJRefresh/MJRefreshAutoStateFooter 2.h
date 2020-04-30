@@ -1,0 +1,1 @@
+../../../MJRefresh/MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter 2.h

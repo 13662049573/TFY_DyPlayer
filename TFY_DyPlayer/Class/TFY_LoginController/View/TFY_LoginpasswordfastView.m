@@ -45,7 +45,7 @@
 -(UIButton *)login_btn{
     if (!_login_btn) {
         _login_btn = tfy_button();
-        _login_btn.tfy_backgroundColor(LCColor_A1, 0.7).tfy_alAlignment(1).tfy_borders(1, LCColor_B5).tfy_cornerRadius(25).tfy_action(self, @selector(login_btnClick:)).tfy_title(@"登录", LCColor_B5, 15);
+        _login_btn.tfy_backgroundColor(LCColor_A1, 0.7).tfy_alAlignment(1).tfy_borders(1, LCColor_B5).tfy_cornerRadius(25).tfy_action(self, @selector(login_btnClick:),UIControlEventTouchUpInside).tfy_title(@"登录",UIControlStateNormal, LCColor_B5,UIControlStateNormal, [UIFont systemFontOfSize:15]);
         _login_btn.tag = 100;
     }
     return _login_btn;
@@ -54,7 +54,7 @@
 -(UIButton *)fast_btn{
     if (!_fast_btn) {
         _fast_btn = tfy_button();
-        _fast_btn.tfy_title(@"快速注册", LCColor_A1, 14).tfy_alAlignment(0).tfy_action(self, @selector(login_btnClick:));
+        _fast_btn.tfy_title(@"快速注册",UIControlStateNormal, LCColor_A1,UIControlStateNormal, [UIFont systemFontOfSize:15]).tfy_alAlignment(0).tfy_action(self, @selector(login_btnClick:),UIControlEventTouchUpInside);
         _fast_btn.tag = 101;
     }
     return _fast_btn;
@@ -63,7 +63,7 @@
 -(UIButton *)passwlord_btn{
     if (!_passwlord_btn) {
         _passwlord_btn = tfy_button();
-        _passwlord_btn.tfy_title(@"找回密码", LCColor_A1, 14).tfy_alAlignment(2).tfy_action(self, @selector(login_btnClick:));
+        _passwlord_btn.tfy_title(@"找回密码",UIControlStateNormal, LCColor_A1,UIControlStateNormal, [UIFont systemFontOfSize:14]).tfy_alAlignment(2).tfy_action(self, @selector(login_btnClick:),UIControlEventTouchUpInside);
         _passwlord_btn.tag = 102;
     }
     return _passwlord_btn;
