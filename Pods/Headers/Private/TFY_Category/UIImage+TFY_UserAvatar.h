@@ -1,1 +1,1 @@
-../../../TFY_Category/TFY_Category/TFY_Category/UIImage+TFY_UserAvatar.h
+../../../TFY_Category/TFY_Category/TFY_Category/TFY_UI/UIImage+TFY_UserAvatar.h

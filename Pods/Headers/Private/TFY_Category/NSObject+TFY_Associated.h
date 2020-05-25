@@ -1,1 +1,1 @@
-../../../TFY_Category/TFY_Category/TFY_Category/NSObject+TFY_Associated.h
+../../../TFY_Category/TFY_Category/TFY_Category/TFY_Foundation/NSObject+TFY_Associated.h

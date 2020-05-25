@@ -1,1 +1,1 @@
-../../../TFY_Category/TFY_Category/TFY_Category/NSString+TFY_String.h
+../../../TFY_Category/TFY_Category/TFY_Category/TFY_Foundation/NSString+TFY_String.h

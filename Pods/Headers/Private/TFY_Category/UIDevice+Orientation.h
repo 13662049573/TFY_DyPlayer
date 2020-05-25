@@ -1,1 +1,1 @@
-../../../TFY_Category/TFY_Category/TFY_Category/UIDevice+Orientation.h
+../../../TFY_Category/TFY_Category/TFY_Category/TFY_Foundation/UIDevice+Orientation.h

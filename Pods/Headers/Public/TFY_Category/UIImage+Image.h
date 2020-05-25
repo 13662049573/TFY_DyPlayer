@@ -1,1 +1,1 @@
-../../../TFY_Category/TFY_Category/TFY_Category/UIImage+Image.h
+../../../TFY_Category/TFY_Category/TFY_Category/TFY_UI/UIImage+Image.h

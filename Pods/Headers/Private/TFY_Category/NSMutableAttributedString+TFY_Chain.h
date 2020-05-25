@@ -1,1 +1,1 @@
-../../../TFY_Category/TFY_Category/TFY_Category/NSMutableAttributedString+TFY_Chain.h
+../../../TFY_Category/TFY_Category/TFY_Category/TFY_Foundation/NSMutableAttributedString+TFY_Chain.h

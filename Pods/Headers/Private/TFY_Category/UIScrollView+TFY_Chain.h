@@ -1,1 +1,1 @@
-../../../TFY_Category/TFY_Category/TFY_Category/UIScrollView+TFY_Chain.h
+../../../TFY_Category/TFY_Category/TFY_Category/TFY_UI/UIScrollView+TFY_Chain.h

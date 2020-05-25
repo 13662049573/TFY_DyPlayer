@@ -1,1 +1,1 @@
-../../../TFY_Category/TFY_Category/TFY_Category/UIViewController+TFY_PlayerRotation.h
+../../../TFY_Category/TFY_Category/TFY_Category/TFY_UI/UIViewController+TFY_PlayerRotation.h

@@ -15,18 +15,24 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - IQKeyboardManager (6.5.5)
-  - MJRefresh (3.4.1)
+  - MJRefresh (3.4.3)
   - ReactiveObjC (3.1.1)
-  - TFY_AutoLayout (2.5.2):
-    - TFY_AutoLayout/IOS_Layout (= 2.5.2)
-    - TFY_AutoLayout/MAC_Layout (= 2.5.2)
-    - TFY_AutoLayout/Util (= 2.5.2)
-  - TFY_AutoLayout/IOS_Layout (2.5.2):
+  - TFY_AutoLayout (2.6.0):
+    - TFY_AutoLayout/IOS_Layout (= 2.6.0)
+    - TFY_AutoLayout/MAC_Layout (= 2.6.0)
+    - TFY_AutoLayout/Util (= 2.6.0)
+  - TFY_AutoLayout/IOS_Layout (2.6.0):
     - TFY_AutoLayout/Util
-  - TFY_AutoLayout/MAC_Layout (2.5.2):
+  - TFY_AutoLayout/MAC_Layout (2.6.0):
     - TFY_AutoLayout/Util
-  - TFY_AutoLayout/Util (2.5.2)
-  - TFY_Category (3.2.4)
+  - TFY_AutoLayout/Util (2.6.0)
+  - TFY_Category (3.3.4):
+    - TFY_Category/TFY_Foundation (= 3.3.4)
+    - TFY_Category/TFY_ITools (= 3.3.4)
+    - TFY_Category/TFY_UI (= 3.3.4)
+  - TFY_Category/TFY_Foundation (3.3.4)
+  - TFY_Category/TFY_ITools (3.3.4)
+  - TFY_Category/TFY_UI (3.3.4)
   - TFY_Model (2.6.6)
   - TFY_Navigation (2.2.2):
     - TFY_Navigation/TFY_NavControoler (= 2.2.2)
@@ -72,10 +78,10 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
-  MJRefresh: 3153c59a363159092c08b2177ec3a7d09f90bfaf
+  MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
-  TFY_AutoLayout: 792116abdb3fb2758c59d29ac16322bbfe8441ab
-  TFY_Category: cad3e51a85518c56eabad2ab9146e0b922a979b2
+  TFY_AutoLayout: ef69f4a2b3892931a80dc80421ecaa758e96a558
+  TFY_Category: e85cf60fcb6c657788a0e93976b521a8f0801589
   TFY_Model: 4b291352c264b7e9d209496f5234be79ed54a686
   TFY_Navigation: 3523efe2942ef7bede46223f5bb0553e8842096e
   TFY_ProgressHUD: f0201d5f5be0784435e23d385687572ab16410a4

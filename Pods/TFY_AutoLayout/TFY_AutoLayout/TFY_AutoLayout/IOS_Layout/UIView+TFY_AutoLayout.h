@@ -132,179 +132,179 @@ typedef TFY_CLASS_VIEW * _Nonnull (^FrameEqual)(TFY_VIEW * _Nonnull view);
  */
 @property (nonatomic , copy , readonly)ClearConstraintAttribute _Nonnull tfy_ClearLayoutAttr;
 /**
-*   移除约束(NSLayoutAttribute attributes, ...)
-*/
+ *   移除约束(NSLayoutAttribute attributes, ...)
+ */
 @property (nonatomic , copy , readonly)RemoveConstraintAttribute _Nonnull tfy_RemoveLayoutAttrs;
 /**
-*  移除约束从指定视图上(TFY_VIEW * view, NSLayoutAttribute attributes, ...)
-*/
+ *  移除约束从指定视图上(TFY_VIEW * view, NSLayoutAttribute attributes, ...)
+ */
 @property (nonatomic , copy , readonly)RemoveConstraintFromViewAttribute _Nonnull tfy_RemoveFromLayoutAttrs;
 /**
-*  移除约束从关联视图上(TFY_VIEW * toView, NSLayoutAttribute attributes, ...)
-*/
+ *  移除约束从关联视图上(TFY_VIEW * toView, NSLayoutAttribute attributes, ...)
+ */
 @property (nonatomic , copy , readonly)RemoveConstraintToViewAttribute _Nonnull tfy_RemoveToLayoutAttrs;
 
 #pragma --------- 第一个分割点 --------
 /**
-*   设置当前约束的低优先级
-*/
+ *   设置当前约束的低优先级
+ */
 @property (nonatomic , copy , readonly)PriorityLow _Nonnull tfy_PriorityLow;
 /**
-*   设置当前约束的高优先级
-*/
+ *   设置当前约束的高优先级
+ */
 @property (nonatomic , copy , readonly)PriorityHigh _Nonnull tfy_PriorityHigh;
 /**
-*   设置当前约束的默认优先级
-*/
+ *   设置当前约束的默认优先级
+ */
 @property (nonatomic , copy , readonly)PriorityRequired _Nonnull tfy_PriorityRequired;
 /**
-*   设置当前约束的合适优先级
-*/
+ *   设置当前约束的合适优先级
+ */
 @property (nonatomic , copy , readonly)PriorityFitting _Nonnull tfy_PriorityFitting;
 /**
-*   设置当前约束的优先级 (CGFloat value): 优先级大小(0-1000)
-*/
+ *   设置当前约束的优先级 (CGFloat value): 优先级大小(0-1000)
+ */
 @property (nonatomic , copy , readonly)PriorityValue _Nonnull tfy_Priority;
 
 #pragma --------- 第二个分割点 --------
 /**
-*  设置视图抗拉伸优先级,优先级越高越不容易被拉伸(UILayoutPriority, UILayoutConstraintAxis)
-*/
+ *  设置视图抗拉伸优先级,优先级越高越不容易被拉伸(UILayoutPriority, UILayoutConstraintAxis)
+ */
 @property (nonatomic , copy , readonly)ContentHuggingPriority _Nonnull tfy_ContentHuggingPriority;
 /**
-*  设置视图抗压缩优先级,优先级越高越不容易被压缩(UILayoutPriority, UILayoutConstraintAxis)
-*/
+ *  设置视图抗压缩优先级,优先级越高越不容易被压缩(UILayoutPriority, UILayoutConstraintAxis)
+ */
 @property (nonatomic , copy , readonly)ContentCompressionResistancePriority _Nonnull tfy_ContentCompressionResistancePriority;
 
 #pragma --------- 第三个分割点 --------
 /**
-*  与父视图左边间距(CGFloat value)
-*/
+ *  与父视图左边间距(CGFloat value)
+ */
 @property (nonatomic , copy , readonly)LeftSpace _Nonnull tfy_LeftSpace;
 /**
-*  与相对视图toView左边间距(CGFloat value,TFY_VIEW * toView)
-*/
+ *  与相对视图toView左边间距(CGFloat value,TFY_VIEW * toView)
+ */
 @property (nonatomic , copy , readonly)LeftSpaceToView _Nonnull tfy_LeftSpaceToView;
 /**
-*  与视图view左边间距相等(TFY_VIEW * view)
-*/
+ *  与视图view左边间距相等(TFY_VIEW * view)
+ */
 @property (nonatomic , copy , readonly)LeftSpaceEqualView _Nonnull tfy_LeftSpaceEqualView;
 /**
-*  与视图view左边间距相等并偏移offset(TFY_VIEW * view, CGFloat offset)
-*/
+ *  与视图view左边间距相等并偏移offset(TFY_VIEW * view, CGFloat offset)
+ */
 @property (nonatomic , copy , readonly)LeftSpaceEqualViewOffset _Nonnull tfy_LeftSpaceEqualViewOffset;
 
 #pragma --------- 第四个分割点 --------
 /**
-*  与父视图左边间距(CGFloat value)
-*/
+ *  与父视图左边间距(CGFloat value)
+ */
 @property (nonatomic , copy , readonly)LeadingSpace _Nonnull tfy_LeadingSpace;
 /**
-*  与相对视图toView左边间距(CGFloat value,TFY_VIEW * toView)
-*/
+ *  与相对视图toView左边间距(CGFloat value,TFY_VIEW * toView)
+ */
 @property (nonatomic , copy , readonly)LeadingSpaceToView _Nonnull tfy_LeadingSpaceToView;
 /**
-*  与视图view左边间距相等(TFY_VIEW * view)
-*/
+ *  与视图view左边间距相等(TFY_VIEW * view)
+ */
 @property (nonatomic , copy , readonly)LeadingSpaceEqualView _Nonnull tfy_LeadingSpaceEqualView;
 /**
-*  与视图view左边间距相等并偏移offset (TFY_VIEW * view, CGFloat offset)
-*/
+ *  与视图view左边间距相等并偏移offset (TFY_VIEW * view, CGFloat offset)
+ */
 @property (nonatomic , copy , readonly)LeadingSpaceEqualViewOffset _Nonnull tfy_LeadingSpaceEqualViewOffset;
 
 
 #pragma --------- 第五个分割点 --------
 /**
-*  与父视图右边间距(CGFloat value)
-*/
+ *  与父视图右边间距(CGFloat value)
+ */
 @property (nonatomic , copy , readonly)TrailingSpace _Nonnull tfy_TrailingSpace;
 /**
-*  与相对视图toView右边间距(CGFloat value,TFY_VIEW * toView)
-*/
+ *  与相对视图toView右边间距(CGFloat value,TFY_VIEW * toView)
+ */
 @property (nonatomic , copy , readonly)TrailingSpaceToView _Nonnull tfy_TrailingSpaceToView;
 /**
-*  与视图view右边间距相等(TFY_VIEW * view)
-*/
+ *  与视图view右边间距相等(TFY_VIEW * view)
+ */
 @property (nonatomic , copy , readonly)TrailingSpaceEqualView _Nonnull tfy_TrailingSpaceEqualView;
 /**
-*  与视图view右边间距相等并偏移offset(TFY_VIEW * view, CGFloat offset)
-*/
+ *  与视图view右边间距相等并偏移offset(TFY_VIEW * view, CGFloat offset)
+ */
 @property (nonatomic , copy , readonly)TrailingSpaceEqualViewOffset _Nonnull tfy_TrailingSpaceEqualViewOffset;
 
 #pragma --------- 第六个分割点 --------
 #if (__IPHONE_OS_VERSION_MIN_REQUIRED >= 80000) || (__TV_OS_VERSION_MIN_REQUIRED >= 9000) || (__MAC_OS_X_VERSION_MIN_REQUIRED >= 101100)
 /**
-*  与父视图底边间距Y(CGFloat value)
-*/
+ *  与父视图底边间距Y(CGFloat value)
+ */
 @property (nonatomic , copy , readonly)BaseLineSpace _Nonnull tfy_FirstBaseLine;
 /**
-*  与相对视图toView底边间距Y(CGFloat value,TFY_VIEW * toView)
-*/
+ *  与相对视图toView底边间距Y(CGFloat value,TFY_VIEW * toView)
+ */
 @property (nonatomic , copy , readonly)BaseLineSpaceToView _Nonnull tfy_FirstBaseLineToView;
 /**
-*  与视图view底边间距Y相等(TFY_VIEW * view)
-*/
+ *  与视图view底边间距Y相等(TFY_VIEW * view)
+ */
 @property (nonatomic , copy , readonly)BaseLineSpaceEqualView _Nonnull tfy_FirstBaseLineEqualView;
 /**
-*  与视图view底边间距Y相等并偏移offset(TFY_VIEW * view, CGFloat offset)
-*/
+ *  与视图view底边间距Y相等并偏移offset(TFY_VIEW * view, CGFloat offset)
+ */
 @property (nonatomic , copy , readonly)BaseLineSpaceEqualViewOffset _Nonnull tfy_FirstBaseLineEqualViewOffset;
 #endif
 /**
-*   与父视图底边间距Y(CGFloat value)
-*/
+ *   与父视图底边间距Y(CGFloat value)
+ */
 @property (nonatomic , copy , readonly)BaseLineSpace _Nonnull tfy_LastBaseLine;
 /**
-*  与相对视图toView底边间距Y(CGFloat value,TFY_VIEW * toView)
-*/
+ *  与相对视图toView底边间距Y(CGFloat value,TFY_VIEW * toView)
+ */
 @property (nonatomic , copy , readonly)BaseLineSpaceToView _Nonnull tfy_LastBaseLineToView;
 /**
-*  与视图view底边间距Y相等(TFY_VIEW * view)
-*/
+ *  与视图view底边间距Y相等(TFY_VIEW * view)
+ */
 @property (nonatomic , copy , readonly)BaseLineSpaceEqualView _Nonnull tfy_LastBaseLineEqualView;
 /**
-*  与视图view底边间距Y相等并偏移offset(TFY_VIEW * view, CGFloat offset)
-*/
+ *  与视图view底边间距Y相等并偏移offset(TFY_VIEW * view, CGFloat offset)
+ */
 @property (nonatomic , copy , readonly)BaseLineSpaceEqualViewOffset _Nonnull tfy_LastBaseLineEqualViewOffset;
 /**
-*  与父视图右边间距(CGFloat value)
-*/
+ *  与父视图右边间距(CGFloat value)
+ */
 @property (nonatomic , copy , readonly)RightSpace _Nonnull tfy_RightSpace;
 /**
-*  与相对视图toView右边间距(CGFloat value,TFY_VIEW * toView)
-*/
+ *  与相对视图toView右边间距(CGFloat value,TFY_VIEW * toView)
+ */
 @property (nonatomic , copy , readonly)RightSpaceToView _Nonnull tfy_RightSpaceToView;
 /**
-*  与相对视图toView右边间距相等(TFY_VIEW toView)
-*/
+ *  与相对视图toView右边间距相等(TFY_VIEW toView)
+ */
 @property (nonatomic , copy , readonly)RightSpaceEqualView _Nonnull tfy_RightSpaceEqualView;
 /**
-*   与相对视图toView右边间距相等并偏移offset(TFY_VIEW toView, CGFloat offset)
-*/
+ *   与相对视图toView右边间距相等并偏移offset(TFY_VIEW toView, CGFloat offset)
+ */
 @property (nonatomic , copy , readonly)RightSpaceEqualViewOffset _Nonnull tfy_RightSpaceEqualViewOffset;
 
 #pragma --------- 第七个分割点 --------
 /**
-*  与父视图顶边间距(CGFloat value)
-*/
+ *  与父视图顶边间距(CGFloat value)
+ */
 @property (nonatomic , copy , readonly)TopSpace _Nonnull tfy_TopSpace;
 /**
-*  与相对视图toView顶边间距(CGFloat value,TFY_VIEW * toView)
-*/
+ *  与相对视图toView顶边间距(CGFloat value,TFY_VIEW * toView)
+ */
 @property (nonatomic , copy , readonly)TopSpaceToView _Nonnull tfy_TopSpaceToView;
 /**
-*  与视图view顶边间距相等(TFY_VIEW * view)
-*/
+ *  与视图view顶边间距相等(TFY_VIEW * view)
+ */
 @property (nonatomic , copy , readonly)TopSpaceEqualView _Nonnull tfy_TopSpaceEqualView;
 /**
-*   与视图view顶边间距相等并偏移offset(TFY_VIEW * view, CGFloat offset)
-*/
+ *   与视图view顶边间距相等并偏移offset(TFY_VIEW * view, CGFloat offset)
+ */
 @property (nonatomic , copy , readonly)TopSpaceEqualViewOffset _Nonnull tfy_TopSpaceEqualViewOffset;
 
 #pragma --------- 第八个分割点 --------
 /**
-*  与父视图底边间距(CGFloat value)
-*/
+ *  与父视图底边间距(CGFloat value)
+ */
 @property (nonatomic , copy , readonly)BottomSpace _Nonnull tfy_BottomSpace;
 /**
  *  与相对视图toView底边间距(CGFloat value,TFY_VIEW * toView)

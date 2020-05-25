@@ -1,1 +1,1 @@
-../../../TFY_Category/TFY_Category/TFY_Category/UIView+TFY_Chain.h
+../../../TFY_Category/TFY_Category/TFY_Category/TFY_UI/UIView+TFY_Chain.h

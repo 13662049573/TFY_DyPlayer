@@ -4,10 +4,13 @@
 //
 //  Created by 田风有 on 2019/4/30.
 //  Copyright © 2019 恋机科技. All rights reserved.
-//  https://github.com/13662049573/TFY_AutoLayoutModelTools
-#if TARGET_OS_IPHONE || TARGET_OS_TV
+//  
+
 
 #import "UITableViewCell+TFY_AutoHeightForCell.h"
+
+#if TARGET_OS_IPHONE || TARGET_OS_TV
+
 #import <objc/runtime.h>
 #import "UIView+TFY_Frame.h"
 #import "UIView+TFY_AutoLayout.h"

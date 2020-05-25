@@ -1,1 +1,1 @@
-../../../TFY_Category/TFY_Category/TFY_Category/NSDictionary+TFY_DictExtension.h
+../../../TFY_Category/TFY_Category/TFY_Category/TFY_Foundation/NSDictionary+TFY_DictExtension.h
